@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="{{ csrf_token }}">
+<title>{% block title %}CareerMind AI{% endblock %}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script src="{% static 'js/app.js' %}" defer></script>
+</head>
+<body class="min-h-screen flex">
+
+<aside id="cmSidebar" class="cm-sidebar hidden md:flex w-64 bg-maroon-900 flex-col justify-between py-6 px-4 min-h-screen sticky top-0 shrink-0">
+  <div>
+    <div class="flex items-center gap-2 px-2 mb-8">
+      <div class="w-9 h-9 rounded-lg bg-gold flex items-center justify-center text-maroon-900 font-bold">CM</div>
+      <span class="text-white font-semibold text-lg">CareerMind AI</span>
+    </div>
+    <nav class="space-y-1">
+      {% block nav_items %}{% endblock %}
+    </nav>
+  </div>
+  <div>
+    <div class="flex items-center gap-3 px-2 py-3 border-t border-white/10">
+      <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center text-maroon-900 font-bold text-sm">
+        {{ request.user.first_name|first|upper }}{{ request.user.last_name|first|upper }}
+      </div>
+      <div class="leading-tight">
+        <div class="text-white text-sm font-medium">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+        <div class="text-[11px] text-white/50">{% block account_label %}Account{% endblock %}</div>
+      </div>
+    </div>
+    <a href="{% url 'logout' %}" class="sidebar-link mt-1">Log Out</a>
+  </div>
+</aside>
+
+<div class="flex-1 min-h-screen flex flex-col">
+  <header class="bg-cream px-4 md:px-8 py-4 flex items-center justify-between border-b border-[#ecdfc4]">
+    <button type="button" id="cmMenuBtn" class="md:hidden border border-[#ecdfc4] rounded-lg px-3 py-1.5 text-sm" aria-controls="cmSidebar" aria-label="Toggle navigation">Menu</button>
+    <div class="hidden md:block"></div>
+    <div class="flex items-center gap-4 pl-6">
+      {% include "partials/notification_bell.html" %}
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xs font-bold">
+          {{ request.user.first_name|first|upper }}
+        </div>
+        <span class="text-sm font-medium">{{ request.user.first_name }} {% block topbar_role_label %}{% endblock %}</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 p-4 md:p-8 min-w-0">
+    {% if messages %}
+    <ul class="hidden" aria-hidden="true">
+      {% for message in messages %}<li data-cm-message="{{ message.tags }}">{{ message }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</div>
+
+<script>
+document.getElementById('cmMenuBtn').addEventListener('click', function () {
+  var sb = document.getElementById('cmSidebar');
+  sb.classList.toggle('hidden'); sb.classList.toggle('fixed'); sb.classList.toggle('z-40'); sb.classList.toggle('inset-y-0'); sb.classList.toggle('left-0');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+:root{
+  --maroon-900:#5c1a2a;
+  --maroon-800:#6f2035;
+  --maroon-700:#84293f;
+  --maroon-600:#9c3049;
+  --gold:#c99a3f;
+  --gold-light:#e0be6f;
+  --cream:#fdf6e8;
+  --cream-2:#f6ecd8;
+  --ink:#3a2430;
+}
+body{
+  font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+}
+.font-serif-display{font-family:'Playfair Display', Georgia, serif;}
+.bg-maroon{background:var(--maroon-800);}
+.bg-maroon-900{background:var(--maroon-900);}
+.text-maroon{color:var(--maroon-800);}
+.text-gold{color:var(--gold);}
+.bg-gold{background:var(--gold);}
+.border-gold{border-color:var(--gold);}
+.bg-cream{background:var(--cream);}
+.bg-cream-2{background:var(--cream-2);}
+
+.input-field{
+  width:100%;
+  padding:.65rem .9rem;
+  border-radius:.6rem;
+  border:1px solid #e5d8bd;
+  background:var(--cream-2);
+  outline:none;
+  font-size:.9rem;
+}
+.input-field:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,154,63,.2);}
+
+.btn-gold{
+  background:var(--gold);
+  color:#3a2430;
+  font-weight:600;
+  padding:.7rem 1.4rem;
+  border-radius:.6rem;
+  transition:.15s;
+}
+.btn-gold:hover{background:var(--gold-light);}
+
+.btn-maroon{
+  background:var(--maroon-800);
+  color:#fdf6e8;
+  font-weight:600;
+  padding:.7rem 1.4rem;
+  border-radius:.6rem;
+  transition:.15s;
+}
+.btn-maroon:hover{background:var(--maroon-700);}
+
+.card{
+  background:#fff;
+  border:1px solid #ecdfc4;
+  border-radius:1rem;
+}
+
+.sidebar-link{
+  display:flex;align-items:center;gap:.65rem;
+  padding:.65rem .9rem;border-radius:.6rem;
+  color:#f3d9c7cc;font-size:.9rem;font-weight:500;
+  transition:.15s;
+}
+.sidebar-link:hover{background:rgba(255,255,255,.08);color:#fff;}
+.sidebar-link.active{background:var(--gold);color:#3a2430;}
+
+.progress-track{background:#efe2c4;border-radius:999px;overflow:hidden;}
+.progress-fill{background:var(--maroon-800);border-radius:999px;}
+.progress-fill.gold{background:var(--gold);}
+.progress-fill.green{background:#3f8f5f;}
+.progress-fill.red{background:#c04b4b;}
+.progress-fill.blue{background:#4b73c0;}
+
+.badge{
+  font-size:.7rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;
+}
+.badge-high{background:#f4d3d3;color:#8c2c2c;}
+.badge-medium{background:#f5e3b8;color:#8a6a1c;}
+.badge-low{background:#e6e6e6;color:#555;}
+.badge-growing{background:#d7ecd9;color:#2f7d4a;}
+.badge-stable{background:#e6e6e6;color:#555;}
+
+.chat-bubble{
+  background:#fff;border:1px solid #ecdfc4;border-radius:1rem;
+  padding:1rem 1.2rem;max-width:32rem;
+}
+
+/* ---------- shared UI layer (toasts, modal, skeleton, states) ---------- */
+#cm-toasts{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;flex-direction:column;gap:.5rem;max-width:22rem;}
+.cm-toast{padding:.7rem 1rem;border-radius:.6rem;font-size:.85rem;background:#3a2430;color:#fff;
+  box-shadow:0 6px 20px rgba(58,36,48,.25);opacity:0;transform:translateY(-6px);transition:.2s;}
+.cm-toast.show{opacity:1;transform:none;}
+.cm-toast-success{background:#2f7d4a;}
+.cm-toast-error{background:#a13636;}
+.cm-modal-overlay{position:fixed;inset:0;background:rgba(58,36,48,.5);z-index:1100;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.cm-modal{background:#fff;border-radius:1rem;padding:1.5rem;max-width:26rem;width:100%;}
+.cm-modal h3{font-weight:600;font-size:1.05rem;margin-bottom:.4rem;color:var(--maroon-800);}
+.cm-modal p{font-size:.9rem;color:#7a6a5e;margin-bottom:1.2rem;}
+.cm-modal-actions{display:flex;justify-content:flex-end;gap:.6rem;}
+.cm-btn-secondary{padding:.55rem 1rem;border-radius:.6rem;border:1px solid #e5d8bd;font-size:.85rem;}
+.cm-btn-secondary:hover{background:var(--cream-2);}
+.cm-btn-danger{padding:.55rem 1rem;border-radius:.6rem;background:#a13636;color:#fff;font-size:.85rem;font-weight:600;}
+.cm-btn-danger:hover{background:#8c2c2c;}
+.cm-skeleton{background:linear-gradient(90deg,#f0e5cf 25%,#f8f0de 50%,#f0e5cf 75%);background-size:200% 100%;animation:cm-shimmer 1.3s infinite;border-radius:.5rem;}
+@keyframes cm-shimmer{to{background-position:-200% 0;}}
+.cm-spinner{width:1.1rem;height:1.1rem;border:2px solid #e5d8bd;border-top-color:var(--maroon-800);border-radius:50%;animation:cm-spin .7s linear infinite;display:inline-block;}
+@keyframes cm-spin{to{transform:rotate(360deg);}}
+.cm-empty{border:1px dashed #e5d8bd;border-radius:1rem;padding:2rem;text-align:center;color:#7a6a5e;font-size:.9rem;}
+.badge-pending{background:#f5e3b8;color:#8a6a1c;}
+.badge-approved,.badge-open,.badge-published,.badge-accepted,.badge-resolved,.badge-reviewed{background:#d7ecd9;color:#2f7d4a;}
+.badge-rejected,.badge-declined{background:#f4d3d3;color:#8c2c2c;}
+.badge-closed,.badge-completed{background:#e6e6e6;color:#555;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+@media (max-width:767px){aside.cm-sidebar{display:none;}}
+
+/* ---------- career services additions ---------- */
+.badge-applied{background:#dbe6f7;color:#2f5496;}
+.badge-under_review{background:#f5e3b8;color:#8a6a1c;}
+.badge-shortlisted{background:#d7ecd9;color:#2f7d4a;}
+.badge-selected{background:#c4e5cb;color:#1f5e37;}
+.badge-draft{background:#e6e6e6;color:#555;}
+.badge-cancelled{background:#e6e6e6;color:#555;}
+.chip{display:inline-block;font-size:.7rem;padding:.15rem .5rem;border-radius:999px;background:var(--cream-2);border:1px solid #ecdfc4;color:#5a4a3e;margin:0 .25rem .25rem 0;}
+.chip-have{background:#e4f2e6;border-color:#c5e1ca;color:#2f7d4a;}
+.tab-link{padding:.55rem 1.1rem;font-size:.9rem;font-weight:600;border-bottom:2px solid transparent;color:#7a6a5e;}
+.tab-link.active{color:var(--maroon-800);border-color:var(--gold);}
+.btn-outline{border:1px solid #e5d8bd;border-radius:.6rem;padding:.55rem 1rem;font-size:.85rem;font-weight:600;color:var(--maroon-800);background:#fff;display:inline-block;text-align:center;}
+.btn-outline:hover{background:var(--cream-2);}
+.btn-disabled{border-radius:.6rem;padding:.55rem 1rem;font-size:.85rem;font-weight:600;background:#e6e6e6;color:#777;display:inline-block;text-align:center;cursor:default;}
+button[disabled]{opacity:.6;cursor:not-allowed;}
+details>summary::-webkit-details-marker{display:none;}
+.field-error{color:#a13636;font-size:.78rem;margin-top:.2rem;}
+/* ---------- Signup Page ---------- */
+
+.signup-left{
+  background:var(--maroon-800);
+}

@@ -1,0 +1,20 @@
+{% extends "partials/role_base.html" %}
+{% block account_label %}Alumni Account{% endblock %}
+{% block topbar_role_label %}Alumni{% endblock %}
+{% block search_placeholder %}Search students, jobs, events...{% endblock %}
+{% block notifications_url %}{% url 'notifications' %}{% endblock %}
+{% block nav_items %}
+  <a href="{% url 'alumni:dashboard' %}" class="sidebar-link {% if active == 'dashboard' %}active{% endif %}">Alumni Dashboard</a>
+  <a href="{% url 'alumni:profile' %}" class="sidebar-link {% if active == 'profile' %}active{% endif %}">My Profile</a>
+  <a href="{% url 'alumni:career_journey' %}" class="sidebar-link {% if active == 'journey' %}active{% endif %}">Career Journey</a>
+  <a href="{% url 'alumni:skills' %}" class="sidebar-link {% if active == 'skills' %}active{% endif %}">Skills &amp; Expertise</a>
+  <a href="{% url 'alumni:mentorship' %}" class="sidebar-link {% if active == 'mentorship' %}active{% endif %}">Mentorship</a>
+  <a href="{% url 'alumni:students' %}" class="sidebar-link {% if active == 'students' %}active{% endif %}">Students</a>
+  <a href="{% url 'alumni:opportunities' %}" class="sidebar-link {% if active == 'opportunities' %}active{% endif %}">Jobs &amp; Internships</a>
+  <a href="{% url 'alumni:workshops' %}" class="sidebar-link {% if active == 'workshops' %}active{% endif %}">Sessions &amp; Workshops</a>
+  <a href="{% url 'alumni:referrals' %}" class="sidebar-link {% if active == 'referrals' %}active{% endif %}">Referrals</a>
+  <a href="{% url 'alumni:events' %}" class="sidebar-link {% if active == 'events' %}active{% endif %}">Events</a>
+  <a href="{% url 'notifications' %}" class="sidebar-link {% if active == 'notifications' %}active{% endif %}">Notifications{% if nav_unread_count %}<span class="badge badge-high ml-auto">{{ nav_unread_count }}</span>{% endif %}</a>
+  <a href="{% url 'alumni:messages' %}" class="sidebar-link {% if active == 'messages' %}active{% endif %}">Messages</a>
+  <a href="{% url 'alumni:settings' %}" class="sidebar-link {% if active == 'settings' %}active{% endif %}">Settings</a>
+{% endblock %}

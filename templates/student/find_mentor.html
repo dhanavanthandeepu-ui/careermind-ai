@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Find a Mentor" %} — CareerMind AI{% endblock %}
+{% block content %}
+<div class="flex flex-wrap items-end justify-between gap-3 mb-1">
+  <h1 class="font-serif-display text-3xl text-maroon">{% trans "Find a Mentor" %}</h1>
+  <a href="{% url 'student:my_mentorship' %}" class="btn-outline">{% trans "My Mentorship Requests" %}</a>
+</div>
+<p class="text-sm text-[#7a6a5e] mb-5">{% trans "Alumni who are available to mentor students." %}</p>
+
+<form method="get" class="card p-4 mb-6 grid md:grid-cols-4 gap-3 items-end">
+  <div class="md:col-span-2"><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="q">{% trans "Search" %}</label>
+    <input id="q" name="q" value="{{ q }}" placeholder="{% trans 'Name, role, company, industry or skill' %}" class="input-field"></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="industry">{% trans "Industry" %}</label>
+    <select id="industry" name="industry" class="input-field"><option value="">{% trans "All industries" %}</option>
+      {% for i in industries %}<option value="{{ i }}" {% if industry == i %}selected{% endif %}>{{ i }}</option>{% endfor %}</select></div>
+  <button type="submit" class="btn-maroon text-sm">{% trans "Search" %}</button>
+</form>
+
+{% if page %}
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+  {% for d in page %}
+  <div class="card p-5 flex flex-col">
+    <h3 class="font-semibold text-maroon">{{ d.profile.user.get_full_name|default:d.profile.user.username }}</h3>
+    <div class="text-sm text-[#5a4a3e]">{{ d.designation }}</div>
+    <div class="text-xs text-[#7a6a5e] mb-2">{{ d.current_company }} · {{ d.industry }} · {% blocktrans with n=d.experience_years %}{{ n }} yrs experience{% endblocktrans %}</div>
+    {% if d.skill_names %}<div class="mb-2">{% for sk in d.skill_names %}<span class="chip">{{ sk }}</span>{% endfor %}</div>{% endif %}
+    {% if d.bio %}<p class="text-sm text-[#5a4a3e] mb-3">{{ d.bio|truncatechars:140 }}</p>{% endif %}
+    <div class="mt-auto flex gap-2">
+      <a href="{% url 'student:mentor_profile' d.profile.user_id %}" class="btn-outline flex-1">{% trans "View Profile" %}</a>
+      {% if d.my_request.status == 'accepted' %}<span class="btn-disabled flex-1">{% trans "Connected" %}</span>
+      {% elif d.my_request.status == 'pending' %}<span class="btn-disabled flex-1">{% trans "Request Pending" %}</span>
+      {% else %}<a href="{% url 'student:mentor_profile' d.profile.user_id %}#request" class="btn-maroon flex-1 text-center text-sm !py-2">{% trans "Request Mentorship" %}</a>{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="cm-empty">{% if q or industry %}{% trans "No mentors match your search." %} <a class="text-maroon font-semibold" href="?">{% trans "Clear filters" %}</a>{% else %}{% trans "No alumni mentors are available yet." %}{% endif %}</div>
+{% endif %}
+{% endblock %}

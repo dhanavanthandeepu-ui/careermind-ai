@@ -1,0 +1,28 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Courses — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Courses</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Manage courses available on the learning roadmap.</p>
+
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-3">Add a Course</h3>
+  <form method="post" class="grid md:grid-cols-4 gap-3">
+    {% csrf_token %}
+    <input name="title" placeholder="Course title" class="input-field md:col-span-2" required>
+    <input name="provider" placeholder="Provider" class="input-field">
+    <input name="category" placeholder="Category" class="input-field">
+    <input name="duration_weeks" type="number" placeholder="Weeks" class="input-field">
+    <button type="submit" class="btn-maroon md:col-span-4">Add Course</button>
+  </form>
+</div>
+
+<div class="grid md:grid-cols-3 gap-4">
+  {% for c in course_list %}
+  <div class="card p-5">
+    <div class="font-semibold text-sm">{{ c.title }}</div>
+    <div class="text-xs text-[#a89a8c]">{{ c.provider }} · {{ c.category }}</div>
+    <div class="text-xs text-[#a89a8c]">{{ c.duration_weeks }} weeks · {{ c.enrolled_count }} enrolled</div>
+  </div>
+  {% empty %}<div class="card p-6 text-center text-[#a89a8c] md:col-span-3">No courses yet.</div>{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Staff Dashboard — CareerMind AI{% endblock %}
+{% block content %}
+
+<div class="bg-maroon-900 rounded-2xl p-8 mb-6">
+  <span class="inline-block bg-gold text-maroon-900 text-xs font-bold px-3 py-1 rounded-full mb-3">STAFF WORKSPACE</span>
+  <h1 class="font-serif-display text-white text-3xl mb-2">Welcome back, {{ request.user.first_name }}.</h1>
+  <p class="text-white/70 text-sm max-w-2xl">{{ detail.department }} · {{ detail.designation }}. Here's how your students are progressing this term.</p>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">TOTAL STUDENTS</div>
+    <div class="text-2xl font-bold text-maroon">{{ total_students }}</div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">NEEDING GUIDANCE</div>
+    <div class="text-2xl font-bold text-maroon">{{ needing_guidance }}</div>
+    <span class="badge badge-high mt-1 inline-block">Open requests</span>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">RESUME REVIEWS</div>
+    <div class="text-2xl font-bold text-maroon">{{ pending_reviews }}</div>
+    <span class="badge badge-medium mt-1 inline-block">Pending</span>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">AVG SKILL READINESS</div>
+    <div class="text-2xl font-bold text-maroon">{{ avg_readiness }}%</div>
+    <div class="progress-track h-1.5 mt-2"><div class="progress-fill h-1.5" style="width:{{ avg_readiness }}%"></div></div>
+  </div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6 mb-6">
+  <div class="card p-6 md:col-span-2">
+    <h3 class="font-semibold mb-1">Student Performance Trend</h3>
+    <p class="text-xs text-[#7a6a5e] mb-4">Average placement readiness across your cohort</p>
+    <canvas id="perfChart" height="90"></canvas>
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">📅 Upcoming Events</h3>
+    {% for e in upcoming_events %}
+    <div class="border-b border-[#f3ead6] py-2">
+      <div class="text-sm font-medium">{{ e.title }}</div>
+      <div class="text-xs text-[#a89a8c]">{{ e.event_date }} · {{ e.location }}</div>
+    </div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">No upcoming events.</p>{% endfor %}
+    <a href="{% url 'staff:events' %}" class="text-maroon text-sm font-semibold mt-3 inline-block">View all →</a>
+  </div>
+</div>
+
+<div class="card p-6 mb-6">
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <h3 class="font-semibold">My Workshops</h3>
+    <div class="flex gap-2">
+      <a href="{% url 'staff:workshop_new' %}" class="btn-maroon text-xs !py-2 !px-3">Create Workshop</a>
+      <a href="{% url 'staff:workshops' %}" class="btn-outline !py-2 !px-3 text-xs">View all</a>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-2 mb-4">
+    {% for label, n in workshop_counts %}<span class="chip">{{ label }}: {{ n }}</span>{% endfor %}
+  </div>
+  {% for e in my_workshops %}
+  <div class="flex items-center justify-between border-b border-[#f3ead6] py-2">
+    <div>
+      <div class="text-sm font-medium">{{ e.title }}</div>
+      <div class="text-xs text-[#a89a8c]">{{ e.event_date|date:"M j, Y" }}{% if e.status == 'published' %} · {{ e.reg_count }} registration{{ e.reg_count|pluralize }}{% endif %}</div>
+    </div>
+    <span class="badge badge-{{ e.status }}">{{ e.get_status_display }}</span>
+  </div>
+  {% empty %}<p class="text-sm text-[#a89a8c]">You haven't created any workshops yet.</p>{% endfor %}
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">🧭 Career Guidance Requests</h3>
+    {% for g in guidance_requests %}
+    <div class="flex items-center justify-between border-b border-[#f3ead6] py-3">
+      <div>
+        <div class="text-sm font-medium">{{ g.student.first_name }} {{ g.student.last_name }}</div>
+        <div class="text-xs text-[#a89a8c]">{{ g.topic }}</div>
+      </div>
+      <span class="badge badge-high">{{ g.get_status_display }}</span>
+    </div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">No open requests right now.</p>{% endfor %}
+    <a href="{% url 'staff:career_guidance' %}" class="text-maroon text-sm font-semibold mt-3 inline-block">Manage requests →</a>
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">🕒 Recent Student Activity</h3>
+    {% for a in recent_activity %}
+    <div class="text-sm py-2 border-b border-[#f3ead6]">
+      <span class="font-medium">{{ a.student.first_name }}</span> {{ a.description }}
+      <div class="text-[11px] text-[#a89a8c]">{{ a.created_at|timesince }} ago</div>
+    </div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">No recent activity yet.</p>{% endfor %}
+  </div>
+</div>
+
+<div class="card p-6 mt-6">
+  <div class="flex items-center justify-between mb-3"><h3 class="font-semibold">Recent Notifications</h3><a href="{% url 'notifications' %}" class="text-maroon text-sm font-semibold">View all &rarr;</a></div>
+  {% for n in recent_notifications %}
+  <a href="{% url 'notification_open' n.pk %}" class="block text-sm py-2 border-b border-[#f3ead6] {% if not n.is_read %}font-semibold{% endif %}">{{ n.message }}<div class="text-[11px] text-[#a89a8c] font-normal">{{ n.created_at|timesince }} ago</div></a>
+  {% empty %}<p class="text-sm text-[#a89a8c]">No notifications yet.</p>{% endfor %}
+</div>
+
+<script>
+new Chart(document.getElementById('perfChart'), {
+  type: 'line',
+  data: { labels: {{ chart_labels|safe }}, datasets: [{ data: {{ chart_values|safe }}, borderColor:'#6f2035', backgroundColor:'rgba(111,32,53,.08)', tension:.35, fill:true, pointBackgroundColor:'#c99a3f' }] },
+  options: { plugins:{legend:{display:false}}, scales:{y:{grid:{color:'#f0e5cf'}}, x:{grid:{display:false}}} }
+});
+</script>
+{% endblock %}

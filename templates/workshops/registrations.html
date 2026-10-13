@@ -1,0 +1,22 @@
+{% extends base_template %}
+{% block title %}Registrations — {{ event.title }}{% endblock %}
+{% block content %}
+<a href="{% if ns == 'staff' %}{% url 'staff:workshops' %}{% else %}{% url 'alumni:workshops' %}{% endif %}" class="text-sm text-maroon font-semibold">&larr; Back</a>
+<h1 class="font-serif-display text-2xl text-maroon mt-3 mb-1">{{ event.title }}</h1>
+<p class="text-sm text-[#7a6a5e] mb-5">{{ event.event_date|date:"M j, Y" }} · {{ regs|length }} registration{{ regs|length|pluralize }}</p>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">STUDENT</th><th>EMAIL</th><th>DEPARTMENT</th><th>REGISTERED</th></tr></thead>
+    <tbody>
+      {% for r in regs %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-3 font-medium">{{ r.student.get_full_name|default:r.student.username }}</td>
+        <td>{{ r.student.email }}</td>
+        <td>{{ r.student.profile.student_detail.department|default:"—" }}</td>
+        <td>{{ r.created_at|date:"M j, Y" }}</td>
+      </tr>
+      {% empty %}<tr><td colspan="4" class="py-6 text-center text-[#a89a8c]">No registrations yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}{{ opp.title }} — CareerMind AI{% endblock %}
+{% block content %}
+<a href="{% url 'student:opportunities' %}?kind={{ opp.kind }}" class="text-sm text-maroon font-semibold">&larr; {% trans "Back to opportunities" %}</a>
+<div class="card p-6 mt-4 max-w-4xl">
+  <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+    <div>
+      <div class="flex flex-wrap gap-1 mb-2">
+        <span class="badge badge-low">{{ opp.get_kind_display }}</span>
+        <span class="badge badge-low">{{ opp.get_employment_type_display }}</span>
+        {% if opp.status != 'open' %}<span class="badge badge-{{ opp.status }}">{{ opp.get_status_display }}</span>{% endif %}
+      </div>
+      <h1 class="font-serif-display text-2xl text-maroon">{{ opp.title }}</h1>
+      <div class="text-sm text-[#5a4a3e]">{{ opp.company }} · {{ opp.location }}{% if opp.pay %} · {{ opp.pay }}{% endif %}</div>
+      {% if opp.for_goal %}<div class="text-xs font-semibold text-[#2f7d4a] mt-2">{% trans "Recommended for your career goal" %}</div>{% endif %}
+    </div>
+    <div class="text-right">
+      {% if application %}
+        <span class="badge badge-{{ application.status }}">{{ application.get_status_display }}</span>
+        <div class="mt-2"><a href="{% url 'student:my_applications' %}" class="btn-disabled">{% trans "Applied" %}</a></div>
+      {% elif can_apply %}
+        <a href="{% url 'student:opportunity_apply' opp.pk %}" class="btn-maroon inline-block text-sm">{% trans "Apply Now" %}</a>
+      {% else %}
+        <span class="btn-disabled">{% if opp.is_expired %}{% trans "Deadline passed" %}{% else %}{% trans "Applications closed" %}{% endif %}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-4 text-sm mb-5">
+    <div><div class="text-xs text-[#7a6a5e]">{% trans "DEADLINE" %}</div>{% if opp.deadline %}{{ opp.deadline|date:"M j, Y" }}{% else %}{% trans "Open until filled" %}{% endif %}</div>
+    <div><div class="text-xs text-[#7a6a5e]">{% trans "POSTED BY" %}</div>{{ opp.posted_by_name }}</div>
+    <div><div class="text-xs text-[#7a6a5e]">{% trans "POSTED ON" %}</div>{{ opp.created_at|date:"M j, Y" }}</div>
+    {% if opp.target_domain %}<div><div class="text-xs text-[#7a6a5e]">{% trans "DOMAIN" %}</div>{{ opp.target_domain.name }}</div>{% endif %}
+    {% if opp.target_role %}<div><div class="text-xs text-[#7a6a5e]">{% trans "ROLE" %}</div>{{ opp.target_role.name }}</div>{% endif %}
+    {% if opp.eligibility %}<div class="md:col-span-3"><div class="text-xs text-[#7a6a5e]">{% trans "ELIGIBILITY" %}</div>{{ opp.eligibility }}</div>{% endif %}
+  </div>
+
+  {% if opp.description %}<h3 class="font-semibold mb-1">{% trans "About this opportunity" %}</h3><p class="text-sm text-[#5a4a3e] whitespace-pre-line mb-5">{{ opp.description }}</p>{% endif %}
+
+  {% if opp.skill_list %}
+  <h3 class="font-semibold mb-2">{% trans "Required skills" %}</h3>
+  <div class="mb-2">{% for sk in opp.skill_list %}<span class="chip {% if sk in opp.skills_have %}chip-have{% endif %}">{{ sk }}</span>{% endfor %}</div>
+  {% if opp.match is not None %}
+  <p class="text-xs text-[#7a6a5e] mb-1">{% blocktrans with have=opp.skills_have|length total=opp.skill_list|length pct=opp.match %}Green skills were found in your resume ({{ have }} of {{ total }}, {{ pct }}% match).{% endblocktrans %}</p>
+  {% if opp.skills_missing %}<p class="text-xs text-[#7a6a5e]">{% trans "Not found in your resume:" %} {{ opp.skills_missing|join:", " }}. <a class="text-maroon font-semibold" href="{% url 'learning_roadmap' %}">{% trans "Open your learning roadmap" %}</a></p>{% endif %}
+  {% endif %}
+  {% endif %}
+
+  {% if opp.application_url %}<p class="text-xs text-[#7a6a5e] mt-5">{% trans "The poster also lists an external page:" %} <a href="{{ opp.application_url }}" target="_blank" rel="noopener noreferrer" class="text-maroon font-semibold">{{ opp.application_url }}</a></p>{% endif %}
+</div>
+{% endblock %}

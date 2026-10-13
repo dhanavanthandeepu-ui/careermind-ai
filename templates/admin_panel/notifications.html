@@ -1,0 +1,13 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Notifications — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-6">Notifications</h1>
+<div class="card p-6">
+  {% for n in notifications %}
+  <div class="flex items-center justify-between py-3 border-b border-[#f3ead6]">
+    <span class="text-sm">{{ n.message }}</span>
+    <span class="text-xs text-[#a89a8c]">{{ n.created_at|timesince }} ago</span>
+  </div>
+  {% empty %}<p class="text-sm text-[#a89a8c] text-center py-6">You're all caught up — no notifications.</p>{% endfor %}
+</div>
+{% endblock %}

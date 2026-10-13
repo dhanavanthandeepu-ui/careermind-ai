@@ -1,0 +1,1416 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: te\n"
+
+msgid "Dashboard"
+msgstr "డాష్‌బోర్డ్"
+
+msgid "Skill Gap Analysis"
+msgstr "నైపుణ్య అంతరం విశ్లేషణ"
+
+msgid "Resume Analyzer"
+msgstr "రెజ్యూమ్ ఎనలైజర్"
+
+msgid "Learning Roadmap"
+msgstr "లెర్నింగ్ రోడ్‌మ్యాప్"
+
+msgid "AI Chatbot"
+msgstr "AI చాట్‌బాట్"
+
+msgid "Student Account"
+msgstr "విద్యార్థి ఖాతా"
+
+msgid "Log Out"
+msgstr "లాగ్ అవుట్"
+
+msgid "Search careers, skills, or roadmap..."
+msgstr "కెరీర్‌లు, నైపుణ్యాలు లేదా రోడ్‌మ్యాప్‌ను శోధించండి..."
+
+msgid "Student"
+msgstr "విద్యార్థి"
+
+msgid "AI CAREER INSIGHT"
+msgstr "AI కెరీర్ ఇన్‌సైట్"
+
+msgid "Unlock Your"
+msgstr "మీ"
+
+msgid "Potential"
+msgstr "సామర్థ్యాన్ని ఆవిష్కరించండి"
+
+msgid "Your placement readiness has increased by %(delta)s this month. You're among the top 5%% of candidates for %(role)s roles."
+msgstr "ఈ నెల మీ ప్లేస్‌మెంట్ సంసిద్ధత %(delta)s పెరిగింది. %(role)s పాత్రలకు మీరు అగ్రశ్రేణి 5%% అభ్యర్థులలో ఒకరు."
+
+msgid "Resume Deep Dive"
+msgstr "రెజ్యూమ్ డీప్ డైవ్"
+
+msgid "View Career Roadmap"
+msgstr "కెరీర్ రోడ్‌మ్యాప్ చూడండి"
+
+msgid "PLACEMENT READINESS"
+msgstr "ప్లేస్‌మెంట్ సంసిద్ధత"
+
+msgid "RESUME SCORE"
+msgstr "రెజ్యూమ్ స్కోర్"
+
+msgid "Optimized for ATS"
+msgstr "ATS కోసం ఆప్టిమైజ్ చేయబడింది"
+
+msgid "SKILLS ACQUIRED"
+msgstr "పొందిన నైపుణ్యాలు"
+
+msgid "+2 new this month"
+msgstr "ఈ నెల +2 కొత్తవి"
+
+msgid "INTERVIEW RATE"
+msgstr "ఇంటర్వ్యూ రేటు"
+
+msgid "Confidence for top-tier roles"
+msgstr "అగ్రశ్రేణి పాత్రల కోసం విశ్వాసం"
+
+msgid "Placement Readiness Analysis"
+msgstr "ప్లేస్‌మెంట్ సంసిద్ధత విశ్లేషణ"
+
+msgid "Track your growth over the current semester"
+msgstr "ప్రస్తుత సెమిస్టర్‌లో మీ వృద్ధిని ట్రాక్ చేయండి"
+
+msgid "Next milestone: Backend Advanced Concepts"
+msgstr "తదుపరి మైలురాయి: బ్యాకెండ్ అడ్వాన్స్‌డ్ కాన్సెప్ట్స్"
+
+msgid "Completed: React Foundation"
+msgstr "పూర్తయింది: React ఫౌండేషన్"
+
+msgid "In Progress: Node.js API Expert"
+msgstr "పురోగతిలో ఉంది: Node.js API నిపుణుడు"
+
+msgid "Continue Learning"
+msgstr "నేర్చుకోవడం కొనసాగించండి"
+
+msgid "AI CAREER PREDICTION"
+msgstr "AI కెరీర్ అంచనా"
+
+msgid "94% Match Probability"
+msgstr "94% మ్యాచ్ సంభావ్యత"
+
+msgid "Explore this path"
+msgstr "ఈ మార్గాన్ని అన్వేషించండి"
+
+msgid "Skill Distribution"
+msgstr "నైపుణ్య పంపిణీ"
+
+msgid "Resume Health"
+msgstr "రెజ్యూమ్ హెల్త్"
+
+msgid "ATS SCORE"
+msgstr "ATS స్కోర్"
+
+msgid "Fix Suggestions"
+msgstr "సూచనలను సరిచేయండి"
+
+msgid "Recommended Jobs for You"
+msgstr "మీ కోసం సిఫార్సు చేయబడిన ఉద్యోగాలు"
+
+msgid "View all listings"
+msgstr "అన్ని జాబితాలను చూడండి"
+
+msgid "Match"
+msgstr "మ్యాచ్"
+
+msgid "Quick Apply"
+msgstr "త్వరిత దరఖాస్తు"
+
+msgid "Upcoming Internships"
+msgstr "రాబోయే ఇంటర్న్‌షిప్‌లు"
+
+msgid "Deadline"
+msgstr "గడువు"
+
+msgid "Chat with AI Assistant"
+msgstr "AI అసిస్టెంట్‌తో చాట్ చేయండి"
+
+msgid "Readiness"
+msgstr "సంసిద్ధత"
+
+msgid "Technical"
+msgstr "సాంకేతిక"
+
+msgid "Soft Skills"
+msgstr "సాఫ్ట్ స్కిల్స్"
+
+msgid "Aptitude"
+msgstr "ఆప్టిట్యూడ్"
+
+msgid "Domain"
+msgstr "డొమైన్"
+
+msgid "Get instant, AI-powered feedback to optimize your resume for your dream career path."
+msgstr "మీ కల కెరీర్ మార్గం కోసం మీ రెజ్యూమ్‌ను ఆప్టిమైజ్ చేయడానికి తక్షణ, AI-ఆధారిత అభిప్రాయాన్ని పొందండి."
+
+msgid "History"
+msgstr "చరిత్ర"
+
+msgid "New Analysis"
+msgstr "కొత్త విశ్లేషణ"
+
+msgid "Extracted Resume Information"
+msgstr "సేకరించిన రెజ్యూమ్ సమాచారం"
+
+msgid "Overall Match"
+msgstr "మొత్తం మ్యాచ్"
+
+msgid "Based on your target industry: Tech"
+msgstr "మీ లక్ష్య పరిశ్రమ ఆధారంగా: టెక్"
+
+msgid "SCORE"
+msgstr "స్కోర్"
+
+msgid "ATS Ready"
+msgstr "ATS సిద్ధం"
+
+msgid "Needs Polish"
+msgstr "మెరుగుపరచాలి"
+
+msgid "Download Feedback PDF"
+msgstr "ఫీడ్‌బ్యాక్ PDF డౌన్‌లోడ్ చేయండి"
+
+msgid "View Optimization Guide"
+msgstr "ఆప్టిమైజేషన్ గైడ్ చూడండి"
+
+msgid "Key Metrics"
+msgstr "కీలక కొలమానాలు"
+
+msgid "Pro Tip"
+msgstr "ప్రో టిప్"
+
+msgid "Recruiters spend an average of 6 seconds scanning a resume. Ensure your most impressive achievement is in the top 30%% of the page."
+msgstr "రిక్రూటర్లు రెజ్యూమ్‌ను స్కాన్ చేయడానికి సగటున 6 సెకన్లు గడుపుతారు. మీ అత్యంత ఆకట్టుకునే విజయం పేజీలోని పై 30%% లో ఉండేలా చూసుకోండి."
+
+msgid "All Feedback"
+msgstr "అన్ని ఫీడ్‌బ్యాక్"
+
+msgid "Strengths"
+msgstr "బలాలు"
+
+msgid "Improvements"
+msgstr "మెరుగుదలలు"
+
+msgid "Section Breakdown"
+msgstr "సెక్షన్ బ్రేక్‌డౌన్"
+
+msgid "How AI weighted each part of your resume"
+msgstr "AI మీ రెజ్యూమ్‌లోని ప్రతి భాగానికి ఎలా వెయిటేజ్ ఇచ్చిందో"
+
+msgid "Take the Next Step"
+msgstr "తదుపరి అడుగు వేయండి"
+
+msgid "Apply these AI recommendations to your resume and boost your interview chance by 3x."
+msgstr "మీ రెజ్యూమ్‌కు ఈ AI సిఫార్సులను వర్తింపజేసి మీ ఇంటర్వ్యూ అవకాశాన్ని 3 రెట్లు పెంచుకోండి."
+
+msgid "Start Skill Gap Analysis"
+msgstr "నైపుణ్య అంతరం విశ్లేషణను ప్రారంభించండి"
+
+msgid "Uploading..."
+msgstr "అప్‌లోడ్ అవుతోంది..."
+
+msgid "Resume upload failed. Please try again."
+msgstr "రెజ్యూమ్ అప్‌లోడ్ విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "Not found in this resume."
+msgstr "ఈ రెజ్యూమ్‌లో కనుగొనబడలేదు."
+
+msgid "Skills"
+msgstr "నైపుణ్యాలు"
+
+msgid "Education"
+msgstr "విద్య"
+
+msgid "Projects"
+msgstr "ప్రాజెక్టులు"
+
+msgid "Certifications"
+msgstr "ధృవీకరణలు"
+
+msgid "Experience"
+msgstr "అనుభవం"
+
+msgid "AI DIAGNOSTIC TOOL"
+msgstr "AI డయాగ్నస్టిక్ టూల్"
+
+msgid "Precision Skill Analysis"
+msgstr "ఖచ్చితమైన నైపుణ్య విశ్లేషణ"
+
+msgid "Bridge the gap between your current capabilities and the requirements of top-tier AI roles. Our analysis identifies your high-priority growth areas using industry-standard benchmarks."
+msgstr "మీ ప్రస్తుత సామర్థ్యాలకు మరియు అగ్రశ్రేణి AI పాత్రల అవసరాలకు మధ్య అంతరాన్ని తగ్గించండి. మా విశ్లేషణ పరిశ్రమ-ప్రామాణిక బెంచ్‌మార్క్‌లను ఉపయోగించి మీ అధిక-ప్రాధాన్యత వృద్ధి ప్రాంతాలను గుర్తిస్తుంది."
+
+msgid "Generate Roadmap"
+msgstr "రోడ్‌మ్యాప్ రూపొందించండి"
+
+msgid "Update Assessment"
+msgstr "అంచనాను నవీకరించండి"
+
+msgid "READINESS SCORE"
+msgstr "సంసిద్ధత స్కోర్"
+
+msgid "CRITICAL GAPS"
+msgstr "కీలక అంతరాలు"
+
+msgid "High-priority"
+msgstr "అధిక ప్రాధాన్యత"
+
+msgid "SKILL MASTERY"
+msgstr "నైపుణ్య ప్రావీణ్యం"
+
+msgid "Certified"
+msgstr "ధృవీకరించబడింది"
+
+msgid "Detected"
+msgstr "గుర్తించబడింది"
+
+msgid "All required skills met"
+msgstr "అవసరమైన అన్ని నైపుణ్యాలు నెరవేరాయి"
+
+msgid "skill(s) remaining"
+msgstr "నైపుణ్యం(లు) మిగిలి ఉన్నాయి"
+
+msgid "*Based on your uploaded resume vs your target role's required skills."
+msgstr "*మీరు అప్‌లోడ్ చేసిన రెజ్యూమ్ మరియు మీ లక్ష్య పాత్రకు అవసరమైన నైపుణ్యాల ఆధారంగా."
+
+msgid "Required skills for your target role not found in your resume"
+msgstr "మీ లక్ష్య పాత్రకు అవసరమైన నైపుణ్యాలు మీ రెజ్యూమ్‌లో కనుగొనబడలేదు"
+
+msgid "Your <b>%(skill)s</b> gap is currently the highest priority. Closing it would directly improve your <b>%(role)s</b> match score."
+msgstr "ప్రస్తుతం మీ <b>%(skill)s</b> అంతరం అత్యంత ప్రాధాన్యత కలిగినది. దీన్ని పూడ్చడం మీ <b>%(role)s</b> మ్యాచ్ స్కోర్‌ను నేరుగా మెరుగుపరుస్తుంది."
+
+msgid "Your resume already covers every required skill for your target role — no gaps detected."
+msgstr "మీ లక్ష్య పాత్రకు అవసరమైన అన్ని నైపుణ్యాలను మీ రెజ్యూమ్ ఇప్పటికే కవర్ చేస్తుంది — అంతరాలు ఏవీ కనుగొనబడలేదు."
+
+msgid "Upload your resume to generate your skill analysis."
+msgstr "మీ నైపుణ్య విశ్లేషణను రూపొందించడానికి మీ రెజ్యూమ్‌ను అప్‌లోడ్ చేయండి."
+
+msgid "Upload Resume"
+msgstr "రెజ్యూమ్ అప్‌లోడ్ చేయండి"
+
+msgid "We couldn't detect enough skills from this resume. Please upload a clearer or more detailed resume."
+msgstr "ఈ రెజ్యూమ్ నుండి మేము తగినంత నైపుణ్యాలను గుర్తించలేకపోయాము. దయచేసి స్పష్టమైన లేదా మరింత వివరణాత్మక రెజ్యూమ్‌ను అప్‌లోడ్ చేయండి."
+
+msgid "Upload a Different Resume"
+msgstr "వేరే రెజ్యూమ్‌ను అప్‌లోడ్ చేయండి"
+
+msgid "Your Personalized"
+msgstr "మీ వ్యక్తిగతీకరించిన"
+
+msgid "Built from your uploaded resume's detected skills and the requirements for your target role: %(role)s."
+msgstr "మీరు అప్‌లోడ్ చేసిన రెజ్యూమ్‌లో గుర్తించిన నైపుణ్యాలు మరియు మీ లక్ష్య పాత్ర %(role)s అవసరాల ఆధారంగా రూపొందించబడింది."
+
+msgid "View Skill Analysis"
+msgstr "నైపుణ్య విశ్లేషణ చూడండి"
+
+msgid "Resources Completed"
+msgstr "పూర్తయిన వనరులు"
+
+msgid "Skill Gaps Closed"
+msgstr "మూసివేసిన నైపుణ్య అంతరాలు"
+
+msgid "One milestone per skill gap, highest priority first"
+msgstr "ప్రతి నైపుణ్య అంతరానికి ఒక మైలురాయి, అధిక ప్రాధాన్యత మొదట"
+
+msgid "SKILL GAP"
+msgstr "నైపుణ్య అంతరం"
+
+msgid "Recommended resources to close your %(skill)s skill gap for the %(role)s role."
+msgstr "%(role)s పాత్ర కోసం మీ %(skill)s నైపుణ్య అంతరాన్ని పూడ్చడానికి సిఫార్సు చేయబడిన వనరులు."
+
+msgid "No curated resources for this skill yet."
+msgstr "ఈ నైపుణ్యానికి ఇంకా క్యూరేటెడ్ వనరులు లేవు."
+
+msgid "View Skill Gaps"
+msgstr "నైపుణ్య అంతరాలను చూడండి"
+
+msgid "You've closed every skill gap for your target role — great work!"
+msgstr "మీ లక్ష్య పాత్ర కోసం ప్రతి నైపుణ్య అంతరాన్ని మీరు మూసివేశారు — గొప్ప పని!"
+
+msgid "You've closed every skill gap for your target role — great work! No learning path needed right now."
+msgstr "మీ లక్ష్య పాత్ర కోసం ప్రతి నైపుణ్య అంతరాన్ని మీరు మూసివేశారు — గొప్ప పని! ప్రస్తుతం లెర్నింగ్ మార్గం అవసరం లేదు."
+
+msgid "Upload your resume to generate your personalized learning path."
+msgstr "మీ వ్యక్తిగతీకరించిన లెర్నింగ్ మార్గాన్ని రూపొందించడానికి మీ రెజ్యూమ్‌ను అప్‌లోడ్ చేయండి."
+
+msgid "Exclusive video series for %(skill)s"
+msgstr "%(skill)s కోసం ప్రత్యేక వీడియో సిరీస్"
+
+msgid "Exclusive video series, unlocked as you progress"
+msgstr "మీరు పురోగమిస్తున్న కొద్దీ అన్‌లాక్ అయ్యే ప్రత్యేక వీడియో సిరీస్"
+
+msgid "NEXT MILESTONE"
+msgstr "తదుపరి మైలురాయి"
+
+msgid "in %(weeks)s weeks · 2 modules remaining"
+msgstr "%(weeks)s వారాలలో · 2 మాడ్యూల్స్ మిగిలి ఉన్నాయి"
+
+msgid "Competency Blueprint"
+msgstr "కాంపిటెన్సీ బ్లూప్రింట్"
+
+msgid "Multidimensional view of your current standing vs industry targets"
+msgstr "పరిశ్రమ లక్ష్యాలతో పోలిస్తే మీ ప్రస్తుత స్థానం యొక్క బహుమితీయ దృశ్యం"
+
+msgid "*Benchmarked against FAANG and Tier-1 startup data."
+msgstr "*FAANG మరియు టైర్-1 స్టార్టప్ డేటాతో బెంచ్‌మార్క్ చేయబడింది."
+
+msgid "Critical Skill Deficit"
+msgstr "కీలక నైపుణ్య లోటు"
+
+msgid "The top 5 skills with the largest growth opportunity"
+msgstr "అత్యధిక వృద్ధి అవకాశం ఉన్న టాప్ 5 నైపుణ్యాలు"
+
+msgid "Actionable Insight:"
+msgstr "కార్యాచరణ అంతర్దృష్టి:"
+
+msgid "Your <b>%(skill)s</b> gap is currently the highest. Bridging this would increase your <b>%(role)s</b> match score by 14%%."
+msgstr "ప్రస్తుతం మీ <b>%(skill)s</b> అంతరం అత్యధికంగా ఉంది. దీన్ని పూడ్చడం వల్ల మీ <b>%(role)s</b> మ్యాచ్ స్కోర్ 14%% పెరుగుతుంది."
+
+msgid "Detailed Skill Inventory"
+msgstr "వివరణాత్మక నైపుణ్య జాబితా"
+
+msgid "Comprehensive list of tracked skills and progress"
+msgstr "ట్రాక్ చేయబడిన నైపుణ్యాలు మరియు పురోగతి యొక్క సమగ్ర జాబితా"
+
+msgid "Search skills..."
+msgstr "నైపుణ్యాలను శోధించండి..."
+
+msgid "SKILL NAME"
+msgstr "నైపుణ్యం పేరు"
+
+msgid "CURRENT VS TARGET"
+msgstr "ప్రస్తుత vs లక్ష్యం"
+
+msgid "GROWTH STATUS"
+msgstr "వృద్ధి స్థితి"
+
+msgid "PRIORITY"
+msgstr "ప్రాధాన్యత"
+
+msgid "Target:"
+msgstr "లక్ష్యం:"
+
+msgid "Market Compatibility"
+msgstr "మార్కెట్ అనుకూలత"
+
+msgid "How your current skill profile matches top industry roles"
+msgstr "మీ ప్రస్తుత నైపుణ్య ప్రొఫైల్ అగ్రశ్రేణి పరిశ్రమ పాత్రలతో ఎలా సరిపోతుంది"
+
+msgid "View Fit Analysis"
+msgstr "ఫిట్ విశ్లేషణ చూడండి"
+
+msgid "Current Proficiency"
+msgstr "ప్రస్తుత నైపుణ్యం"
+
+msgid "Industry Target"
+msgstr "పరిశ్రమ లక్ష్యం"
+
+msgid "Personalized for %(name)s"
+msgstr "%(name)s కోసం వ్యక్తిగతీకరించబడింది"
+
+msgid "Your AI Engineer"
+msgstr "మీ AI ఇంజనీర్"
+
+msgid "Odyssey"
+msgstr "ప్రయాణం"
+
+msgid "Based on your resume analysis and career predictions, we've crafted a 24-week milestone-based path to landing a role as a Machine Learning Engineer."
+msgstr "మీ రెజ్యూమ్ విశ్లేషణ మరియు కెరీర్ అంచనాల ఆధారంగా, మేము Machine Learning Engineer పాత్రను పొందడానికి 24-వారాల మైలురాయి ఆధారిత మార్గాన్ని రూపొందించాము."
+
+msgid "Resume Journey"
+msgstr "ప్రయాణాన్ని పునఃప్రారంభించండి"
+
+msgid "View Certifications"
+msgstr "ధృవీకరణలను చూడండి"
+
+msgid "Overall Progress"
+msgstr "మొత్తం పురోగతి"
+
+msgid "12/24 Weeks Completed"
+msgstr "12/24 వారాలు పూర్తయ్యాయి"
+
+msgid "3 Badges Earned"
+msgstr "3 బ్యాడ్జ్‌లు సంపాదించారు"
+
+msgid "Learning Path"
+msgstr "లెర్నింగ్ మార్గం"
+
+msgid "Click a milestone to view details"
+msgstr "వివరాలను చూడటానికి మైలురాయిపై క్లిక్ చేయండి"
+
+msgid "CURRENT"
+msgstr "ప్రస్తుత"
+
+msgid "Machine Learning Foundations"
+msgstr "Machine Learning ఫౌండేషన్స్"
+
+msgid "6 Weeks"
+msgstr "6 వారాలు"
+
+msgid "LVL: SPECIALIZATION"
+msgstr "స్థాయి: ప్రత్యేకత"
+
+msgid "Dive into supervised and unsupervised learning. Understand regression, classification, and clustering with real-world datasets."
+msgstr "సూపర్‌వైజ్డ్ మరియు అన్‌సూపర్‌వైజ్డ్ లెర్నింగ్‌లోకి లోతుగా వెళ్లండి. వాస్తవ ప్రపంచ డేటాసెట్‌లతో రిగ్రెషన్, క్లాసిఫికేషన్ మరియు క్లస్టరింగ్‌ను అర్థం చేసుకోండి."
+
+msgid "Skills to Acquire"
+msgstr "పొందవలసిన నైపుణ్యాలు"
+
+msgid "Milestone Tasks"
+msgstr "మైలురాయి పనులు"
+
+msgid "1 of 3 tasks completed"
+msgstr "3లో 1 పని పూర్తయింది"
+
+msgid "Premium Content"
+msgstr "ప్రీమియం కంటెంట్"
+
+msgid "Exclusive video series for Machine Learning Foundations"
+msgstr "Machine Learning ఫౌండేషన్స్ కోసం ప్రత్యేక వీడియో సిరీస్"
+
+msgid "Mastering Python for ML"
+msgstr "ML కోసం పైథాన్‌లో నైపుణ్యం"
+
+msgid "Mathematical Intuition Part II"
+msgstr "గణిత అంతర్దృష్టి పార్ట్ II"
+
+msgid "Expert Guidance"
+msgstr "నిపుణుల మార్గదర్శకత్వం"
+
+msgid "Book a 15-min call with an industry mentor"
+msgstr "పరిశ్రమ మెంటార్‌తో 15 నిమిషాల కాల్ బుక్ చేయండి"
+
+msgid "Schedule Session"
+msgstr "సెషన్‌ను షెడ్యూల్ చేయండి"
+
+msgid "Greetings, %(name)s! I'm your CareerMind AI Assistant. I've been analyzing your recent skill assessments and placement readiness score. How can I help you navigate your professional journey today?"
+msgstr "నమస్కారం, %(name)s! నేను మీ CareerMind AI అసిస్టెంట్‌ని. మీ ఇటీవలి నైపుణ్య మదింపులు మరియు ప్లేస్‌మెంట్ సంసిద్ధత స్కోర్‌ను నేను విశ్లేషిస్తున్నాను. ఈరోజు మీ వృత్తిపరమైన ప్రయాణంలో నేను ఎలా సహాయపడగలను?"
+
+msgid "Ask me about career paths, resumes, or skill mapping..."
+msgstr "కెరీర్ మార్గాలు, రెజ్యూమ్‌లు లేదా నైపుణ్య మ్యాపింగ్ గురించి నన్ను అడగండి..."
+
+msgid "Powered by CareerMind AI · Enterprise Security Guaranteed"
+msgstr "CareerMind AI ద్వారా శక్తివంతం చేయబడింది · ఎంటర్‌ప్రైజ్ భద్రత హామీ"
+
+msgid "Your Academic Career Guide"
+msgstr "మీ అకడమిక్ కెరీర్ గైడ్"
+
+msgid "TARGET ROLE"
+msgstr "లక్ష్య పాత్ర"
+
+msgid "RECENT HISTORY"
+msgstr "ఇటీవలి చరిత్ర"
+
+msgid "Review my placement readiness"
+msgstr "నా ప్లేస్‌మెంట్ సంసిద్ధతను సమీక్షించండి"
+
+msgid "Optimize my resume for FinTech"
+msgstr "FinTech కోసం నా రెజ్యూమ్‌ను ఆప్టిమైజ్ చేయండి"
+
+msgid "Suggest high-growth career paths"
+msgstr "అధిక వృద్ధి కెరీర్ మార్గాలను సూచించండి"
+
+msgid "Find skill gaps for Senior Dev roles"
+msgstr "సీనియర్ డెవ్ పాత్రల కోసం నైపుణ్య అంతరాలను కనుగొనండి"
+
+msgid "Your current placement readiness is %(score)s/100, up %(delta)s. You're on track for %(role)s roles."
+msgstr "మీ ప్రస్తుత ప్లేస్‌మెంట్ సంసిద్ధత %(score)s/100, %(delta)s పెరిగింది. మీరు %(role)s పాత్రల కోసం సరైన మార్గంలో ఉన్నారు."
+
+msgid "Your resume score is %(score)s/100. Adding a professional summary and 1-2 more projects would push it higher."
+msgstr "మీ రెజ్యూమ్ స్కోర్ %(score)s/100. ఒక వృత్తిపరమైన సారాంశం మరియు 1-2 అదనపు ప్రాజెక్టులను జోడించడం దీన్ని మరింత పెంచుతుంది."
+
+msgid "Your biggest skill gap right now is %(skill)s. Closing it would meaningfully raise your match score."
+msgstr "ప్రస్తుతం మీ అతిపెద్ద నైపుణ్య అంతరం %(skill)s. దీన్ని పూడ్చడం మీ మ్యాచ్ స్కోర్‌ను గణనీయంగా పెంచుతుంది."
+
+msgid "Based on your profile, %(role)s and Senior Data Engineer are your strongest-matching paths right now."
+msgstr "మీ ప్రొఫైల్ ఆధారంగా, %(role)s మరియు Senior Data Engineer ప్రస్తుతం మీకు అత్యంత సరిపోయే మార్గాలు."
+
+msgid "I've noted that — I can help with placement readiness, resume feedback, skill gaps, or career path suggestions. What would you like to dig into?"
+msgstr "నేను దాన్ని గమనించాను — ప్లేస్‌మెంట్ సంసిద్ధత, రెజ్యూమ్ ఫీడ్‌బ్యాక్, నైపుణ్య అంతరాలు లేదా కెరీర్ మార్గ సూచనలలో నేను సహాయపడగలను. మీరు దేని గురించి తెలుసుకోవాలనుకుంటున్నారు?"
+
+msgid "No file uploaded. Expected form field 'resume'."
+msgstr "ఫైల్ అప్‌లోడ్ కాలేదు. 'resume' ఫారమ్ ఫీల్డ్ ఆశించబడింది."
+
+msgid "Only PDF files are supported."
+msgstr "PDF ఫైళ్లు మాత్రమే మద్దతు ఇవ్వబడతాయి."
+
+msgid "Could not read this PDF. It may be corrupted or scanned as images."
+msgstr "ఈ PDFని చదవలేకపోయాము. ఇది పాడైపోయి ఉండవచ్చు లేదా చిత్రాలుగా స్కాన్ చేయబడి ఉండవచ్చు."
+
+msgid "Resume uploaded and parsed successfully."
+msgstr "రెజ్యూమ్ విజయవంతంగా అప్‌లోడ్ చేయబడి, విశ్లేషించబడింది."
+
+# --- Career services (jobs, internships, mentorship, workshops, notifications) ---
+
+#, python-format
+msgid "\"%(title)s\" is now visible to students."
+msgstr "\"%(title)s\" ఇప్పుడు విద్యార్థులకు కనిపిస్తోంది."
+
+#, python-format
+msgid "\"%(title)s\" is published and students were notified."
+msgstr "\"%(title)s\" ప్రచురించబడింది మరియు విద్యార్థులకు తెలియజేయబడింది."
+
+#, python-format
+msgid "\"%(title)s\" was not approved."
+msgstr "\"%(title)s\" ఆమోదించబడలేదు."
+
+#, python-format
+msgid "\"%(title)s\" was not approved. Note: %(note)s"
+msgstr "\"%(title)s\" ఆమోదించబడలేదు. గమనిక: %(note)s"
+
+#, python-format
+msgid "%(n)s of %(total)s required skills"
+msgstr "%(total)s అవసరమైన నైపుణ్యాలలో %(n)s"
+
+#, python-format
+msgid "%(n)s yrs experience"
+msgstr "%(n)s సంవత్సరాల అనుభవం"
+
+#, python-format
+msgid "%(role)s at %(company)s"
+msgstr "%(company)s లో %(role)s"
+
+#, python-format
+msgid "%(t)s ago"
+msgstr "%(t)s క్రితం"
+
+#, python-format
+msgid "%(title)s at %(company)s has been posted."
+msgstr "%(company)s లో %(title)s పోస్ట్ చేయబడింది."
+
+#, python-format
+msgid "%(title)s has been scheduled for %(date)s."
+msgstr "%(title)s %(date)s కి షెడ్యూల్ చేయబడింది."
+
+#, python-format
+msgid "%(title)s on %(date)s has been cancelled."
+msgstr "%(date)s న జరగాల్సిన %(title)s రద్దు చేయబడింది."
+
+#, python-format
+msgid "%(title)s was added for %(skill)s."
+msgstr "%(skill)s కోసం %(title)s జోడించబడింది."
+
+msgid "AI Career Assistant"
+msgstr "AI కెరీర్ అసిస్టెంట్"
+
+msgid "About"
+msgstr "గురించి"
+
+msgid "About this opportunity"
+msgstr "ఈ అవకాశం గురించి"
+
+msgid "About this session"
+msgstr "ఈ సెషన్ గురించి"
+
+msgid "Accepted"
+msgstr "ఆమోదించబడింది"
+
+msgid "All"
+msgstr "అన్నీ"
+
+msgid "All industries"
+msgstr "అన్ని పరిశ్రమలు"
+
+msgid "All types"
+msgstr "అన్ని రకాలు"
+
+msgid "Alumni Interaction Session"
+msgstr "పూర్వ విద్యార్థుల ముఖాముఖి సెషన్"
+
+msgid "Alumni who are available to mentor students."
+msgstr "విద్యార్థులకు మార్గదర్శకత్వం వహించడానికి అందుబాటులో ఉన్న పూర్వ విద్యార్థులు."
+
+msgid "Announcement"
+msgstr "ప్రకటన"
+
+msgid "Announcements"
+msgstr "ప్రకటనలు"
+
+#, python-format
+msgid "Answered %(d)s"
+msgstr "%(d)s న సమాధానం ఇవ్వబడింది"
+
+msgid "Applicant"
+msgstr "దరఖాస్తుదారు"
+
+msgid "Application status"
+msgstr "దరఖాస్తు స్థితి"
+
+#, python-format
+msgid "Application submitted for %(title)s at %(company)s."
+msgstr "%(company)s లో %(title)s కోసం దరఖాస్తు సమర్పించబడింది."
+
+msgid "Application update"
+msgstr "దరఖాస్తు అప్‌డేట్"
+
+msgid "Applications"
+msgstr "దరఖాస్తులు"
+
+msgid "Applications closed"
+msgstr "దరఖాస్తులు ముగిశాయి"
+
+msgid "Applications for this opportunity are closed."
+msgstr "ఈ అవకాశానికి దరఖాస్తులు ముగిశాయి."
+
+msgid "Applied"
+msgstr "దరఖాస్తు చేశారు"
+
+#, python-format
+msgid "Applied %(d)s"
+msgstr "%(d)s న దరఖాస్తు చేశారు"
+
+msgid "Apply"
+msgstr "దరఖాస్తు చేయండి"
+
+msgid "Apply Now"
+msgstr "ఇప్పుడే దరఖాస్తు చేయండి"
+
+msgid "Apply by"
+msgstr "దరఖాస్తు చివరి తేదీ"
+
+msgid "Apply filters"
+msgstr "ఫిల్టర్‌లను వర్తింపజేయండి"
+
+#, python-format
+msgid "Apply for %(title)s"
+msgstr "%(title)s కోసం దరఖాస్తు చేయండి"
+
+msgid "Ask about your readiness, resume, skill gaps or next steps."
+msgstr "మీ సన్నద్ధత, రెజ్యూమ్, నైపుణ్య అంతరాలు లేదా తదుపరి దశల గురించి అడగండి."
+
+msgid "Back to details"
+msgstr "వివరాలకు తిరిగి వెళ్లండి"
+
+msgid "Back to mentors"
+msgstr "మెంటర్లకు తిరిగి వెళ్లండి"
+
+msgid "Back to opportunities"
+msgstr "అవకాశాలకు తిరిగి వెళ్లండి"
+
+msgid "Back to workshops"
+msgstr "వర్క్‌షాప్‌లకు తిరిగి వెళ్లండి"
+
+msgid "Browse opportunities"
+msgstr "అవకాశాలను చూడండి"
+
+msgid "CAREER READINESS"
+msgstr "కెరీర్ సన్నద్ధత"
+
+msgid "Cancel"
+msgstr "రద్దు చేయి"
+
+msgid "Cancelled"
+msgstr "రద్దు చేయబడింది"
+
+msgid "Career Event"
+msgstr "కెరీర్ ఈవెంట్"
+
+msgid "Career Guidance Session"
+msgstr "కెరీర్ గైడెన్స్ సెషన్"
+
+msgid "Career Opportunities"
+msgstr "కెరీర్ అవకాశాలు"
+
+msgid "Career Roadmap"
+msgstr "కెరీర్ రోడ్‌మ్యాప్"
+
+msgid "Career Services"
+msgstr "కెరీర్ సేవలు"
+
+msgid "Career guidance update"
+msgstr "కెరీర్ గైడెన్స్ అప్‌డేట్"
+
+msgid "Career update"
+msgstr "కెరీర్ అప్‌డేట్"
+
+msgid "Career workshops, seminars and sessions from staff and alumni."
+msgstr "సిబ్బంది మరియు పూర్వ విద్యార్థుల నుండి కెరీర్ వర్క్‌షాప్‌లు, సెమినార్లు మరియు సెషన్లు."
+
+#, python-format
+msgid "Class of %(y)s"
+msgstr "%(y)s బ్యాచ్"
+
+msgid "Clear filters"
+msgstr "ఫిల్టర్‌లను తొలగించండి"
+
+msgid "Closed"
+msgstr "ముగిసింది"
+
+msgid "Completed"
+msgstr "పూర్తయింది"
+
+#, python-format
+msgid "Congratulations! You have been selected for %(t)s at %(c)s."
+msgstr "అభినందనలు! %(c)s లో %(t)s కోసం మీరు ఎంపికయ్యారు."
+
+#, python-format
+msgid "Congratulations! Your application for %(t)s at %(c)s has been shortlisted."
+msgstr "అభినందనలు! %(c)s లో %(t)s కోసం మీ దరఖాస్తు షార్ట్‌లిస్ట్ చేయబడింది."
+
+msgid "Connected"
+msgstr "కనెక్ట్ అయ్యారు"
+
+msgid "Contract"
+msgstr "కాంట్రాక్ట్"
+
+msgid "Critical Skill Gaps"
+msgstr "కీలక నైపుణ్య అంతరాలు"
+
+msgid "DATE"
+msgstr "తేదీ"
+
+msgid "DEADLINE"
+msgstr "చివరి తేదీ"
+
+msgid "DOMAIN"
+msgstr "డొమైన్"
+
+msgid "Deadline passed"
+msgstr "చివరి తేదీ దాటిపోయింది"
+
+msgid "Detected in your resume"
+msgstr "మీ రెజ్యూమ్‌లో గుర్తించబడింది"
+
+msgid "Draft"
+msgstr "డ్రాఫ్ట్"
+
+msgid "ELIGIBILITY"
+msgstr "అర్హత"
+
+msgid "Eligibility"
+msgstr "అర్హత"
+
+msgid "Event ended"
+msgstr "ఈవెంట్ ముగిసింది"
+
+msgid "Find Internships"
+msgstr "ఇంటర్న్‌షిప్‌లను కనుగొనండి"
+
+msgid "Find Jobs"
+msgstr "ఉద్యోగాలను కనుగొనండి"
+
+msgid "Find a Mentor"
+msgstr "మెంటర్‌ను కనుగొనండి"
+
+msgid "Find a mentor"
+msgstr "మెంటర్‌ను కనుగొనండి"
+
+msgid "Full-time"
+msgstr "ఫుల్-టైమ్"
+
+msgid "General"
+msgstr "సాధారణ"
+
+#, python-format
+msgid "Green skills were found in your resume (%(have)s of %(total)s, %(pct)s%% match)."
+msgstr "ఆకుపచ్చ నైపుణ్యాలు మీ రెజ్యూమ్‌లో ఉన్నాయి (%(total)s లో %(have)s, %(pct)s%% మ్యాచ్)."
+
+msgid "Here is where your resume stands. Set a career goal to get a personalised plan."
+msgstr "మీ రెజ్యూమ్ ప్రస్తుత స్థితి ఇది. వ్యక్తిగత ప్రణాళిక కోసం కెరీర్ లక్ష్యాన్ని సెట్ చేయండి."
+
+msgid "Hired"
+msgstr "నియమించబడ్డారు"
+
+msgid "Improvement Requested"
+msgstr "మెరుగుదల కోరబడింది"
+
+msgid "In Progress"
+msgstr "ప్రోగ్రెస్‌లో ఉంది"
+
+msgid "In Review"
+msgstr "సమీక్షలో ఉంది"
+
+msgid "Industry"
+msgstr "పరిశ్రమ"
+
+msgid "Industry Experience Session"
+msgstr "ఇండస్ట్రీ ఎక్స్‌పీరియన్స్ సెషన్"
+
+msgid "Industry Talk"
+msgstr "ఇండస్ట్రీ టాక్"
+
+msgid "Internship"
+msgstr "ఇంటర్న్‌షిప్"
+
+msgid "Internships"
+msgstr "ఇంటర్న్‌షిప్‌లు"
+
+msgid "Interview Preparation Session"
+msgstr "ఇంటర్వ్యూ ప్రిపరేషన్ సెషన్"
+
+msgid "Job"
+msgstr "ఉద్యోగం"
+
+msgid "Jobs"
+msgstr "ఉద్యోగాలు"
+
+msgid "LEARNING PROGRESS"
+msgstr "అభ్యాస పురోగతి"
+
+msgid "Learning & Career"
+msgstr "అభ్యాసం & కెరీర్"
+
+msgid "Learning resource"
+msgstr "అభ్యాస వనరు"
+
+msgid "MODE"
+msgstr "మోడ్"
+
+msgid "Make sure it has a clearly headed Skills section, then upload it again."
+msgstr "స్పష్టమైన శీర్షికతో నైపుణ్యాల విభాగం ఉందని నిర్ధారించుకుని, మళ్లీ అప్‌లోడ్ చేయండి."
+
+msgid "Mark all as read"
+msgstr "అన్నింటినీ చదివినట్లు గుర్తించండి"
+
+msgid "Mark as read"
+msgstr "చదివినట్లు గుర్తించండి"
+
+msgid "Meeting link:"
+msgstr "మీటింగ్ లింక్:"
+
+msgid "Mentor no longer available"
+msgstr "మెంటర్ ఇకపై అందుబాటులో లేరు"
+
+msgid "Mentor"
+msgstr "మెంటర్"
+
+msgid "Mentorship"
+msgstr "మెంటర్‌షిప్"
+
+msgid "Mentorship request accepted"
+msgstr "మెంటర్‌షిప్ అభ్యర్థన ఆమోదించబడింది"
+
+msgid "Mentorship request rejected"
+msgstr "మెంటర్‌షిప్ అభ్యర్థన తిరస్కరించబడింది"
+
+msgid "Mentorship request sent. You'll be notified when the mentor responds."
+msgstr "మెంటర్‌షిప్ అభ్యర్థన పంపబడింది. మెంటర్ స్పందించినప్పుడు మీకు తెలియజేయబడుతుంది."
+
+msgid "My Applications"
+msgstr "నా దరఖాస్తులు"
+
+msgid "My Mentorship"
+msgstr "నా మెంటర్‌షిప్"
+
+msgid "My Mentorship Requests"
+msgstr "నా మెంటర్‌షిప్ అభ్యర్థనలు"
+
+msgid "My Registrations"
+msgstr "నా రిజిస్ట్రేషన్లు"
+
+msgid "Name, role, company, industry or skill"
+msgstr "పేరు, పాత్ర, కంపెనీ, పరిశ్రమ లేదా నైపుణ్యం"
+
+msgid "Needs a resume"
+msgstr "రెజ్యూమ్ అవసరం"
+
+msgid "New Career Seminar"
+msgstr "కొత్త కెరీర్ సెమినార్"
+
+msgid "New Career Workshop"
+msgstr "కొత్త కెరీర్ వర్క్‌షాప్"
+
+msgid "New Internship Available"
+msgstr "కొత్త ఇంటర్న్‌షిప్ అందుబాటులో ఉంది"
+
+msgid "New Job Available"
+msgstr "కొత్త ఉద్యోగం అందుబాటులో ఉంది"
+
+msgid "New learning resource"
+msgstr "కొత్త అభ్యాస వనరు"
+
+msgid "New mentorship request"
+msgstr "కొత్త మెంటర్‌షిప్ అభ్యర్థన"
+
+#, python-format
+msgid "New mentorship request from %(name)s."
+msgstr "%(name)s నుండి కొత్త మెంటర్‌షిప్ అభ్యర్థన."
+
+msgid "Newest"
+msgstr "తాజావి"
+
+msgid "Newest first. Opening a notification marks it as read."
+msgstr "తాజావి మొదట. నోటిఫికేషన్ తెరిస్తే అది చదివినట్లు గుర్తించబడుతుంది."
+
+msgid "Next"
+msgstr "తదుపరి"
+
+msgid "No alumni mentors are available yet."
+msgstr "ఇంకా పూర్వ విద్యార్థి మెంటర్లు అందుబాటులో లేరు."
+
+msgid "No applications with this status."
+msgstr "ఈ స్థితిలో దరఖాస్తులు లేవు."
+
+msgid "No goal set yet"
+msgstr "ఇంకా లక్ష్యం సెట్ చేయలేదు"
+
+msgid "No learning tasks yet"
+msgstr "ఇంకా అభ్యాస పనులు లేవు"
+
+msgid "No mentors match your search."
+msgstr "మీ శోధనకు సరిపోలే మెంటర్లు లేరు."
+
+msgid "No notifications in this category."
+msgstr "ఈ వర్గంలో నోటిఫికేషన్లు లేవు."
+
+msgid "No notifications yet."
+msgstr "ఇంకా నోటిఫికేషన్లు లేవు."
+
+msgid "No notifications yet. They appear here when something happens on your account."
+msgstr "ఇంకా నోటిఫికేషన్లు లేవు. మీ ఖాతాలో ఏదైనా జరిగినప్పుడు అవి ఇక్కడ కనిపిస్తాయి."
+
+msgid "No opportunities match your filters."
+msgstr "మీ ఫిల్టర్‌లకు సరిపోలే అవకాశాలు లేవు."
+
+msgid "No published internships yet."
+msgstr "ఇంకా ప్రచురించబడిన ఇంటర్న్‌షిప్‌లు లేవు."
+
+msgid "No published jobs yet. New postings from alumni and staff appear here once approved."
+msgstr "ఇంకా ప్రచురించబడిన ఉద్యోగాలు లేవు. పూర్వ విద్యార్థులు మరియు సిబ్బంది కొత్త పోస్టింగ్‌లు ఆమోదించబడిన తర్వాత ఇక్కడ కనిపిస్తాయి."
+
+msgid "No requests with this status."
+msgstr "ఈ స్థితిలో అభ్యర్థనలు లేవు."
+
+msgid "No resume uploaded yet."
+msgstr "ఇంకా రెజ్యూమ్ అప్‌లోడ్ చేయలేదు."
+
+msgid "No resume yet"
+msgstr "ఇంకా రెజ్యూమ్ లేదు"
+
+msgid "No upcoming workshops or events right now."
+msgstr "ప్రస్తుతం రాబోయే వర్క్‌షాప్‌లు లేదా ఈవెంట్లు లేవు."
+
+msgid "Not analyzed yet"
+msgstr "ఇంకా విశ్లేషించలేదు"
+
+msgid "Not found in your resume:"
+msgstr "మీ రెజ్యూమ్‌లో కనిపించనివి:"
+
+msgid "Nothing is published here right now. New postings appear once an admin approves them."
+msgstr "ప్రస్తుతం ఇక్కడ ఏదీ ప్రచురించబడలేదు. అడ్మిన్ ఆమోదించిన తర్వాత కొత్త పోస్టింగ్‌లు కనిపిస్తాయి."
+
+msgid "Nothing matches your filters."
+msgstr "మీ ఫిల్టర్‌లకు ఏదీ సరిపోలలేదు."
+
+msgid "Notification"
+msgstr "నోటిఫికేషన్"
+
+msgid "Notifications"
+msgstr "నోటిఫికేషన్లు"
+
+msgid "Offline"
+msgstr "ఆఫ్‌లైన్"
+
+msgid "Online"
+msgstr "ఆన్‌లైన్"
+
+msgid "Open"
+msgstr "తెరిచి ఉంది"
+
+msgid "Open Assistant"
+msgstr "అసిస్టెంట్‌ను తెరవండి"
+
+msgid "Open Skill Analysis"
+msgstr "నైపుణ్య విశ్లేషణను తెరవండి"
+
+msgid "Open to all students"
+msgstr "విద్యార్థులందరికీ తెరిచి ఉంది"
+
+msgid "Open until filled"
+msgstr "భర్తీ అయ్యే వరకు తెరిచి ఉంటుంది"
+
+msgid "Open your learning roadmap"
+msgstr "మీ లెర్నింగ్ రోడ్‌మ్యాప్‌ను తెరవండి"
+
+msgid "Opportunities, mentors and sessions from your institution and alumni network."
+msgstr "మీ సంస్థ మరియు పూర్వ విద్యార్థుల నెట్‌వర్క్ నుండి అవకాశాలు, మెంటర్లు మరియు సెషన్లు."
+
+msgid "Other"
+msgstr "ఇతర"
+
+msgid "POSTED BY"
+msgstr "పోస్ట్ చేసినవారు"
+
+msgid "POSTED ON"
+msgstr "పోస్ట్ చేసిన తేదీ"
+
+#, python-format
+msgid "Page %(n)s of %(total)s"
+msgstr "పేజీ %(n)s / %(total)s"
+
+msgid "Pagination"
+msgstr "పేజీ విభజన"
+
+msgid "Part-time"
+msgstr "పార్ట్-టైమ్"
+
+msgid "Pending"
+msgstr "పెండింగ్"
+
+msgid "Pending Approval"
+msgstr "ఆమోదం పెండింగ్‌లో ఉంది"
+
+msgid "Pending Review"
+msgstr "సమీక్ష పెండింగ్‌లో ఉంది"
+
+msgid "Pick a target role, company and timeline to get a personalized roadmap."
+msgstr "వ్యక్తిగత రోడ్‌మ్యాప్ కోసం లక్ష్య పాత్ర, కంపెనీ మరియు కాలపరిమితిని ఎంచుకోండి."
+
+msgid "Placement Session"
+msgstr "ప్లేస్‌మెంట్ సెషన్"
+
+msgid "Please add a short cover note."
+msgstr "దయచేసి చిన్న కవర్ నోట్ జోడించండి."
+
+msgid "Please add a short message."
+msgstr "దయచేసి చిన్న సందేశాన్ని జోడించండి."
+
+msgid "Please give a reason."
+msgstr "దయచేసి కారణం తెలియజేయండి."
+
+msgid "Posted by"
+msgstr "పోస్ట్ చేసినవారు"
+
+msgid "Previous"
+msgstr "మునుపటి"
+
+msgid "Published"
+msgstr "ప్రచురించబడింది"
+
+msgid "Published jobs and internships from alumni and the placement cell, prioritised for your career goal."
+msgstr "పూర్వ విద్యార్థులు మరియు ప్లేస్‌మెంట్ సెల్ ప్రచురించిన ఉద్యోగాలు మరియు ఇంటర్న్‌షిప్‌లు, మీ కెరీర్ లక్ష్యానికి అనుగుణంగా ప్రాధాన్యతతో."
+
+msgid "REGISTRATION DEADLINE"
+msgstr "రిజిస్ట్రేషన్ చివరి తేదీ"
+
+msgid "ROLE"
+msgstr "పాత్ర"
+
+msgid "Reason"
+msgstr "కారణం"
+
+msgid "Reason for requesting mentorship"
+msgstr "మెంటర్‌షిప్ కోరడానికి కారణం"
+
+msgid "Recommended"
+msgstr "సిఫార్సు చేయబడినవి"
+
+msgid "Recommended Internships"
+msgstr "సిఫార్సు చేయబడిన ఇంటర్న్‌షిప్‌లు"
+
+msgid "Recommended Jobs"
+msgstr "సిఫార్సు చేయబడిన ఉద్యోగాలు"
+
+msgid "Recommended for your career goal"
+msgstr "మీ కెరీర్ లక్ష్యానికి సిఫార్సు చేయబడింది"
+
+msgid "Register Now"
+msgstr "ఇప్పుడే నమోదు చేసుకోండి"
+
+msgid "Registered"
+msgstr "నమోదు చేసుకున్నారు"
+
+msgid "Registration Closed"
+msgstr "రిజిస్ట్రేషన్ ముగిసింది"
+
+msgid "Registration is closed for this session."
+msgstr "ఈ సెషన్ కోసం రిజిస్ట్రేషన్ ముగిసింది."
+
+msgid "Rejected"
+msgstr "తిరస్కరించబడింది"
+
+msgid "Request Mentorship"
+msgstr "మెంటర్‌షిప్ కోరండి"
+
+msgid "Request Pending"
+msgstr "అభ్యర్థన పెండింగ్‌లో ఉంది"
+
+msgid "Required skills"
+msgstr "అవసరమైన నైపుణ్యాలు"
+
+msgid "Resolved"
+msgstr "పరిష్కరించబడింది"
+
+msgid "Resume"
+msgstr "రెజ్యూమ్"
+
+msgid "Resume Workshop"
+msgstr "రెజ్యూమ్ వర్క్‌షాప్"
+
+msgid "Reviewed"
+msgstr "సమీక్షించబడింది"
+
+msgid "Roadmap progress"
+msgstr "రోడ్‌మ్యాప్ పురోగతి"
+
+msgid "SPEAKER"
+msgstr "వక్త"
+
+msgid "Search"
+msgstr "శోధించండి"
+
+msgid "Section completeness"
+msgstr "విభాగ సంపూర్ణత"
+
+msgid "Selected"
+msgstr "ఎంపికయ్యారు"
+
+msgid "Seminar"
+msgstr "సెమినార్"
+
+#, python-format
+msgid "Sent %(d)s"
+msgstr "%(d)s న పంపబడింది"
+
+msgid "Session cancelled"
+msgstr "సెషన్ రద్దు చేయబడింది"
+
+msgid "Session type"
+msgstr "సెషన్ రకం"
+
+msgid "Set Career Goal"
+msgstr "కెరీర్ లక్ష్యాన్ని సెట్ చేయండి"
+
+msgid "Short message"
+msgstr "చిన్న సందేశం"
+
+msgid "Shortlisted"
+msgstr "షార్ట్‌లిస్ట్ చేయబడింది"
+
+msgid "Show all"
+msgstr "అన్నీ చూపించు"
+
+msgid "Skill gaps appear here once your resume has been analyzed."
+msgstr "మీ రెజ్యూమ్ విశ్లేషించబడిన తర్వాత నైపుణ్య అంతరాలు ఇక్కడ కనిపిస్తాయి."
+
+msgid "Skills & expertise"
+msgstr "నైపుణ్యాలు & ప్రావీణ్యం"
+
+msgid "Sort by"
+msgstr "క్రమబద్ధీకరించండి"
+
+msgid "Speaker"
+msgstr "వక్త"
+
+msgid "Start learning"
+msgstr "నేర్చుకోవడం ప్రారంభించండి"
+
+#, python-format
+msgid "Students registered: %(n)s"
+msgstr "నమోదు చేసుకున్న విద్యార్థులు: %(n)s"
+
+msgid "Submit Application"
+msgstr "దరఖాస్తును సమర్పించండి"
+
+msgid "Submitted"
+msgstr "సమర్పించబడింది"
+
+msgid "TARGET CAREER"
+msgstr "లక్ష్య కెరీర్"
+
+msgid "TIME"
+msgstr "సమయం"
+
+msgid "TOPIC"
+msgstr "అంశం"
+
+msgid "Technical Session"
+msgstr "టెక్నికల్ సెషన్"
+
+msgid "The meeting link is shown here after you register."
+msgstr "మీరు నమోదు చేసుకున్న తర్వాత మీటింగ్ లింక్ ఇక్కడ చూపబడుతుంది."
+
+msgid "The poster also lists an external page:"
+msgstr "పోస్ట్ చేసినవారు ఒక బాహ్య పేజీని కూడా ఇచ్చారు:"
+
+msgid "Title, company, skill or location"
+msgstr "శీర్షిక, కంపెనీ, నైపుణ్యం లేదా స్థానం"
+
+msgid "Title, topic or speaker"
+msgstr "శీర్షిక, అంశం లేదా వక్త"
+
+msgid "To be announced"
+msgstr "ప్రకటించబడుతుంది"
+
+msgid "Track every job and internship you have applied to. You'll be notified when a status changes."
+msgstr "మీరు దరఖాస్తు చేసిన ప్రతి ఉద్యోగం మరియు ఇంటర్న్‌షిప్‌ను ట్రాక్ చేయండి. స్థితి మారినప్పుడు మీకు తెలియజేయబడుతుంది."
+
+msgid "Track requests you've sent to alumni mentors."
+msgstr "పూర్వ విద్యార్థి మెంటర్లకు మీరు పంపిన అభ్యర్థనలను ట్రాక్ చేయండి."
+
+msgid "Training Program"
+msgstr "శిక్షణ కార్యక్రమం"
+
+msgid "Type"
+msgstr "రకం"
+
+msgid "Under Review"
+msgstr "సమీక్షలో ఉంది"
+
+msgid "Unread"
+msgstr "చదవనివి"
+
+msgid "Until the event"
+msgstr "ఈవెంట్ వరకు"
+
+msgid "Upcoming"
+msgstr "రాబోయే"
+
+msgid "Upcoming Workshops & Events"
+msgstr "రాబోయే వర్క్‌షాప్‌లు & ఈవెంట్లు"
+
+#, python-format
+msgid "Updated %(d)s"
+msgstr "%(d)s న అప్‌డేట్ చేయబడింది"
+
+msgid "Upload Again"
+msgstr "మళ్లీ అప్‌లోడ్ చేయండి"
+
+msgid "Upload your resume to begin your career analysis."
+msgstr "మీ కెరీర్ విశ్లేషణ ప్రారంభించడానికి రెజ్యూమ్ అప్‌లోడ్ చేయండి."
+
+msgid "Upload your resume to see which listed skills you already have."
+msgstr "జాబితా చేసిన నైపుణ్యాలలో మీకు ఏవి ఉన్నాయో చూడటానికి రెజ్యూమ్ అప్‌లోడ్ చేయండి."
+
+msgid "VENUE"
+msgstr "వేదిక"
+
+msgid "View"
+msgstr "చూడండి"
+
+msgid "View Details"
+msgstr "వివరాలను చూడండి"
+
+msgid "View Profile"
+msgstr "ప్రొఫైల్ చూడండి"
+
+msgid "View Roadmap"
+msgstr "రోడ్‌మ్యాప్ చూడండి"
+
+msgid "View all"
+msgstr "అన్నీ చూడండి"
+
+msgid "View all notifications"
+msgstr "అన్ని నోటిఫికేషన్లను చూడండి"
+
+msgid "We couldn't detect skills in your latest resume"
+msgstr "మీ తాజా రెజ్యూమ్‌లో నైపుణ్యాలను గుర్తించలేకపోయాం"
+
+msgid "Welcome back"
+msgstr "తిరిగి స్వాగతం"
+
+msgid "Why are you a good fit? (cover note)"
+msgstr "మీరు ఎందుకు సరిపోతారు? (కవర్ నోట్)"
+
+msgid "Workshop"
+msgstr "వర్క్‌షాప్"
+
+msgid "Workshops"
+msgstr "వర్క్‌షాప్‌లు"
+
+msgid "Workshops & Events"
+msgstr "వర్క్‌షాప్‌లు & ఈవెంట్లు"
+
+msgid "You already have a pending request with this mentor."
+msgstr "ఈ మెంటర్‌తో మీ అభ్యర్థన ఇప్పటికే పెండింగ్‌లో ఉంది."
+
+msgid "You are already connected with this mentor."
+msgstr "మీరు ఇప్పటికే ఈ మెంటర్‌తో కనెక్ట్ అయ్యారు."
+
+msgid "You are already registered for this session."
+msgstr "మీరు ఇప్పటికే ఈ సెషన్‌కు నమోదు చేసుకున్నారు."
+
+msgid "You are connected with this mentor."
+msgstr "మీరు ఈ మెంటర్‌తో కనెక్ట్ అయ్యారు."
+
+msgid "You can still apply, but uploading a resume first helps reviewers."
+msgstr "మీరు ఇప్పటికీ దరఖాస్తు చేయవచ్చు, కానీ ముందుగా రెజ్యూమ్ అప్‌లోడ్ చేస్తే సమీక్షకులకు సహాయపడుతుంది."
+
+#, python-format
+msgid "You have %(have)s of %(total)s listed skills (%(pct)s%% match)."
+msgstr "జాబితా చేసిన %(total)s నైపుణ్యాలలో %(have)s మీకు ఉన్నాయి (%(pct)s%% మ్యాచ్)."
+
+msgid "You have already applied to this opportunity."
+msgstr "మీరు ఇప్పటికే ఈ అవకాశానికి దరఖాస్తు చేశారు."
+
+msgid "You haven't applied to anything yet."
+msgstr "మీరు ఇంకా దేనికీ దరఖాస్తు చేయలేదు."
+
+msgid "You haven't registered for any sessions yet."
+msgstr "మీరు ఇంకా ఏ సెషన్‌కూ నమోదు చేసుకోలేదు."
+
+msgid "You haven't sent any mentorship requests yet."
+msgstr "మీరు ఇంకా మెంటర్‌షిప్ అభ్యర్థనలు ఏవీ పంపలేదు."
+
+msgid "You meet every tracked requirement for this role."
+msgstr "ఈ పాత్రకు ట్రాక్ చేసిన ప్రతి అవసరాన్ని మీరు తీరుస్తున్నారు."
+
+msgid "You're all caught up — no unread notifications."
+msgstr "మీరు అన్నీ చూసేశారు — చదవని నోటిఫికేషన్లు లేవు."
+
+#, python-format
+msgid "You're registered for %(title)s."
+msgstr "మీరు %(title)s కోసం నమోదు చేసుకున్నారు."
+
+#, python-format
+msgid "Your application for %(t)s at %(c)s has been received."
+msgstr "%(c)s లో %(t)s కోసం మీ దరఖాస్తు అందింది."
+
+#, python-format
+msgid "Your application for %(t)s at %(c)s is under review."
+msgstr "%(c)s లో %(t)s కోసం మీ దరఖాస్తు సమీక్షలో ఉంది."
+
+#, python-format
+msgid "Your application for %(t)s at %(c)s was not successful this time."
+msgstr "%(c)s లో %(t)s కోసం మీ దరఖాస్తు ఈసారి విజయవంతం కాలేదు."
+
+msgid "Your earlier request was not accepted. You can send a new one."
+msgstr "మీ మునుపటి అభ్యర్థన ఆమోదించబడలేదు. మీరు కొత్తది పంపవచ్చు."
+
+#, python-format
+msgid "Your guidance request \"%(topic)s\" is now %(status)s."
+msgstr "మీ గైడెన్స్ అభ్యర్థన \"%(topic)s\" ఇప్పుడు %(status)s."
+
+#, python-format
+msgid "Your latest uploaded resume (%(d)s) will be attached."
+msgstr "మీరు ఇటీవల అప్‌లోడ్ చేసిన రెజ్యూమ్ (%(d)s) జతచేయబడుతుంది."
+
+#, python-format
+msgid "Your mentorship request has been accepted by %(name)s."
+msgstr "మీ మెంటర్‌షిప్ అభ్యర్థనను %(name)s ఆమోదించారు."
+
+#, python-format
+msgid "Your mentorship request to %(name)s was not accepted."
+msgstr "%(name)s కు మీరు పంపిన మెంటర్‌షిప్ అభ్యర్థన ఆమోదించబడలేదు."
+
+msgid "Your posting was approved"
+msgstr "మీ పోస్టింగ్ ఆమోదించబడింది"
+
+msgid "Your posting was rejected"
+msgstr "మీ పోస్టింగ్ తిరస్కరించబడింది"
+
+#, python-format
+msgid "Your progress toward %(label)s."
+msgstr "%(label)s వైపు మీ పురోగతి."
+
+#, python-format
+msgid "Your request was sent on %(d)s. You'll be notified when the mentor responds."
+msgstr "మీ అభ్యర్థన %(d)s న పంపబడింది. మెంటర్ స్పందించినప్పుడు మీకు తెలియజేయబడుతుంది."
+
+msgid "Your session was approved"
+msgstr "మీ సెషన్ ఆమోదించబడింది"
+
+msgid "Your session was rejected"
+msgstr "మీ సెషన్ తిరస్కరించబడింది"
+
+msgid "month timeline"
+msgstr "నెలల కాలపరిమితి"
+
+msgid "skill match"
+msgstr "నైపుణ్య మ్యాచ్"
+
+msgid "tasks done"
+msgstr "పనులు పూర్తయ్యాయి"

@@ -1,0 +1,40 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}User Management — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">User Management</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Activate or deactivate accounts across all roles.</p>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">NAME</th><th>ROLE</th><th>STATUS</th><th>APPROVAL</th><th>ACTIONS</th></tr></thead>
+    <tbody>
+      {% for p in all_profiles %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-3 font-medium">{{ p.user.first_name }} {{ p.user.last_name }}</td>
+        <td><span class="badge badge-medium capitalize">{{ p.role }}</span></td>
+        <td><span class="badge badge-{% if p.user.is_active %}growing{% else %}low{% endif %}">{% if p.user.is_active %}Active{% else %}Inactive{% endif %}</span></td>
+        <td>
+          {% if p.role == 'staff' %}
+            <span class="badge badge-{% if p.is_approved %}growing{% else %}high{% endif %}">{% if p.is_approved %}Approved{% else %}Pending{% endif %}</span>
+          {% else %}
+            <span class="text-[#a89a8c]">—</span>
+          {% endif %}
+        </td>
+        <td>
+          <form method="post" class="inline">
+            {% csrf_token %}<input type="hidden" name="user_id" value="{{ p.user.id }}">
+            {% if p.role == 'staff' and not p.is_approved %}
+            <button name="action" value="approve" class="btn-maroon text-xs px-3 py-1 mr-1">Approve</button>
+            {% endif %}
+            {% if p.user.is_active %}
+            <button name="action" value="deactivate" class="text-xs px-3 py-1 border border-[#ecdfc4] rounded-lg">Deactivate</button>
+            {% else %}
+            <button name="action" value="activate" class="btn-maroon text-xs px-3 py-1">Activate</button>
+            {% endif %}
+          </form>
+        </td>
+      </tr>
+      {% empty %}<tr><td colspan="5" class="py-6 text-center text-[#a89a8c]">No users found.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

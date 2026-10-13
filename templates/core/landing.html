@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerMind AI — Navigate Your Future with Precision</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-cream">
+
+<nav class="bg-maroon-900 flex items-center justify-between px-10 py-4">
+  <div class="flex items-center gap-2">
+    <div class="w-8 h-8 rounded-lg bg-gold flex items-center justify-center text-maroon-900 font-bold text-sm">CM</div>
+    <span class="text-white font-semibold">CareerMind AI</span>
+  </div>
+  <div class="hidden md:flex gap-8 text-white/80 text-sm">
+    <span>Features</span><span>Solutions</span><span>Roadmap</span><span>Pricing</span>
+  </div>
+  <div class="flex items-center gap-4">
+    <a href="{% url 'login' %}" class="text-white/90 text-sm">Log In</a>
+    <a href="{% url 'signup' %}" class="btn-gold text-sm">Get Started</a>
+  </div>
+</nav>
+
+<header class="bg-maroon-900 px-10 py-20">
+  <div class="max-w-2xl">
+    <span class="inline-block bg-white/10 text-gold text-xs font-semibold px-3 py-1 rounded-full mb-5">AI-POWERED CAREER INTELLIGENCE</span>
+    <h1 class="font-serif-display text-white text-5xl leading-tight mb-5">Navigate Your Future with <span class="text-gold">Precision.</span></h1>
+    <p class="text-white/70 mb-8">Empower your students with CareerMind AI. From resume optimization to personalized skill roadmaps, we bridge the gap between academic learning and professional success.</p>
+    <div class="flex gap-4">
+      <a href="{% url 'signup' %}" class="btn-gold">Launch Your Career →</a>
+      <a href="#" class="border border-white/30 text-white px-6 py-3 rounded-lg text-sm font-semibold">Book a Demo</a>
+    </div>
+    <div class="flex gap-12 mt-14 text-white">
+      <div><div class="text-2xl font-bold text-gold">98%</div><div class="text-xs text-white/50">PLACEMENT RATE</div></div>
+      <div><div class="text-2xl font-bold text-gold">150+</div><div class="text-xs text-white/50">PARTNER UNIVERSITIES</div></div>
+      <div><div class="text-2xl font-bold text-gold">500K+</div><div class="text-xs text-white/50">CAREER PATHS</div></div>
+      <div><div class="text-2xl font-bold text-gold">24/7</div><div class="text-xs text-white/50">AI CAREER SUPPORT</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="px-10 py-16 text-center">
+  <p class="text-xs tracking-widest text-maroon font-semibold mb-2">TRUSTED BY TOP-TIER ACADEMIC INSTITUTIONS</p>
+  <h2 class="font-serif-display text-3xl mb-3">Empowering Every Step of the Journey</h2>
+  <p class="text-sm text-[#7a6a5e] max-w-2xl mx-auto mb-10">We provide the tools students need to transform their academic background into a thriving professional identity using state-of-the-art career intelligence.</p>
+  <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+    <div class="card p-6">
+      <div class="w-10 h-10 rounded-lg bg-maroon-800 text-white flex items-center justify-center mb-4">🎯</div>
+      <h3 class="font-semibold mb-1">Targeted Predictions</h3>
+      <p class="text-sm text-[#7a6a5e]">Our AI leverages historical placement data and current industry trends to predict the most successful career paths for every unique student.</p>
+    </div>
+    <div class="card p-6">
+      <div class="w-10 h-10 rounded-lg bg-gold text-maroon-900 flex items-center justify-center mb-4">🧠</div>
+      <h3 class="font-semibold mb-1">Deep Skill Mapping</h3>
+      <p class="text-sm text-[#7a6a5e]">Identify the exact skills the market demands. Our system maps your current curriculum against real-world job descriptions to find your competitive edge.</p>
+    </div>
+    <div class="card p-6">
+      <div class="w-10 h-10 rounded-lg bg-maroon-800 text-white flex items-center justify-center mb-4">🚀</div>
+      <h3 class="font-semibold mb-1">Accelerated Growth</h3>
+      <p class="text-sm text-[#7a6a5e]">Don't just apply — stand out. From resume revamps to mock interviews, we provide the ultimate toolkit for rapid professional advancement.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-maroon-900 mx-10 rounded-2xl p-10 mb-16 flex flex-col md:flex-row items-center gap-8">
+  <div class="text-gold text-2xl">★★★★★</div>
+  <p class="text-white text-lg font-serif-display italic flex-1">"CareerMind AI didn't just tell me what jobs I could do, it showed me exactly how to get there. The skill mapping was a game-changer for my transition from academia to tech."</p>
+</section>
+
+<section class="text-center py-16 px-6">
+  <h2 class="font-serif-display text-3xl mb-3">Ready to <span class="text-gold">Transform</span> Your Career Path?</h2>
+  <p class="text-sm text-[#7a6a5e] mb-6">Join thousands of students who are already using AI to unlock their professional potential.</p>
+  <a href="{% url 'signup' %}" class="btn-maroon">Start for Free Today</a>
+</section>
+
+<footer class="bg-cream-2 px-10 py-8 text-xs text-[#7a6a5e] flex justify-between border-t border-[#ecdfc4]">
+  <span>© 2026 CareerMind AI. All rights reserved.</span>
+  <div class="flex gap-6"><span>Privacy Policy</span><span>Terms of Service</span></div>
+</footer>
+
+</body>
+</html>

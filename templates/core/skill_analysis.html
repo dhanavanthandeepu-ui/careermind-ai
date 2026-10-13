@@ -1,0 +1,181 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}Skill Analysis — CareerMind AI{% endblock %}
+{% block content %}
+
+<div class="flex flex-wrap items-end justify-between gap-3 mb-6">
+  <div>
+    <h1 class="font-serif-display text-2xl text-maroon">{% trans "Skill Analysis" %}</h1>
+    <p class="text-sm text-[#7a6a5e]">
+      {% if has_resume and not extraction_failed %}{% blocktrans with label=snap.target_label %}Your detected skills compared with what {{ label }} requires.{% endblocktrans %}
+      {% else %}{% trans "Based on your resume and your target role." %}{% endif %}
+    </p>
+  </div>
+  <div class="flex gap-2">
+    <a href="{% url 'careerpath:set_goal' %}" class="border border-[#ecdfc4] px-4 py-2 rounded-lg text-sm hover:bg-[#f6ecd8] transition">{% trans "Change target" %}</a>
+    <a href="{% url 'learning_roadmap' %}" class="btn-maroon text-sm">{% trans "Open Learning Path" %}</a>
+  </div>
+</div>
+
+{% if not has_resume %}
+<div class="cm-empty mb-6">
+  <div class="font-semibold text-maroon mb-1">{% trans "No skill analysis yet" %}</div>
+  {% trans "Upload your resume to begin your career analysis." %}
+  <div class="mt-4"><a href="{% url 'resume_analyzer' %}" class="btn-maroon inline-block text-sm">{% trans "Upload Resume" %}</a></div>
+</div>
+
+{% elif extraction_failed %}
+<div class="cm-empty mb-6">
+  <div class="font-semibold text-maroon mb-1">{% trans "We couldn't detect skills in your resume" %}</div>
+  {% trans "Add a clearly headed Skills section and upload it again." %}
+  <div class="mt-4"><a href="{% url 'resume_analyzer' %}" class="btn-maroon inline-block text-sm">{% trans "Upload a Different Resume" %}</a></div>
+</div>
+
+{% else %}
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "READINESS" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ snap.readiness }}%</div>
+    <div class="progress-track h-1.5 mt-2"><div class="progress-fill h-1.5" style="width:{{ snap.readiness }}%"></div></div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "REQUIRED SKILLS" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ snap.required|length }}</div>
+    <div class="text-xs text-[#7a6a5e] mt-1">{{ snap.detected|length }} {% trans "detected" %}</div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "SKILL GAPS" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ gap_count }}</div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "FOCUS NEXT" %}</div>
+    {% if next_gap %}<div class="text-lg font-semibold text-maroon">{{ next_gap }}</div>
+    {% else %}<div class="text-sm text-[#7a6a5e] mt-1">{% trans "All required skills met" %}</div>{% endif %}
+  </div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6 mb-6">
+  <div class="card p-6">
+    <h3 class="font-semibold mb-1">{% trans "Coverage" %}</h3>
+    <p class="text-xs text-[#7a6a5e] mb-3">{% trans "Required skills found in your resume" %}</p>
+    <canvas id="radarChart" height="240"></canvas>
+  </div>
+
+  <div class="card p-6 md:col-span-2">
+    <div class="flex items-center justify-between mb-3 gap-3">
+      <div>
+        <h3 class="font-semibold">{% trans "Skills" %}</h3>
+        <p class="text-xs text-[#7a6a5e]">{% trans "Select a skill to see its gap and learning resources." %}</p>
+      </div>
+      <input type="search" id="skillFilter" placeholder="{% trans 'Filter skills' %}" class="input-field w-40 text-sm" aria-label="{% trans 'Filter skills' %}">
+    </div>
+    <div class="flex gap-2 mb-3 text-xs" role="group">
+      <button type="button" class="sk-view btn-maroon" data-view="all">{% trans "All" %}</button>
+      <button type="button" class="sk-view border border-[#ecdfc4] rounded-lg px-3 py-1.5" data-view="gap">{% trans "Gaps" %}</button>
+      <button type="button" class="sk-view border border-[#ecdfc4] rounded-lg px-3 py-1.5" data-view="ok">{% trans "Detected" %}</button>
+    </div>
+
+    <ul class="divide-y divide-[#ecdfc4]" id="skillList">
+      {% for c in cards %}
+      <li class="sk-item" data-name="{{ c.skill.name|lower }}" data-state="{% if c.detected %}ok{% else %}gap{% endif %}">
+        <button type="button" class="sk-toggle w-full text-left py-3 flex items-center justify-between gap-3 hover:bg-[#fdf6e8] transition rounded-lg px-2"
+                aria-expanded="false" aria-controls="sk-panel-{{ forloop.counter }}">
+          <div>
+            <div class="font-medium text-sm">{{ c.skill.name }}</div>
+            <div class="text-xs text-[#7a6a5e]">{{ c.growth }}</div>
+          </div>
+          <div class="flex items-center gap-2">
+            {% if not c.detected %}<span class="badge badge-{{ c.skill.priority }}">{{ c.skill.get_priority_display }}</span>{% endif %}
+            <span class="badge {% if c.detected or c.readiness == 100 %}badge-growing{% else %}badge-stable{% endif %}">{{ c.readiness }}%</span>
+          </div>
+        </button>
+        <div id="sk-panel-{{ forloop.counter }}" class="sk-panel hidden bg-[#fdf6e8] rounded-lg p-4 mb-3 text-sm">
+          <dl class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs mb-3">
+            <div><dt class="text-[#a89a8c]">{% trans "Current" %}</dt><dd class="font-semibold">{% if c.detected %}{% trans "Detected" %}{% else %}{% trans "Not detected" %}{% endif %}</dd></div>
+            <div><dt class="text-[#a89a8c]">{% trans "Target" %}</dt><dd class="font-semibold">{% trans "Required" %}</dd></div>
+            <div><dt class="text-[#a89a8c]">{% trans "Gap" %}</dt><dd class="font-semibold">{% if c.detected %}{% trans "None" %}{% else %}{% trans "Missing" %}{% endif %}</dd></div>
+            <div><dt class="text-[#a89a8c]">{% trans "Growth" %}</dt><dd class="font-semibold">{{ c.growth }}</dd></div>
+          </dl>
+          <p class="text-xs text-[#7a6a5e] mb-3">
+            {% if c.detected %}{% blocktrans with s=c.skill.name r=c.reason %}{{ s }} was found in your resume and is required for {{ r }}.{% endblocktrans %}
+            {% else %}{% blocktrans with s=c.skill.name r=c.reason %}{{ s }} is required for {{ r }} but wasn't found in your resume.{% endblocktrans %}{% endif %}
+          </p>
+          {% if not c.detected %}
+            <div class="text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "LEARNING RESOURCES" %} ({{ c.completed }}/{{ c.total }} {% trans "done" %})</div>
+            {% for r in c.resources %}
+              <div class="flex items-center justify-between py-1">
+                <span class="text-xs {% if r.is_done %}line-through text-[#a89a8c]{% endif %}">{{ r.title }}</span>
+                <a href="{{ r.youtube_url }}" target="_blank" rel="noopener noreferrer" class="text-xs text-maroon font-semibold">{% trans "Open" %}</a>
+              </div>
+            {% empty %}
+              <p class="text-xs text-[#a89a8c]">{% trans "No learning resources available for this skill yet." %}</p>
+            {% endfor %}
+            <a href="{% url 'learning_roadmap' %}" class="btn-maroon inline-block text-xs mt-3">{% trans "Go to Learning Path" %}</a>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <p id="skillEmpty" class="hidden text-sm text-[#7a6a5e] py-4">{% trans "No skills match your filter." %}</p>
+  </div>
+</div>
+
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-1">{% trans "Role Fit" %}</h3>
+  <p class="text-xs text-[#7a6a5e] mb-4">{% trans "How much of each tracked role's required skill set your resume already covers." %}</p>
+  <div class="grid md:grid-cols-3 gap-4">
+    {% for f in role_fits %}
+    <div class="border border-[#ecdfc4] rounded-xl p-4">
+      <div class="flex justify-between items-start gap-2">
+        <span class="font-semibold text-sm">{{ f.role }}</span>
+        <span class="badge {% if f.match >= 60 %}badge-growing{% else %}badge-stable{% endif %}">{{ f.match }}%</span>
+      </div>
+      <div class="text-xs text-[#7a6a5e] mt-2">
+        {% if f.missing %}{% trans "Missing:" %} {{ f.missing|join:", " }}{% else %}{% trans "All required skills detected." %}{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+(function () {
+  new Chart(document.getElementById('radarChart'), {
+    type: 'radar',
+    data: { labels: {{ radar_axes|safe }},
+      datasets: [
+        { label: "{% trans 'You' %}", data: {{ radar_current|safe }}, borderColor: '#6f2035', backgroundColor: 'rgba(111,32,53,.25)' },
+        { label: "{% trans 'Required' %}", data: {{ radar_target|safe }}, borderColor: '#c99a3f', backgroundColor: 'rgba(201,154,63,.15)' }] },
+    options: { scales: { r: { angleLines: { color: '#ecdfc4' }, grid: { color: '#f0e5cf' }, pointLabels: { font: { size: 10 } }, suggestedMin: 0, suggestedMax: 100, ticks: { display: false } } },
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } } }
+  });
+
+  // expand / collapse detail panels (one open at a time)
+  document.querySelectorAll('.sk-toggle').forEach(btn => btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.sk-toggle').forEach(b => { b.setAttribute('aria-expanded', 'false'); document.getElementById(b.getAttribute('aria-controls')).classList.add('hidden'); });
+    if (!open) { btn.setAttribute('aria-expanded', 'true'); document.getElementById(btn.getAttribute('aria-controls')).classList.remove('hidden'); }
+  }));
+
+  // client-side filter (no reload)
+  let view = 'all';
+  const q = document.getElementById('skillFilter');
+  function applyFilter() {
+    const term = q.value.trim().toLowerCase();
+    let shown = 0;
+    document.querySelectorAll('.sk-item').forEach(li => {
+      const ok = (view === 'all' || li.dataset.state === view) && li.dataset.name.includes(term);
+      li.style.display = ok ? '' : 'none'; if (ok) shown++;
+    });
+    document.getElementById('skillEmpty').classList.toggle('hidden', shown > 0);
+  }
+  q.addEventListener('input', applyFilter);
+  document.querySelectorAll('.sk-view').forEach(b => b.addEventListener('click', () => {
+    view = b.dataset.view;
+    document.querySelectorAll('.sk-view').forEach(x => { x.classList.remove('btn-maroon'); x.classList.add('border', 'border-[#ecdfc4]', 'rounded-lg', 'px-3', 'py-1.5'); });
+    b.classList.add('btn-maroon'); applyFilter();
+  }));
+})();
+</script>
+{% endif %}
+{% endblock %}

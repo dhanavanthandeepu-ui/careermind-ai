@@ -1,0 +1,15 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Students — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Students</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Students you might mentor or refer.</p>
+<div class="grid md:grid-cols-3 gap-4">
+  {% for s in student_list %}
+  <div class="card p-5">
+    <div class="font-semibold text-sm">{{ s.user.first_name }} {{ s.user.last_name }}</div>
+    <div class="text-xs text-[#7a6a5e] mb-2">Target: {{ s.target_role }}</div>
+    <div class="progress-track h-1.5"><div class="progress-fill h-1.5" style="width:{{ s.readiness_score }}%"></div></div>
+  </div>
+  {% empty %}<div class="card p-6 text-center text-[#a89a8c] md:col-span-3">No students found.</div>{% endfor %}
+</div>
+{% endblock %}

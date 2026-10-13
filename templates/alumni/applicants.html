@@ -1,0 +1,22 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Applicants — {{ opp.title }}{% endblock %}
+{% block content %}
+<a href="{% url 'alumni:opportunities' %}" class="text-sm text-maroon font-semibold">&larr; Back</a>
+<h1 class="font-serif-display text-2xl text-maroon mt-3 mb-1">Applicants — {{ opp.title }}</h1>
+<p class="text-sm text-[#7a6a5e] mb-5">{{ opp.company }} · {{ apps|length }} application{{ apps|length|pluralize }}. Application status is managed by the placement admin.</p>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">STUDENT</th><th>APPLIED</th><th>STATUS</th><th>COVER NOTE</th></tr></thead>
+    <tbody>
+      {% for a in apps %}
+      <tr class="border-b border-[#f3ead6] align-top">
+        <td class="py-3 font-medium">{{ a.student.get_full_name|default:a.student.username }}</td>
+        <td>{{ a.created_at|date:"M j, Y" }}</td>
+        <td><span class="badge badge-{{ a.status }}">{{ a.get_status_display }}</span></td>
+        <td class="text-[#5a4a3e]">{{ a.cover_note|truncatechars:160 }}</td>
+      </tr>
+      {% empty %}<tr><td colspan="4" class="py-6 text-center text-[#a89a8c]">No applications yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}AI Career Assistant — CareerMind AI{% endblock %}
+{% block content %}
+<div class="grid md:grid-cols-4 gap-6">
+  <div class="md:col-span-3 flex flex-col">
+    <div class="mb-4">
+      <h1 class="font-serif-display text-2xl text-maroon">{% trans "AI Career Assistant" %}</h1>
+      <p class="text-sm text-[#7a6a5e]">{% trans "Answers are built from your own resume analysis, goal and learning progress." %}</p>
+    </div>
+    <div id="chatLog" class="flex-1 space-y-4 mb-4 overflow-y-auto" style="max-height:60vh;" aria-live="polite">
+      <div class="chat-bubble">
+        <p class="text-sm">{% blocktrans with name=request.user.first_name %}Hi {{ name }}. Ask me about your readiness, resume, skill gaps or what to learn next.{% endblocktrans %}</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {% for s in suggestions %}
+        <button type="button" class="suggestion-btn border border-[#ecdfc4] rounded-full px-4 py-2 text-xs hover:bg-cream-2" data-text="{{ s }}">{{ s }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <form id="chatForm" class="flex items-center gap-2 border border-[#ecdfc4] rounded-xl px-4 py-2 bg-white">
+      {% csrf_token %}
+      <input type="text" id="chatInput" maxlength="300" placeholder="{% trans 'Ask about your readiness, resume or skill gaps...' %}" class="flex-1 outline-none text-sm py-2" autocomplete="off">
+      <button type="submit" id="chatSend" class="btn-maroon text-sm px-4 py-2">{% trans "Send" %}</button>
+    </form>
+  </div>
+
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">{% trans "Your context" %}</h3>
+    <div class="space-y-3">
+      <div class="bg-cream-2 rounded-lg p-3">
+        <div class="text-[10px] text-[#a89a8c]">{% trans "CAREER READINESS" %}</div>
+        <div class="font-semibold">{% if snap.readiness is not None %}{{ snap.readiness }}%{% else %}<span class="text-sm text-[#7a6a5e] font-normal">{% trans "Needs a resume" %}</span>{% endif %}</div>
+      </div>
+      <div class="bg-cream-2 rounded-lg p-3">
+        <div class="text-[10px] text-[#a89a8c]">{% trans "TARGET" %}</div>
+        <div class="font-semibold text-sm">{{ snap.target_label }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const log = document.getElementById('chatLog');
+const form = document.getElementById('chatForm');
+const input = document.getElementById('chatInput');
+const sendBtn = document.getElementById('chatSend');
+
+function addBubble(text, fromUser) {
+  const wrap = document.createElement('div');
+  wrap.className = 'flex' + (fromUser ? ' justify-end' : '');
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble' + (fromUser ? ' bg-maroon-800 text-white' : '');
+  bubble.textContent = text;                 // never innerHTML
+  wrap.appendChild(bubble);
+  log.appendChild(wrap);
+  log.scrollTop = log.scrollHeight;
+  return bubble;
+}
+
+async function sendMessage(text) {
+  text = text.trim();
+  if (!text) return;
+  addBubble(text, true);
+  input.value = '';
+  sendBtn.disabled = true;
+  const pending = addBubble('…', false);
+  try {
+    const data = await CM.post("{% url 'chatbot_reply' %}", { message: text });
+    pending.textContent = data.reply;
+  } catch (e) {
+    pending.textContent = "{% trans 'Sorry, something went wrong. Please try again.' %}";
+  } finally { sendBtn.disabled = false; log.scrollTop = log.scrollHeight; }
+}
+
+form.addEventListener('submit', e => { e.preventDefault(); sendMessage(input.value); });
+document.querySelectorAll('.suggestion-btn').forEach(b => b.addEventListener('click', () => sendMessage(b.dataset.text)));
+</script>
+{% endblock %}

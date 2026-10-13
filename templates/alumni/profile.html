@@ -1,0 +1,15 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}My Profile — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-6">My Profile</h1>
+<div class="card p-6 max-w-lg">
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <div><label class="text-xs font-semibold text-[#7a6a5e]">CURRENT COMPANY</label><input name="current_company" value="{{ detail.current_company }}" class="input-field mt-1"></div>
+    <div><label class="text-xs font-semibold text-[#7a6a5e]">DESIGNATION</label><input name="designation" value="{{ detail.designation }}" class="input-field mt-1"></div>
+    <div><label class="text-xs font-semibold text-[#7a6a5e]">INDUSTRY</label><input name="industry" value="{{ detail.industry }}" class="input-field mt-1"></div>
+    <div><label class="text-xs font-semibold text-[#7a6a5e]">BIO</label><textarea name="bio" rows="4" class="input-field mt-1">{{ detail.bio }}</textarea></div>
+    <button type="submit" class="btn-maroon">Save Changes</button>
+  </form>
+</div>
+{% endblock %}

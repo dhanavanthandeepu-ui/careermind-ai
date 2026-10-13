@@ -1,0 +1,30 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Career Events — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Career Events</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Create and manage platform-wide career events.</p>
+
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-3">Create Event</h3>
+  <form method="post" class="grid md:grid-cols-2 gap-3">
+    {% csrf_token %}
+    <input name="title" placeholder="Event title" class="input-field" required>
+    <input name="event_date" type="date" class="input-field" required>
+    <input name="location" placeholder="Location" class="input-field">
+    <input name="organizer" placeholder="Organizer" class="input-field">
+    <textarea name="description" placeholder="Description" class="input-field md:col-span-2" rows="2"></textarea>
+    <button type="submit" class="btn-maroon md:col-span-2">Create Event</button>
+  </form>
+</div>
+
+<div class="grid md:grid-cols-2 gap-4">
+  {% for e in events %}
+  <div class="card p-5">
+    <div class="font-semibold">{{ e.title }}</div>
+    <div class="text-xs text-[#a89a8c] mb-2">{{ e.event_date }} · {{ e.location }} · by {{ e.organizer }}</div>
+    <p class="text-sm text-[#7a6a5e]">{{ e.description }}</p>
+    <div class="text-xs text-[#5a4a3e] mt-2">{{ e.reg_count }} registration{{ e.reg_count|pluralize }}</div>
+  </div>
+  {% empty %}<div class="card p-6 text-center text-[#a89a8c] md:col-span-2">No events yet.</div>{% endfor %}
+</div>
+{% endblock %}

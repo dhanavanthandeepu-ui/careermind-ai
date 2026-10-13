@@ -1,0 +1,23 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Student Progress — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Student Progress</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Track readiness and skill growth across your cohort.</p>
+
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">STUDENT</th><th>READINESS</th><th>RESUME</th><th>SKILLS</th><th>INTERVIEW RATE</th></tr></thead>
+    <tbody>
+      {% for s in students %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-3 font-medium">{{ s.user.first_name }} {{ s.user.last_name }}</td>
+        <td class="w-40"><div class="progress-track h-1.5 w-32"><div class="progress-fill h-1.5" style="width:{{ s.readiness_score }}%"></div></div></td>
+        <td>{{ s.resume_score }}</td>
+        <td>{{ s.skills_acquired }}</td>
+        <td>{{ s.interview_rate }}%</td>
+      </tr>
+      {% empty %}<tr><td colspan="5" class="py-6 text-center text-[#a89a8c]">No students yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

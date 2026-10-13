@@ -1,0 +1,95 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="{{ csrf_token }}">
+<title>{% block title %}CareerMind AI{% endblock %}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script src="{% static 'js/app.js' %}" defer></script>
+</head>
+<body class="min-h-screen flex">
+
+<aside id="cmSidebar" class="cm-sidebar hidden md:flex w-64 bg-maroon-900 flex-col justify-between py-6 px-4 min-h-screen sticky top-0 shrink-0">
+  <div>
+    <div class="flex items-center gap-2 px-2 mb-8">
+      <div class="w-9 h-9 rounded-lg bg-gold flex items-center justify-center text-maroon-900 font-bold">CM</div>
+      <span class="text-white font-semibold text-lg">CareerMind AI</span>
+    </div>
+    <nav class="space-y-1">
+      <a href="{% url 'dashboard' %}" class="sidebar-link {% if active == 'dashboard' %}active{% endif %}">{% trans "Dashboard" %}</a>
+      <a href="{% url 'skill_analysis' %}" class="sidebar-link {% if active == 'skill_analysis' %}active{% endif %}">{% trans "Skill Gap Analysis" %}</a>
+      <a href="{% url 'careerpath:roadmap' %}" class="sidebar-link {% if active == 'career_roadmap' or active == 'career_goal' %}active{% endif %}">{% trans "Career Roadmap" %}</a>
+      <a href="{% url 'resume_analyzer' %}" class="sidebar-link {% if active == 'resume' %}active{% endif %}">{% trans "Resume Analyzer" %}</a>
+      <a href="{% url 'learning_roadmap' %}" class="sidebar-link {% if active == 'roadmap' %}active{% endif %}">{% trans "Learning Roadmap" %}</a>
+      <a href="{% url 'ai_chatbot' %}" class="sidebar-link {% if active == 'chatbot' %}active{% endif %}">{% trans "AI Chatbot" %}</a>
+      <div class="text-[11px] uppercase tracking-wider text-white/40 px-3 pt-4 pb-1">{% trans "Career Services" %}</div>
+      <a href="{% url 'student:opportunities' %}" class="sidebar-link {% if active == 'opportunities' %}active{% endif %}">{% trans "Career Opportunities" %}</a>
+      <a href="{% url 'student:my_applications' %}" class="sidebar-link {% if active == 'applications' %}active{% endif %}">{% trans "My Applications" %}</a>
+      <a href="{% url 'student:find_mentor' %}" class="sidebar-link {% if active == 'mentor' %}active{% endif %}">{% trans "Find a Mentor" %}</a>
+      <a href="{% url 'student:my_mentorship' %}" class="sidebar-link {% if active == 'my_mentorship' %}active{% endif %}">{% trans "My Mentorship" %}</a>
+      <a href="{% url 'student:workshops' %}" class="sidebar-link {% if active == 'workshops' %}active{% endif %}">{% trans "Workshops & Events" %}</a>
+      <a href="{% url 'notifications' %}" class="sidebar-link {% if active == 'notifications' %}active{% endif %}">{% trans "Notifications" %}{% if nav_unread_count %}<span class="badge badge-high ml-auto">{{ nav_unread_count }}</span>{% endif %}</a>
+    </nav>
+  </div>
+  <div>
+    <div class="flex items-center gap-3 px-2 py-3 border-t border-white/10">
+      <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center text-maroon-900 font-bold text-sm">
+        {{ request.user.first_name|first|upper }}{{ request.user.last_name|first|upper }}
+      </div>
+      <div class="leading-tight">
+        <div class="text-white text-sm font-medium">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+        <div class="text-[11px] text-white/50">{% trans "Student Account" %}</div>
+      </div>
+    </div>
+    <a href="{% url 'logout' %}" class="sidebar-link mt-1">{% trans "Log Out" %}</a>
+  </div>
+</aside>
+
+<div class="flex-1 min-h-screen flex flex-col">
+  <header class="bg-cream px-4 md:px-8 py-4 flex items-center justify-between border-b border-[#ecdfc4]">
+    <button type="button" id="cmMenuBtn" class="md:hidden border border-[#ecdfc4] rounded-lg px-3 py-1.5 text-sm" aria-controls="cmSidebar" aria-label="Toggle navigation">Menu</button>
+    <div class="hidden md:block"></div>
+    <div class="flex items-center gap-4 pl-6">
+      {% include "partials/notification_bell.html" %}
+      <form action="{% url 'set_language' %}" method="post" class="flex items-center gap-1 text-xs">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        {% get_available_languages as AVAILABLE_LANGUAGES %}
+        {% for code, name in AVAILABLE_LANGUAGES %}<button type="submit" name="language" value="{{ code }}"
+          class="px-1 {% if code == CURRENT_LANGUAGE %}text-maroon font-bold{% else %}text-[#a89a8c]{% endif %}">{{ name }}</button>{% if not forloop.last %}<span class="text-[#ecdfc4]">|</span>{% endif %}{% endfor %}
+      </form>
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xs font-bold">
+          {{ request.user.first_name|first|upper }}
+        </div>
+        <span class="text-sm font-medium">{{ request.user.first_name }} {% trans "Student" %}</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 p-4 md:p-8 min-w-0">
+    {% if messages %}
+    <ul class="hidden" aria-hidden="true">
+      {% for message in messages %}<li data-cm-message="{{ message.tags }}">{{ message }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</div>
+
+<script>
+document.getElementById('cmMenuBtn').addEventListener('click', function () {
+  var sb = document.getElementById('cmSidebar');
+  sb.classList.toggle('hidden'); sb.classList.toggle('fixed'); sb.classList.toggle('z-40'); sb.classList.toggle('inset-y-0'); sb.classList.toggle('left-0');
+});
+</script>
+</body>
+</html>

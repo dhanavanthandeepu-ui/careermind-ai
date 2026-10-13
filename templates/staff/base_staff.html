@@ -1,0 +1,19 @@
+{% extends "partials/role_base.html" %}
+{% block account_label %}Staff Account{% endblock %}
+{% block topbar_role_label %}Staff{% endblock %}
+{% block search_placeholder %}Search students, reviews, reports...{% endblock %}
+{% block notifications_url %}{% url 'notifications' %}{% endblock %}
+{% block nav_items %}
+  <a href="{% url 'staff:dashboard' %}" class="sidebar-link {% if active == 'dashboard' %}active{% endif %}">Staff Dashboard</a>
+  <a href="{% url 'staff:students' %}" class="sidebar-link {% if active == 'students' %}active{% endif %}">Students</a>
+  <a href="{% url 'staff:student_progress' %}" class="sidebar-link {% if active == 'progress' %}active{% endif %}">Student Progress</a>
+  <a href="{% url 'staff:resume_review' %}" class="sidebar-link {% if active == 'resume_review' %}active{% endif %}">Resume Review</a>
+  <a href="{% url 'staff:skill_analysis' %}" class="sidebar-link {% if active == 'skill_analysis' %}active{% endif %}">Skill Analysis</a>
+  <a href="{% url 'staff:career_guidance' %}" class="sidebar-link {% if active == 'guidance' %}active{% endif %}">Career Guidance</a>
+  <a href="{% url 'staff:opportunities' %}" class="sidebar-link {% if active == 'opportunities' %}active{% endif %}">Jobs &amp; Internships</a>
+  <a href="{% url 'staff:workshops' %}" class="sidebar-link {% if active == 'workshops' %}active{% endif %}">My Workshops</a>
+  <a href="{% url 'staff:events' %}" class="sidebar-link {% if active == 'events' %}active{% endif %}">Career Events</a>
+  <a href="{% url 'notifications' %}" class="sidebar-link {% if active == 'notifications' %}active{% endif %}">Notifications{% if nav_unread_count %}<span class="badge badge-high ml-auto">{{ nav_unread_count }}</span>{% endif %}</a>
+  <a href="{% url 'staff:reports' %}" class="sidebar-link {% if active == 'reports' %}active{% endif %}">Reports</a>
+  <a href="{% url 'staff:profile' %}" class="sidebar-link {% if active == 'profile' %}active{% endif %}">Staff Profile</a>
+{% endblock %}

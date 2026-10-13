@@ -1,0 +1,15 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Events — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Events</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Alumni meetups and career events.</p>
+<div class="grid md:grid-cols-2 gap-4">
+  {% for e in events %}
+  <div class="card p-5">
+    <div class="font-semibold">{{ e.title }}</div>
+    <div class="text-xs text-[#a89a8c] mb-2">{{ e.event_date }} · {{ e.location }}</div>
+    <p class="text-sm text-[#7a6a5e]">{{ e.description }}</p>
+  </div>
+  {% empty %}<div class="card p-6 text-center text-[#a89a8c] md:col-span-2">No events scheduled.</div>{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}{{ mentor.get_full_name|default:mentor.username }} — {% trans "Mentor" %} — CareerMind AI{% endblock %}
+{% block content %}
+<a href="{% url 'student:find_mentor' %}" class="text-sm text-maroon font-semibold">&larr; {% trans "Back to mentors" %}</a>
+<div class="grid md:grid-cols-3 gap-6 mt-4">
+  <div class="card p-6 md:col-span-2">
+    <h1 class="font-serif-display text-2xl text-maroon">{{ mentor.get_full_name|default:mentor.username }}</h1>
+    <div class="text-sm text-[#5a4a3e]">{% blocktrans with role=detail.designation company=detail.current_company %}{{ role }} at {{ company }}{% endblocktrans %}</div>
+    <div class="text-xs text-[#7a6a5e] mb-4">{{ detail.industry }} · {% blocktrans with n=detail.experience_years %}{{ n }} yrs experience{% endblocktrans %} · {% blocktrans with y=detail.graduation_year %}Class of {{ y }}{% endblocktrans %}</div>
+    {% if detail.bio %}<h3 class="font-semibold mb-1">{% trans "About" %}</h3><p class="text-sm text-[#5a4a3e] whitespace-pre-line mb-4">{{ detail.bio }}</p>{% endif %}
+    {% if skill_names %}<h3 class="font-semibold mb-1">{% trans "Skills & expertise" %}</h3><div>{% for sk in skill_names %}<span class="chip">{{ sk }}</span>{% endfor %}</div>{% endif %}
+  </div>
+
+  <div class="card p-6" id="request">
+    <h3 class="font-semibold mb-3">{% trans "Mentorship" %}</h3>
+    {% if existing.status == 'accepted' %}
+      <span class="badge badge-accepted">{% trans "Connected" %}</span>
+      <p class="text-sm text-[#7a6a5e] mt-2">{% trans "You are connected with this mentor." %}</p>
+    {% elif existing.status == 'pending' %}
+      <span class="badge badge-pending">{% trans "Pending" %}</span>
+      <p class="text-sm text-[#7a6a5e] mt-2">{% blocktrans with d=existing.created_at|date:"M j, Y" %}Your request was sent on {{ d }}. You'll be notified when the mentor responds.{% endblocktrans %}</p>
+    {% else %}
+      {% if existing.status == 'declined' %}<p class="text-xs text-[#8c2c2c] mb-3">{% trans "Your earlier request was not accepted. You can send a new one." %}</p>{% endif %}
+      <form method="post" action="{% url 'student:request_mentorship' mentor.pk %}" data-loading class="grid gap-3">
+        {% csrf_token %}
+        {% include "partials/form_fields.html" %}
+        <button type="submit" class="btn-maroon text-sm" data-loading-text="Sending…">{% trans "Request Mentorship" %}</button>
+      </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

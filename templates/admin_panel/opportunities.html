@@ -1,0 +1,62 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Jobs & Internships — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Jobs &amp; Internships</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Review posts from alumni. Only approved posts are visible to students; approving notifies matching students.</p>
+
+<form method="get" class="card p-4 mb-5 grid md:grid-cols-5 gap-3 items-end">
+  <div class="md:col-span-2"><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="q">Search</label><input id="q" name="q" value="{{ q }}" placeholder="Title or company" class="input-field"></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="kind">Type</label>
+    <select id="kind" name="kind" class="input-field"><option value="">Jobs &amp; internships</option><option value="job" {% if kind == 'job' %}selected{% endif %}>Jobs</option><option value="internship" {% if kind == 'internship' %}selected{% endif %}>Internships</option></select></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="status">Status</label>
+    <select id="status" name="status" class="input-field"><option value="">All</option>{% for v, l in status_choices %}<option value="{{ v }}" {% if status == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select></div>
+  <button class="btn-maroon text-sm" type="submit">Filter</button>
+</form>
+
+<div class="card p-6 mb-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">TITLE</th><th>COMPANY</th><th>TYPE</th><th>POSTED BY</th><th>APPLICATIONS</th><th>STATUS</th><th>ACTIONS</th></tr></thead>
+    <tbody>
+      {% for o in opportunities %}
+      <tr class="border-b border-[#f3ead6] align-top">
+        <td class="py-3 font-medium">{{ o.title }}{% if o.skills %}<div class="text-xs text-[#a89a8c] font-normal">{{ o.skills }}</div>{% endif %}</td>
+        <td>{{ o.company }}</td>
+        <td>{{ o.get_kind_display }}</td>
+        <td>{{ o.posted_by_name }}</td>
+        <td>{{ o.app_count }}</td>
+        <td><span class="badge badge-{{ o.status }}">{{ o.get_status_display }}</span>{% if o.status == 'rejected' and o.review_note %}<div class="text-xs text-[#8c2c2c] mt-1">{{ o.review_note }}</div>{% endif %}</td>
+        <td>
+          <form method="post" class="flex flex-wrap gap-1 items-center">
+            {% csrf_token %}<input type="hidden" name="opp_id" value="{{ o.id }}">
+            {% if o.status == 'pending' %}
+              <input name="review_note" placeholder="Rejection note (optional)" class="input-field !w-40 !py-1 text-xs">
+              <button name="action" value="approve" class="btn-maroon text-xs px-3">Approve</button>
+              <button name="action" value="reject" class="border border-[#ecdfc4] text-xs px-3 rounded-lg"
+                      data-confirm="This post will be rejected and won't be shown to students."
+                      data-confirm-title="Reject this post?" data-confirm-text="Reject">Reject</button>
+            {% elif o.status == 'open' %}
+              <button name="action" value="close" class="border border-[#ecdfc4] text-xs px-3 rounded-lg"
+                      data-confirm="Students will no longer see this post."
+                      data-confirm-title="Close this post?" data-confirm-text="Close">Close</button>
+            {% else %}
+              <button name="action" value="approve" class="border border-[#ecdfc4] text-xs px-3 rounded-lg">Re-open</button>
+            {% endif %}
+          </form>
+        </td>
+      </tr>
+      {% empty %}<tr><td colspan="7" class="py-6 text-center text-[#a89a8c]">No opportunities match.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "partials/pagination.html" %}
+
+<details class="card p-6 mt-6" {% if form.errors %}open{% endif %}>
+  <summary class="font-semibold cursor-pointer">Post an opportunity as admin</summary>
+  <p class="text-xs text-[#7a6a5e] my-3">Admin postings are published immediately and students are notified.</p>
+  <form method="post" class="grid md:grid-cols-2 gap-4" data-loading>
+    {% csrf_token %}<input type="hidden" name="form_type" value="create">
+    {% include "partials/form_fields.html" %}
+    <button type="submit" class="btn-maroon md:col-span-2" data-loading-text="Publishing…">Publish</button>
+  </form>
+</details>
+{% endblock %}

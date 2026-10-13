@@ -1,0 +1,108 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Companies & Role Requirements — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Companies & Role Requirements</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Manage the companies, career domains/roles and per-company skill requirements that drive every student's skill-gap analysis and roadmap. Nothing here is hardcoded into templates — everything is stored in the database and can be edited any time.</p>
+
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+  <div class="card p-5">
+    <h3 class="font-semibold mb-3 text-sm">Add Company</h3>
+    <form method="post" class="space-y-2">
+      {% csrf_token %}
+      <input type="hidden" name="form_type" value="add_company">
+      <input name="name" placeholder="Company name" class="input-field w-full" required>
+      <button type="submit" class="btn-maroon w-full text-sm">Add Company</button>
+    </form>
+  </div>
+  <div class="card p-5">
+    <h3 class="font-semibold mb-3 text-sm">Add Career Domain</h3>
+    <form method="post" class="space-y-2">
+      {% csrf_token %}
+      <input type="hidden" name="form_type" value="add_domain">
+      <input name="name" placeholder="e.g. Data Analytics" class="input-field w-full" required>
+      <button type="submit" class="btn-maroon w-full text-sm">Add Domain</button>
+    </form>
+  </div>
+  <div class="card p-5">
+    <h3 class="font-semibold mb-3 text-sm">Add Career Role</h3>
+    <form method="post" class="space-y-2">
+      {% csrf_token %}
+      <input type="hidden" name="form_type" value="add_role">
+      <select name="domain_id" class="input-field w-full" required>
+        <option value="">Select domain…</option>
+        {% for d in domains %}<option value="{{ d.id }}">{{ d.name }}</option>{% endfor %}
+      </select>
+      <input name="name" placeholder="e.g. Data Analyst" class="input-field w-full" required>
+      <button type="submit" class="btn-maroon w-full text-sm">Add Role</button>
+    </form>
+  </div>
+</div>
+
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-3">Companies</h3>
+  <div class="flex flex-wrap gap-2">
+    {% for c in companies %}
+    <a href="?company={{ c.id }}" class="px-3 py-1.5 rounded-full text-xs border {% if selected_company.id == c.id %}bg-maroon-900 text-white border-maroon-900{% elif c.is_active %}border-[#ecdfc4] text-maroon{% else %}border-[#ecdfc4] text-[#a89a8c] line-through{% endif %}">{{ c.name }}</a>
+    {% empty %}<p class="text-sm text-[#a89a8c]">No companies yet — add one above, or run <code>python manage.py seed_companies</code>.</p>{% endfor %}
+  </div>
+</div>
+
+{% if selected_company %}
+<div class="card p-6 mb-6">
+  <div class="flex items-center justify-between mb-3">
+    <h3 class="font-semibold">{{ selected_company.name }} — Role Requirements</h3>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="form_type" value="toggle_company">
+      <input type="hidden" name="company_id" value="{{ selected_company.id }}">
+      <button type="submit" class="text-xs underline text-[#7a6a5e]">{% if selected_company.is_active %}Disable this company{% else %}Re-enable this company{% endif %}</button>
+    </form>
+  </div>
+
+  <form method="post" class="grid md:grid-cols-5 gap-2 mb-5">
+    {% csrf_token %}
+    <input type="hidden" name="form_type" value="add_requirement">
+    <input type="hidden" name="company_id" value="{{ selected_company.id }}">
+    <select name="role_id" class="input-field" required>
+      <option value="">Role…</option>
+      {% for d in domains %}
+        {% for r in d.roles.all %}<option value="{{ r.id }}">{{ r.name }} ({{ d.name }})</option>{% endfor %}
+      {% endfor %}
+    </select>
+    <input name="skill_name" placeholder="Skill (e.g. Power BI)" class="input-field" required>
+    <select name="priority" class="input-field">
+      {% for value, label in priority_choices %}<option value="{{ value }}" {% if value == 'medium' %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    <input name="source" placeholder="Source (optional)" class="input-field">
+    <button type="submit" class="btn-maroon text-sm">Save Requirement</button>
+  </form>
+
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#7a6a5e]"><th class="pb-2">Role</th><th class="pb-2">Skill</th><th class="pb-2">Priority</th><th class="pb-2">Source</th><th class="pb-2">Updated</th><th></th></tr></thead>
+    <tbody>
+    {% for req in requirements %}
+      <tr class="border-t border-[#f1e6cd]">
+        <td class="py-2">{{ req.role.name }}</td>
+        <td class="py-2">{{ req.skill.name }}</td>
+        <td class="py-2">{{ req.get_priority_display }}</td>
+        <td class="py-2 text-xs text-[#a89a8c]">{{ req.source }}</td>
+        <td class="py-2 text-xs text-[#a89a8c]">{{ req.last_updated }}</td>
+        <td class="py-2 text-right">
+          <form method="post">{% csrf_token %}
+            <input type="hidden" name="form_type" value="delete_requirement">
+            <input type="hidden" name="requirement_id" value="{{ req.id }}">
+            <input type="hidden" name="company_id" value="{{ selected_company.id }}">
+            <button type="submit" class="text-xs text-red-600 underline">Remove</button>
+          </form>
+        </td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="6" class="py-4 text-center text-[#a89a8c]">No requirements on file for {{ selected_company.name }} yet.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="card p-6 text-sm text-[#a89a8c]">Select a company above to view or edit its role requirements.</div>
+{% endif %}
+{% endblock %}

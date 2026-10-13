@@ -1,0 +1,16 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Skills & Expertise — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Skills &amp; Expertise</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Areas where you can mentor students.</p>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">SKILL</th><th>PROFICIENCY</th></tr></thead>
+    <tbody>
+      {% for s in skills %}
+      <tr class="border-b border-[#f3ead6]"><td class="py-2">{{ s.name }}</td><td><div class="progress-track h-1.5 w-32"><div class="progress-fill h-1.5" style="width:{{ s.current }}%"></div></div></td></tr>
+      {% empty %}<tr><td colspan="2" class="py-6 text-center text-[#a89a8c]">No skills tracked yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

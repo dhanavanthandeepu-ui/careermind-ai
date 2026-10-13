@@ -1,0 +1,79 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Career Opportunities" %} — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-3xl text-maroon mb-1">{% trans "Career Opportunities" %}</h1>
+<p class="text-sm text-[#7a6a5e] mb-5">{% trans "Published jobs and internships from alumni and the placement cell, prioritised for your career goal." %}</p>
+
+<div class="flex border-b border-[#ecdfc4] mb-5">
+  <a href="?kind=job" class="tab-link {% if kind == 'job' %}active{% endif %}">{% trans "Jobs" %} ({{ counts.job }})</a>
+  <a href="?kind=internship" class="tab-link {% if kind == 'internship' %}active{% endif %}">{% trans "Internships" %} ({{ counts.internship }})</a>
+</div>
+
+<form method="get" class="card p-4 mb-6 grid md:grid-cols-5 gap-3 items-end">
+  <input type="hidden" name="kind" value="{{ kind }}">
+  <div class="md:col-span-2"><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="q">{% trans "Search" %}</label>
+    <input id="q" name="q" value="{{ q }}" placeholder="{% trans 'Title, company, skill or location' %}" class="input-field"></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="type">{% trans "Type" %}</label>
+    <select id="type" name="type" class="input-field"><option value="">{% trans "All types" %}</option>
+      {% for v, l in employment_choices %}<option value="{{ v }}" {% if etype == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="sort">{% trans "Sort by" %}</label>
+    <select id="sort" name="sort" class="input-field">
+      <option value="recommended" {% if sort == 'recommended' %}selected{% endif %}>{% trans "Recommended" %}</option>
+      <option value="newest" {% if sort == 'newest' %}selected{% endif %}>{% trans "Newest" %}</option>
+      <option value="deadline" {% if sort == 'deadline' %}selected{% endif %}>{% trans "Deadline" %}</option></select></div>
+  <button type="submit" class="btn-maroon text-sm">{% trans "Apply filters" %}</button>
+</form>
+
+{% if not has_resume %}
+<div class="card p-4 mb-5 text-sm text-[#7a6a5e] flex items-center justify-between gap-3">
+  <span>{% trans "Upload your resume to see which listed skills you already have." %}</span>
+  <a href="{% url 'resume_analyzer' %}" class="btn-outline">{% trans "Upload Resume" %}</a>
+</div>
+{% endif %}
+
+{% if page %}
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+  {% for o in page %}
+  <div class="card p-5 flex flex-col">
+    <div class="flex items-start justify-between gap-2 mb-2">
+      <div class="flex flex-wrap gap-1">
+        <span class="badge badge-low">{{ o.get_kind_display }}</span>
+        <span class="badge badge-low">{{ o.get_employment_type_display }}</span>
+      </div>
+      {% if o.application %}<span class="badge badge-{{ o.application.status }}">{{ o.application.get_status_display }}</span>{% endif %}
+    </div>
+    {% if o.for_goal %}<div class="text-xs font-semibold text-[#2f7d4a] mb-1">{% trans "Recommended for your career goal" %}</div>{% endif %}
+    <h3 class="font-semibold text-maroon">{{ o.title }}</h3>
+    <div class="text-sm text-[#5a4a3e]">{{ o.company }}</div>
+    <div class="text-xs text-[#7a6a5e] mb-3">{{ o.location }}{% if o.pay %} · {{ o.pay }}{% endif %}</div>
+
+    {% if o.skill_list %}
+    <div class="mb-2">
+      {% for sk in o.skill_list %}<span class="chip {% if sk in o.skills_have %}chip-have{% endif %}">{{ sk }}</span>{% endfor %}
+    </div>
+    {% if o.match is not None %}<div class="text-xs text-[#7a6a5e] mb-2">{% blocktrans with have=o.skills_have|length total=o.skill_list|length pct=o.match %}You have {{ have }} of {{ total }} listed skills ({{ pct }}% match).{% endblocktrans %}</div>{% endif %}
+    {% endif %}
+    {% if o.eligibility %}<div class="text-xs text-[#7a6a5e]"><span class="font-semibold">{% trans "Eligibility" %}:</span> {{ o.eligibility }}</div>{% endif %}
+    <div class="text-xs text-[#7a6a5e]"><span class="font-semibold">{% trans "Deadline" %}:</span> {% if o.deadline %}{{ o.deadline|date:"M j, Y" }}{% else %}{% trans "Open until filled" %}{% endif %}</div>
+    <div class="text-xs text-[#7a6a5e] mb-4"><span class="font-semibold">{% trans "Posted by" %}:</span> {{ o.posted_by_name }}</div>
+
+    <div class="mt-auto flex gap-2">
+      <a href="{% url 'student:opportunity_detail' o.pk %}" class="btn-outline flex-1">{% trans "View Details" %}</a>
+      {% if o.application %}
+        <a href="{% url 'student:my_applications' %}" class="btn-disabled flex-1">{% trans "Applied" %}</a>
+      {% else %}
+        <a href="{% url 'student:opportunity_apply' o.pk %}" class="btn-maroon flex-1 text-center text-sm !py-2">{% trans "Apply Now" %}</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="cm-empty">
+  {% if q or etype %}{% trans "No opportunities match your filters." %} <a class="text-maroon font-semibold" href="?kind={{ kind }}">{% trans "Clear filters" %}</a>
+  {% else %}{% trans "Nothing is published here right now. New postings appear once an admin approves them." %}{% endif %}
+</div>
+{% endif %}
+{% endblock %}

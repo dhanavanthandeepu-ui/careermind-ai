@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Workshops & Events" %} — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-3xl text-maroon mb-1">{% trans "Workshops & Events" %}</h1>
+<p class="text-sm text-[#7a6a5e] mb-5">{% trans "Career workshops, seminars and sessions from staff and alumni." %}</p>
+<div class="flex border-b border-[#ecdfc4] mb-5">
+  <a href="?tab=upcoming" class="tab-link {% if tab == 'upcoming' %}active{% endif %}">{% trans "Upcoming" %}</a>
+  <a href="?tab=registered" class="tab-link {% if tab == 'registered' %}active{% endif %}">{% trans "My Registrations" %}</a>
+</div>
+<form method="get" class="card p-4 mb-6 grid md:grid-cols-4 gap-3 items-end">
+  <input type="hidden" name="tab" value="{{ tab }}">
+  <div class="md:col-span-2"><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="q">{% trans "Search" %}</label>
+    <input id="q" name="q" value="{{ q }}" placeholder="{% trans 'Title, topic or speaker' %}" class="input-field"></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="type">{% trans "Session type" %}</label>
+    <select id="type" name="type" class="input-field"><option value="">{% trans "All types" %}</option>
+      {% for v, l in type_choices %}<option value="{{ v }}" {% if etype == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select></div>
+  <button type="submit" class="btn-maroon text-sm">{% trans "Apply filters" %}</button>
+</form>
+{% if page %}
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+  {% for e in page %}
+  <div class="card overflow-hidden flex flex-col">
+    {% if e.banner %}<img src="{{ e.banner.url }}" alt="" class="w-full h-32 object-cover">{% endif %}
+    <div class="p-5 flex flex-col flex-1">
+      <div class="flex flex-wrap gap-1 mb-2">
+        <span class="badge badge-low">{{ e.get_event_type_display }}</span>
+        <span class="badge badge-low">{{ e.get_mode_display }}</span>
+        {% if e.is_registered %}<span class="badge badge-accepted">{% trans "Registered" %}</span>{% endif %}
+      </div>
+      <h3 class="font-semibold text-maroon">{{ e.title }}</h3>
+      <div class="text-xs text-[#7a6a5e] mb-2">{{ e.event_date|date:"D, M j, Y" }}{% if e.event_time %} · {{ e.event_time|time:"g:i A" }}{% endif %} · {% if e.is_online %}{% trans "Online" %}{% else %}{{ e.location }}{% endif %}</div>
+      {% if e.speaker %}<div class="text-xs text-[#5a4a3e]">{% trans "Speaker" %}: {{ e.speaker }}</div>{% endif %}
+      <div class="text-xs text-[#a89a8c] mb-3">{% trans "Posted by" %} {{ e.posted_by_name }}</div>
+      <div class="mt-auto flex gap-2">
+        <a href="{% url 'student:workshop_detail' e.pk %}" class="btn-outline flex-1">{% trans "View Details" %}</a>
+        {% if e.is_registered %}<span class="btn-disabled flex-1">{% trans "Registered" %}</span>
+        {% elif e.registration_open %}<a href="{% url 'student:workshop_detail' e.pk %}" class="btn-maroon flex-1 text-center text-sm !py-2">{% trans "Register Now" %}</a>
+        {% else %}<span class="btn-disabled flex-1">{% trans "Registration Closed" %}</span>{% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="cm-empty">{% if tab == 'registered' %}{% trans "You haven't registered for any sessions yet." %}{% elif q or etype %}{% trans "Nothing matches your filters." %} <a class="text-maroon font-semibold" href="?tab=upcoming">{% trans "Clear filters" %}</a>{% else %}{% trans "No upcoming workshops or events right now." %}{% endif %}</div>
+{% endif %}
+{% endblock %}

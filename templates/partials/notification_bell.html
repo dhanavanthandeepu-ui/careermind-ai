@@ -1,0 +1,32 @@
+{% load i18n %}
+<details class="relative" id="cmBell">
+  <summary class="cursor-pointer list-none flex items-center gap-1.5 text-sm font-medium text-maroon select-none" aria-label="{% trans 'Notifications' %}">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+    <span class="hidden sm:inline">{% trans "Notifications" %}</span>
+    {% if nav_unread_count %}<span class="badge badge-high" id="cmBellCount">{{ nav_unread_count }}</span>{% endif %}
+  </summary>
+  <div class="absolute right-0 mt-2 w-80 max-w-[90vw] card shadow-lg z-50 overflow-hidden">
+    <div class="flex items-center justify-between px-4 py-3 border-b border-[#ecdfc4]">
+      <span class="text-sm font-semibold">{% trans "Notifications" %}</span>
+      {% if nav_unread_count %}
+      <form method="post" action="{% url 'notifications_read_all' %}">
+        {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" class="text-xs text-maroon font-semibold">{% trans "Mark all as read" %}</button>
+      </form>
+      {% endif %}
+    </div>
+    {% for n in nav_recent_notifications %}
+    <a href="{% url 'notification_open' n.pk %}" class="block px-4 py-3 border-b border-[#f3ead6] hover:bg-[#fdf6e8] {% if not n.is_read %}bg-[#fffaf0]{% endif %}">
+      <div class="flex items-start justify-between gap-2">
+        <div class="text-sm {% if not n.is_read %}font-semibold{% endif %}">{{ n.display_title|default:n.display_message|truncatechars:60 }}</div>
+        {% if not n.is_read %}<span class="w-2 h-2 rounded-full bg-gold mt-1.5 shrink-0" aria-label="{% trans 'Unread' %}"></span>{% endif %}
+      </div>
+      <div class="text-xs text-[#7a6a5e] mt-0.5">{{ n.display_message|truncatechars:90 }}</div>
+      <div class="text-[11px] text-[#a89a8c] mt-1">{% blocktrans with t=n.created_at|timesince %}{{ t }} ago{% endblocktrans %}</div>
+    </a>
+    {% empty %}
+    <div class="px-4 py-6 text-center text-sm text-[#7a6a5e]">{% trans "No notifications yet." %}</div>
+    {% endfor %}
+    <a href="{% url 'notifications' %}" class="block text-center text-sm font-semibold text-maroon py-3">{% trans "View all notifications" %}</a>
+  </div>
+</details>

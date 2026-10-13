@@ -1,0 +1,65 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Jobs & Internships — CareerMind AI{% endblock %}
+{% block content %}
+<div class="flex flex-wrap items-end justify-between gap-3 mb-1">
+  <h1 class="font-serif-display text-2xl text-maroon">My Jobs &amp; Internships</h1>
+  <a href="{% url 'alumni:opportunity_new' %}" class="btn-maroon text-sm">Post Job / Internship</a>
+</div>
+<p class="text-sm text-[#7a6a5e] mb-5">Postings are reviewed by an admin before students can see or apply to them.</p>
+
+<form method="get" class="flex flex-wrap gap-3 mb-5">
+  <select name="kind" class="input-field !w-auto"><option value="">Jobs &amp; internships</option>
+    <option value="job" {% if kind == 'job' %}selected{% endif %}>Jobs</option><option value="internship" {% if kind == 'internship' %}selected{% endif %}>Internships</option></select>
+  <select name="status" class="input-field !w-auto"><option value="">All statuses</option>
+    {% for v, l in status_choices %}<option value="{{ v }}" {% if status == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>
+  <button class="btn-outline" type="submit">Filter</button>
+</form>
+
+{% for o in my_opps %}
+<div class="card p-5 mb-3">
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div>
+      <div class="flex flex-wrap items-center gap-2 mb-1">
+        <span class="badge badge-{{ o.status }}">{{ o.get_status_display }}</span>
+        <span class="badge badge-low">{{ o.get_kind_display }}</span>
+      </div>
+      <div class="font-semibold text-maroon">{{ o.title }}</div>
+      <div class="text-xs text-[#7a6a5e]">{{ o.company }} · {{ o.location }}{% if o.deadline %} · Deadline {{ o.deadline|date:"M j, Y" }}{% endif %}</div>
+      {% if o.status == 'rejected' %}<div class="text-xs text-[#8c2c2c] mt-1">Rejected by admin{% if o.review_note %}: {{ o.review_note }}{% endif %}. Edit and resubmit if you'd like.</div>{% endif %}
+      {% if o.status == 'pending' %}<div class="text-xs text-[#8a6a1c] mt-1">Waiting for admin approval. Not visible to students yet.</div>{% endif %}
+    </div>
+    <div class="flex flex-wrap gap-2 items-center">
+      {% if o.status == 'open' or o.status == 'closed' %}<a href="{% url 'alumni:opportunity_applicants' o.pk %}" class="btn-outline">Applicants</a>{% endif %}
+      {% if o.status == 'draft' or o.status == 'rejected' %}
+        <a href="{% url 'alumni:opportunity_edit' o.pk %}" class="btn-outline">Edit</a>
+        <form method="post" action="{% url 'alumni:opportunity_action' o.pk %}" class="flex gap-2">
+          {% csrf_token %}
+          <button name="action" value="submit" class="btn-maroon text-xs !py-2 !px-3">Submit for approval</button>
+          <button name="action" value="delete" class="btn-outline" data-confirm="This posting will be permanently deleted." data-confirm-title="Delete posting?" data-confirm-text="Delete">Delete</button>
+        </form>
+      {% elif o.status == 'open' %}
+        <form method="post" action="{% url 'alumni:opportunity_action' o.pk %}">
+          {% csrf_token %}<button name="action" value="close" class="btn-outline" data-confirm="Students will no longer be able to apply." data-confirm-title="Close this posting?" data-confirm-text="Close">Close</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% empty %}
+<div class="cm-empty mb-6">{% if kind or status %}No postings match these filters.{% else %}You haven't posted anything yet.{% endif %}</div>
+{% endfor %}
+
+<div class="card p-6 mt-6">
+  <h3 class="font-semibold mb-1">Quick post</h3>
+  <p class="text-xs text-[#7a6a5e] mb-3">Short form — submitted straight for approval. Use "Post Job / Internship" to add skills, eligibility, deadline and domain.</p>
+  <form method="post" class="grid md:grid-cols-2 gap-3" data-loading>
+    {% csrf_token %}
+    <input name="title" placeholder="Title" class="input-field" required>
+    <input name="company" placeholder="Company" class="input-field" required>
+    <select name="kind" class="input-field"><option value="job">Job</option><option value="internship">Internship</option></select>
+    <input name="location" placeholder="Location" class="input-field">
+    <input name="pay" placeholder="Pay (optional)" class="input-field md:col-span-2">
+    <button type="submit" class="btn-maroon md:col-span-2" data-loading-text="Submitting…">Submit for approval</button>
+  </form>
+</div>
+{% endblock %}

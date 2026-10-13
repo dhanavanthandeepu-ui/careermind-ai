@@ -1,0 +1,22 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Reports & Analytics — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Reports &amp; Analytics</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Platform-wide placement and readiness trends.</p>
+
+<div class="grid grid-cols-2 gap-4 mb-6">
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e]">TOTAL STUDENTS</div><div class="text-2xl font-bold text-maroon">{{ total_students }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e]">PLACEMENT READY (80%+)</div><div class="text-2xl font-bold text-maroon">{{ placed_ready }}</div></div>
+</div>
+<div class="card p-6">
+  <h3 class="font-semibold mb-4">Quarterly Readiness Trend</h3>
+  <canvas id="quarterChart" height="100"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('quarterChart'), {
+  type: 'line',
+  data: { labels: {{ chart_labels|safe }}, datasets: [{ data: {{ chart_values|safe }}, borderColor:'#6f2035', backgroundColor:'rgba(111,32,53,.08)', tension:.35, fill:true, pointBackgroundColor:'#c99a3f' }] },
+  options: { plugins:{legend:{display:false}}, scales:{y:{grid:{color:'#f0e5cf'}}, x:{grid:{display:false}}} }
+});
+</script>
+{% endblock %}

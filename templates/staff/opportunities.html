@@ -1,0 +1,17 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Jobs & Internships — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Jobs &amp; Internships</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Opportunities currently visible to your students.</p>
+
+<div class="grid md:grid-cols-3 gap-4">
+  {% for o in opportunities %}
+  <div class="card p-5">
+    <span class="badge badge-{% if o.status == 'open' %}growing{% elif o.status == 'pending' %}medium{% else %}low{% endif %}">{{ o.get_status_display }}</span>
+    <div class="font-semibold text-sm mt-2">{{ o.title }}</div>
+    <div class="text-xs text-[#7a6a5e]">{{ o.company }} · {{ o.location }}</div>
+    <div class="text-xs text-[#7a6a5e]">{{ o.get_kind_display }} {% if o.pay %}· {{ o.pay }}{% endif %}</div>
+  </div>
+  {% empty %}<div class="card p-6 text-center text-[#a89a8c] md:col-span-3">No opportunities posted yet.</div>{% endfor %}
+</div>
+{% endblock %}

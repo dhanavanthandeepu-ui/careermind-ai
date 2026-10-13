@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Received — CareerMind AI</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-maroon-900 min-h-screen flex items-center justify-center p-6">
+<div class="max-w-md w-full bg-cream rounded-2xl p-10 text-center shadow-2xl">
+  <div class="text-5xl mb-4">📋</div>
+  <h1 class="font-serif-display text-2xl text-maroon mb-2">Registration Received</h1>
+  <p class="text-sm text-[#7a6a5e] mb-6">Your Faculty account has been submitted for review. An Administrator must approve it before you can log in.</p>
+  <a href="{% url 'login' %}" class="btn-maroon inline-block">Back to Login</a>
+</div>
+</body>
+</html>

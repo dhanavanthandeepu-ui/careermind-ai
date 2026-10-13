@@ -1,0 +1,32 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Skill Analysis — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Skill Analysis</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Skills across the cohort with the largest growth opportunity.</p>
+
+<div class="card p-6">
+  <canvas id="skillBar" height="110"></canvas>
+</div>
+<div class="card p-6 mt-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">STUDENT</th><th>SKILL</th><th>CURRENT</th><th>TARGET</th><th>PRIORITY</th></tr></thead>
+    <tbody>
+      {% for sk in low_skills %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-2">{{ sk.profile.user.first_name }} {{ sk.profile.user.last_name }}</td>
+        <td>{{ sk.name }}</td><td>{{ sk.current }}%</td><td>{{ sk.target }}%</td>
+        <td><span class="badge badge-{{ sk.priority }}">{{ sk.get_priority_display }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<script>
+new Chart(document.getElementById('skillBar'), {
+  type: 'bar',
+  data: { labels: [{% for sk in low_skills %}"{{ sk.name }}",{% endfor %}],
+    datasets: [{ data: [{% for sk in low_skills %}{{ sk.current }},{% endfor %}], backgroundColor:'#84293f', borderRadius:6 }] },
+  options: { plugins:{legend:{display:false}}, scales:{y:{grid:{color:'#f0e5cf'}}, x:{grid:{display:false}}} }
+});
+</script>
+{% endblock %}

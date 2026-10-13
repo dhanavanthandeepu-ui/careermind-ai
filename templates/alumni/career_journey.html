@@ -1,0 +1,20 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Career Journey — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Career Journey</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Your path from graduation to {{ detail.current_company }}.</p>
+<div class="card p-6 max-w-2xl">
+  <div class="flex items-center gap-4 border-l-2 border-gold pl-4 py-3">
+    <div>
+      <div class="font-semibold text-sm">Graduated · Class of {{ detail.graduation_year }}</div>
+      <div class="text-xs text-[#7a6a5e]">CareerMind University</div>
+    </div>
+  </div>
+  <div class="flex items-center gap-4 border-l-2 border-maroon-800 pl-4 py-3">
+    <div>
+      <div class="font-semibold text-sm">{{ detail.designation }} · {{ detail.current_company }}</div>
+      <div class="text-xs text-[#7a6a5e]">{{ detail.experience_years }} years experience in {{ detail.industry }}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

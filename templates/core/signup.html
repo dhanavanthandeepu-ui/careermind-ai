@@ -1,0 +1,398 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Your Profile — CareerMind AI</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CareerMind CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Signup specific styling -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-serif-display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* FORCE LEFT CARD MAROON */
+        .signup-left {
+            background: #6f2035 !important;
+            background-color: #6f2035 !important;
+        }
+
+        /* Logo */
+        .signup-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #c99a3f;
+            color: #5c1a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Form inputs */
+        .signup-input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #e5d8bd;
+            background: #f6ecd8;
+            outline: none;
+            font-size: 14px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .signup-input:focus {
+            border-color: #c99a3f;
+            box-shadow: 0 0 0 3px rgba(201, 154, 63, 0.2);
+        }
+
+        /* Button */
+        .signup-button {
+            width: 100%;
+            background: #6f2035;
+            color: #fdf6e8;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .signup-button:hover {
+            background: #84293f;
+        }
+
+        /* Sign in */
+        .signin-link {
+            color: #6f2035;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .signin-link:hover {
+            color: #84293f;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .signup-container {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="bg-cream-2 min-h-screen flex items-center justify-center p-6">
+
+
+    <!-- MAIN CARD -->
+    <div class="signup-container max-w-5xl w-full bg-cream rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-xl">
+
+
+        <!-- ================================================= -->
+        <!-- LEFT SIDE -->
+        <!-- ================================================= -->
+
+        <div
+            class="flex-1 signup-left p-10 flex flex-col justify-center text-white"
+            style="background:#6f2035 !important; background-color:#6f2035 !important;"
+        >
+
+            <!-- LOGO -->
+            <div class="flex items-center gap-2 mb-8">
+
+                <div class="signup-logo">
+                    CM
+                </div>
+
+                <span class="font-semibold">
+                    CareerMind AI
+                </span>
+
+            </div>
+
+
+            <!-- HEADING -->
+            <h1 class="font-serif-display text-3xl mb-4">
+                Unlock Your Academic Potential with AI Intelligence.
+            </h1>
+
+
+            <!-- DESCRIPTION -->
+            <p class="text-white/70 text-sm mb-8">
+                Join thousands of students who are navigating their career paths with precision.
+                From resume analysis to personalized skill maps, your future starts here.
+            </p>
+
+
+            <!-- FEATURES -->
+            <ul class="space-y-3 text-sm">
+
+                <li class="flex items-center gap-2">
+                    <span class="text-gold">✓</span>
+                    AI-Powered Career Predictions
+                </li>
+
+                <li class="flex items-center gap-2">
+                    <span class="text-gold">✓</span>
+                    Automated Resume Analysis
+                </li>
+
+                <li class="flex items-center gap-2">
+                    <span class="text-gold">✓</span>
+                    Personalized Learning Roadmaps
+                </li>
+
+                <li class="flex items-center gap-2">
+                    <span class="text-gold">✓</span>
+                    Industry Skill Gap Insights
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- RIGHT SIDE -->
+        <!-- ================================================= -->
+
+        <div class="flex-1 p-10 bg-white">
+
+
+            <!-- TITLE -->
+            <h2 class="font-serif-display text-3xl mb-1">
+                Create Your Profile
+            </h2>
+
+
+            <p class="text-sm text-[#7a6a5e] mb-6">
+                Join CareerMind and get your first personalized readiness score.
+            </p>
+
+
+
+            <!-- FORM ERRORS -->
+            {% if form.errors %}
+
+            <div class="text-sm text-red-700 bg-red-100 border border-red-300 rounded-lg px-3 py-2 mb-4">
+
+                {{ form.errors }}
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- FORM -->
+            <form method="post" class="space-y-4">
+
+                {% csrf_token %}
+
+
+
+                <!-- FIRST NAME / LAST NAME -->
+                <div class="grid grid-cols-2 gap-4">
+
+
+                    <!-- FIRST NAME -->
+                    <div>
+
+                        <label class="text-xs font-semibold text-[#7a6a5e]">
+                            FIRST NAME
+                        </label>
+
+                        {{ form.first_name }}
+
+                    </div>
+
+
+                    <!-- LAST NAME -->
+                    <div>
+
+                        <label class="text-xs font-semibold text-[#7a6a5e]">
+                            LAST NAME
+                        </label>
+
+                        {{ form.last_name }}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- UNIVERSITY EMAIL -->
+                <div>
+
+                    <label class="text-xs font-semibold text-[#7a6a5e]">
+                        UNIVERSITY EMAIL
+                    </label>
+
+                    {{ form.email }}
+
+                </div>
+
+
+
+                <!-- STUDENT ID / DEPARTMENT -->
+                <div class="grid grid-cols-2 gap-4">
+
+
+                    <!-- REGISTER NUMBER -->
+                    <div>
+
+                        <label class="text-xs font-semibold text-[#7a6a5e]">
+                            STUDENT ID / REGISTER NUMBER
+                        </label>
+
+                        {{ form.register_number }}
+
+                    </div>
+
+
+                    <!-- DEPARTMENT -->
+                    <div>
+
+                        <label class="text-xs font-semibold text-[#7a6a5e]">
+                            DEPARTMENT
+                        </label>
+
+                        {{ form.department }}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- YEAR -->
+                <div>
+
+                    <label class="text-xs font-semibold text-[#7a6a5e]">
+                        YEAR
+                    </label>
+
+                    {{ form.year }}
+
+                </div>
+
+
+
+                <!-- TARGET ROLE -->
+                <div>
+
+                    <label class="text-xs font-semibold text-[#7a6a5e]">
+                        TARGET ROLE (optional)
+                    </label>
+
+                    {{ form.target_role }}
+
+                </div>
+
+
+
+                <!-- PASSWORD / CONFIRM PASSWORD -->
+                <div class="grid grid-cols-2 gap-4">
+
+
+                    <!-- PASSWORD -->
+                    <div>
+
+                        <label class="text-xs font-semibold text-[#7a6a5e]">
+                            PASSWORD
+                        </label>
+
+                        {{ form.password1 }}
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div>
+
+                        <label class="text-xs font-semibold text-[#7a6a5e]">
+                            CONFIRM PASSWORD
+                        </label>
+
+                        {{ form.password2 }}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUBMIT BUTTON -->
+                <button
+                    type="submit"
+                    class="signup-button"
+                >
+                    Continue to Academic Details →
+                </button>
+
+            </form>
+
+
+
+            <!-- SIGN IN -->
+            <p class="text-center text-xs text-[#7a6a5e] mt-6">
+
+                Already have an account?
+
+                <a
+                    href="{% url 'login' %}"
+                    class="signin-link"
+                >
+                    Sign In
+                </a>
+
+            </p>
+
+
+
+            <!-- SECURITY -->
+            <div class="flex gap-4 justify-center mt-4 text-[11px] text-[#7a6a5e]">
+
+                <span>
+                    ENTERPRISE SECURE
+                </span>
+
+                <span>
+                    GDPR COMPLIANT
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

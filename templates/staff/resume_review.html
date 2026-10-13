@@ -1,0 +1,30 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Resume Review — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Resume Review</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Review resumes submitted by students for feedback.</p>
+
+<div class="space-y-4">
+  {% for r in reviews %}
+  <div class="card p-5">
+    <div class="flex items-center justify-between mb-2">
+      <div>
+        <div class="font-medium text-sm">{{ r.student.first_name }} {{ r.student.last_name }}</div>
+        <div class="text-xs text-[#a89a8c]">Submitted {{ r.submitted_at|timesince }} ago</div>
+      </div>
+      <span class="badge badge-{% if r.status == 'pending' %}high{% else %}growing{% endif %}">{{ r.get_status_display }}</span>
+    </div>
+    {% if r.status == 'pending' %}
+    <form method="post" class="flex gap-2 mt-3">
+      {% csrf_token %}
+      <input type="hidden" name="review_id" value="{{ r.id }}">
+      <input type="text" name="notes" placeholder="Add review notes..." class="input-field flex-1 text-sm">
+      <button type="submit" class="btn-maroon text-sm">Mark Reviewed</button>
+    </form>
+    {% else %}
+    <p class="text-sm text-[#7a6a5e] italic">"{{ r.notes }}"</p>
+    {% endif %}
+  </div>
+  {% empty %}<div class="card p-6 text-center text-[#a89a8c]">No resume submissions yet.</div>{% endfor %}
+</div>
+{% endblock %}

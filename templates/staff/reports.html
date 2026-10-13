@@ -1,0 +1,22 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Reports — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Reports</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Cohort-level placement and skill readiness summary.</p>
+
+<div class="grid grid-cols-2 gap-4 mb-6">
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e]">TOTAL STUDENTS</div><div class="text-2xl font-bold text-maroon">{{ total_students }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e]">PLACEMENT READY (80%+)</div><div class="text-2xl font-bold text-maroon">{{ placed_ready }}</div></div>
+</div>
+<div class="card p-6">
+  <h3 class="font-semibold mb-4">Skill Category Averages</h3>
+  <canvas id="reportBar" height="100"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('reportBar'), {
+  type: 'bar',
+  data: { labels: {{ chart_labels|safe }}, datasets: [{ data: {{ chart_values|safe }}, backgroundColor:'#c99a3f', borderRadius:6 }] },
+  options: { plugins:{legend:{display:false}}, scales:{y:{grid:{color:'#f0e5cf'}}, x:{grid:{display:false}}} }
+});
+</script>
+{% endblock %}

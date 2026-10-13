@@ -1,0 +1,15 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}{% if opp %}Edit{% else %}Post{% endif %} Opportunity — CareerMind AI{% endblock %}
+{% block content %}
+<a href="{% url 'alumni:opportunities' %}" class="text-sm text-maroon font-semibold">&larr; Back</a>
+<h1 class="font-serif-display text-2xl text-maroon mt-3 mb-1">{% if opp %}Edit{% else %}Post a{% endif %} Job / Internship</h1>
+<p class="text-sm text-[#7a6a5e] mb-5">Save a draft, or submit it for admin approval. Once approved, matching students are notified.</p>
+<form method="post" class="card p-6 max-w-3xl" data-loading>
+  {% csrf_token %}
+  <div class="grid md:grid-cols-2 gap-4">{% include "partials/form_fields.html" %}</div>
+  <div class="flex flex-wrap gap-2 mt-6">
+    <button type="submit" name="action" value="submit" class="btn-maroon text-sm" data-loading-text="Submitting…">Submit for approval</button>
+    <button type="submit" name="action" value="draft" class="btn-outline">Save as draft</button>
+  </div>
+</form>
+{% endblock %}

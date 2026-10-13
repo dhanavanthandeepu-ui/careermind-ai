@@ -1,0 +1,157 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}Your Career Roadmap — CareerMind AI{% endblock %}
+{% block content %}
+
+<div class="bg-maroon-900 rounded-2xl p-8 mb-6 flex items-center justify-between flex-wrap gap-4">
+  <div>
+    <div class="text-white/60 text-xs uppercase tracking-wide mb-1">{% trans "Your Career Goal" %}</div>
+    <h1 class="font-serif-display text-white text-3xl mb-1">{{ goal.role.name }} @ {{ goal.company.name }}</h1>
+    <div class="text-white/70 text-sm">{% trans "Target" %}: {{ goal.timeline_months }} {% trans "months" %}</div>
+  </div>
+  <div class="flex gap-3">
+    <a href="{% url 'careerpath:set_goal' %}" class="border border-white/30 text-white px-5 py-2.5 rounded-lg text-sm font-semibold">{% trans "Change Goal" %}</a>
+    {% if has_resume %}
+    <form method="post" action="{% url 'careerpath:recalculate_roadmap' %}">{% csrf_token %}
+      <button type="submit" class="btn-gold text-sm">{% trans "Recalculate from Latest Resume" %}</button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+
+{% if not has_resume %}
+<div class="card p-5 mb-6 border border-[#ecdfc4]">
+  <div class="text-sm text-[#7a6a5e]">{% trans "Upload your resume to generate your career analysis." %} <a href="{% url 'dashboard' %}" class="text-maroon font-semibold underline">{% trans "Go to Dashboard" %}</a></div>
+</div>
+{% endif %}
+
+{% if not gap_result.has_requirements %}
+<div class="card p-5 mb-6 border border-[#ecdfc4]">
+  <div class="text-sm text-[#7a6a5e]">{% trans "No skill requirements are on file yet for" %} {{ goal.role.name }} {% trans "at" %} {{ goal.company.name }}. {% trans "An Admin needs to add them before a real skill-gap analysis can be shown." %}</div>
+</div>
+{% else %}
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "CURRENT READINESS" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ gap_result.match_percentage }}%</div>
+    <div class="progress-track h-1.5 mt-2"><div class="progress-fill h-1.5" style="width:{{ gap_result.match_percentage }}%"></div></div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "ROADMAP PROGRESS" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ roadmap.progress_percentage }}%</div>
+    <div class="progress-track h-1.5 mt-2"><div class="progress-fill gold h-1.5" style="width:{{ roadmap.progress_percentage }}%"></div></div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "SKILLS YOU HAVE" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ gap_result.current|length }}</div>
+  </div>
+  <div class="card p-5">
+    <div class="text-xs text-[#7a6a5e] mb-1">{% trans "CRITICAL GAPS" %}</div>
+    <div class="text-2xl font-bold text-maroon">{{ feedback.critical_gaps|length }}</div>
+  </div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+  <div class="card p-6">
+    <h3 class="font-semibold mb-3">{% trans "Current Profile" %}</h3>
+    {% if gap_result.current %}
+    <ul class="text-sm space-y-2">
+      {% for req in gap_result.current %}
+      <li class="flex justify-between border-b border-[#f1e6cd] pb-2"><span>{{ req.skill.name }}</span><span class="text-green-700 text-xs font-semibold">{% trans "Detected" %}</span></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-sm text-[#a89a8c]">{% trans "None of the required skills were detected yet." %}</p>
+    {% endif %}
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-3">{% trans "Skill Gaps" %}</h3>
+    {% if gap_result.gaps %}
+    <table class="w-full text-sm">
+      <thead><tr class="text-left text-xs text-[#7a6a5e]"><th class="pb-2">{% trans "Skill" %}</th><th class="pb-2">{% trans "Current" %}</th><th class="pb-2">{% trans "Target" %}</th><th class="pb-2">{% trans "Priority" %}</th></tr></thead>
+      <tbody>
+      {% for req in gap_result.gaps %}
+        <tr class="border-t border-[#f1e6cd]">
+          <td class="py-2">{{ req.skill.name }}</td>
+          <td class="py-2 text-[#a89a8c]">{{ req.current_status }}</td>
+          <td class="py-2">{{ req.target_status }}</td>
+          <td class="py-2">
+            {% if req.priority == 'critical' %}<span class="text-red-600 font-semibold">{% trans "Critical" %}</span>
+            {% elif req.priority == 'high' %}<span class="text-maroon font-semibold">{% trans "High" %}</span>
+            {% else %}<span class="text-[#a89a8c]">{{ req.get_priority_display }}</span>{% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="text-sm text-green-700">{% trans "All tracked requirements for this role are currently met." %}</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-4">{% trans "Personalized Roadmap" %}</h3>
+  <div class="space-y-4">
+    {% for milestone in milestones %}
+    <div class="border border-[#f1e6cd] rounded-lg p-4 milestone-row {% if milestone.is_completed %}bg-[#fbf6e8]{% endif %}" data-milestone-id="{{ milestone.id }}">
+      <div class="flex items-center justify-between mb-2">
+        <div class="font-semibold text-maroon">{% trans "Month" %} {{ milestone.month_number }} — {{ milestone.title }}</div>
+        <label class="flex items-center gap-2 text-xs text-[#7a6a5e]">
+          <input type="checkbox" class="milestone-checkbox" data-milestone-id="{{ milestone.id }}" {% if milestone.is_completed %}checked{% endif %}>
+          {% trans "Completed" %}
+        </label>
+      </div>
+      <ul class="text-sm text-[#5a4a3e] list-disc list-inside space-y-1">
+        {% for task in milestone.tasks %}<li>{{ task }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-2">{% trans "Overall Career Feedback" %}</h3>
+  <dl class="text-sm space-y-2">
+    <div class="flex justify-between border-b border-[#f1e6cd] pb-2"><dt class="text-[#7a6a5e]">{% trans "Learning Progress" %}</dt><dd>{{ feedback.milestones_done }} / {{ feedback.milestones_total }} {% trans "milestones completed" %}</dd></div>
+    <div class="flex justify-between border-b border-[#f1e6cd] pb-2"><dt class="text-[#7a6a5e]">{% trans "Next Priority" %}</dt><dd class="text-right max-w-xs">{{ feedback.next_action }}</dd></div>
+  </dl>
+</div>
+
+<div class="card p-6">
+  <h3 class="font-semibold mb-2">{% trans "Your Career Summary" %}</h3>
+  <p class="text-sm text-[#5a4a3e]">{{ summary }}</p>
+</div>
+
+<script>
+function getRoadmapCookie(name) {
+  let cookieValue = null;
+  if (document.cookie) {
+    document.cookie.split(';').forEach(function (c) {
+      c = c.trim();
+      if (c.startsWith(name + '=')) cookieValue = decodeURIComponent(c.substring(name.length + 1));
+    });
+  }
+  return cookieValue;
+}
+const roadmapCsrfToken = getRoadmapCookie('csrftoken');
+
+document.querySelectorAll('.milestone-checkbox').forEach(function (checkbox) {
+  checkbox.addEventListener('change', function () {
+    const id = checkbox.dataset.milestoneId;
+    fetch(`/career/roadmap/milestone/${id}/toggle/`, {
+      method: 'POST',
+      headers: { 'X-CSRFToken': roadmapCsrfToken },
+    })
+      .then(r => r.json())
+      .then(data => {
+        checkbox.closest('.milestone-row').classList.toggle('bg-[#fbf6e8]', data.is_completed);
+      })
+      .catch(err => console.error('Milestone update failed:', err));
+  });
+});
+</script>
+
+{% endif %}
+{% endblock %}

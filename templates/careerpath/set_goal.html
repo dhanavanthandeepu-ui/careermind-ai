@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}Set Career Goal — CareerMind AI{% endblock %}
+{% block content %}
+
+<div class="bg-maroon-900 rounded-2xl p-8 mb-6">
+  <h1 class="font-serif-display text-white text-3xl mb-2">{% trans "Set Your Career Goal" %}</h1>
+  <p class="text-white/70 text-sm max-w-2xl">{% blocktrans %}Choose your target domain, role, company and preparation timeline. CareerMind compares your resume against the real requirements on file for this role and company, and generates a month-by-month roadmap from the gaps.{% endblocktrans %}</p>
+</div>
+
+{% if not has_resume %}
+<div class="card p-5 mb-6 border border-[#ecdfc4]">
+  <div class="text-sm text-[#7a6a5e]">{% trans "Upload your resume first so CareerMind can compare your actual skills against this goal." %} <a href="{% url 'dashboard' %}" class="text-maroon font-semibold underline">{% trans "Go to Dashboard" %}</a></div>
+</div>
+{% elif detected_domain %}
+<div class="card p-5 mb-6">
+  <div class="text-xs text-[#7a6a5e] mb-1">{% trans "DETECTED CAREER PROFILE" %}</div>
+  <div class="text-xl font-serif-display font-bold text-maroon">{{ detected_domain }}</div>
+  <div class="text-xs text-[#7a6a5e] mt-1">{{ domain_explanation }}</div>
+</div>
+{% else %}
+<div class="card p-5 mb-6">
+  <div class="text-sm text-[#7a6a5e]">{{ domain_explanation }}</div>
+</div>
+{% endif %}
+
+<div class="card p-6 max-w-xl">
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "Target Domain" %}</label>
+        {{ form.domain }}
+        {% for error in form.domain.errors %}<div class="text-xs text-red-600 mt-1">{{ error }}</div>{% endfor %}
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "Target Role" %}</label>
+        {{ form.role }}
+        {% for error in form.role.errors %}<div class="text-xs text-red-600 mt-1">{{ error }}</div>{% endfor %}
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "Target Company" %}</label>
+        {{ form.company }}
+        {% for error in form.company.errors %}<div class="text-xs text-red-600 mt-1">{{ error }}</div>{% endfor %}
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "Target Timeline" %}</label>
+        {{ form.timeline_months }}
+      </div>
+    </div>
+    <button type="submit" class="btn-gold text-sm mt-6">{% trans "Save Goal & Generate Roadmap" %} →</button>
+  </form>
+  <p class="text-xs text-[#a89a8c] mt-4">{% trans "Note: a role only shows real skill requirements if an Admin has added them for the selected company. If none are on file yet, your roadmap page will say so clearly rather than showing invented requirements." %}</p>
+</div>
+
+{% endblock %}

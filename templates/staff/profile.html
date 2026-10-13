@@ -1,0 +1,17 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}Staff Profile — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-6">Staff Profile</h1>
+<div class="card p-6 max-w-lg">
+  <div class="w-16 h-16 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl font-bold mb-4">
+    {{ request.user.first_name|first }}{{ request.user.last_name|first }}
+  </div>
+  <div class="space-y-3 text-sm">
+    <div><span class="text-[#7a6a5e]">Name:</span> {{ request.user.first_name }} {{ request.user.last_name }}</div>
+    <div><span class="text-[#7a6a5e]">Email:</span> {{ request.user.email }}</div>
+    <div><span class="text-[#7a6a5e]">Department:</span> {{ detail.department }}</div>
+    <div><span class="text-[#7a6a5e]">Designation:</span> {{ detail.designation }}</div>
+    <div><span class="text-[#7a6a5e]">Students Assigned:</span> {{ detail.students_assigned }}</div>
+  </div>
+</div>
+{% endblock %}

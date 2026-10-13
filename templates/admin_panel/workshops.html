@@ -1,0 +1,33 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Workshops & Sessions — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Workshops &amp; Sessions</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Review sessions submitted by staff and alumni. Approving publishes the session and notifies relevant students.</p>
+<form method="get" class="flex gap-3 mb-5">
+  <select name="status" class="input-field !w-auto"><option value="">All statuses</option>{% for v, l in status_choices %}<option value="{{ v }}" {% if status == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>
+  <button class="btn-outline" type="submit">Filter</button>
+</form>
+{% for e in page %}
+<div class="card p-5 mb-3">
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div>
+      <div class="flex flex-wrap gap-2 items-center mb-1"><span class="badge badge-{{ e.status }}">{{ e.get_status_display }}</span><span class="badge badge-low">{{ e.get_event_type_display }}</span><span class="badge badge-low">{{ e.get_mode_display }}</span></div>
+      <div class="font-semibold text-maroon">{{ e.title }}</div>
+      <div class="text-xs text-[#7a6a5e]">{{ e.event_date|date:"M j, Y" }}{% if e.event_time %} · {{ e.event_time|time:"g:i A" }}{% endif %} · by {{ e.posted_by_name }}{% if e.target_domain %} · {{ e.target_domain.name }}{% endif %}</div>
+      {% if e.description %}<p class="text-sm text-[#5a4a3e] mt-1">{{ e.description|truncatechars:200 }}</p>{% endif %}
+      <div class="text-xs text-[#a89a8c] mt-1">{{ e.reg_count }} registration{{ e.reg_count|pluralize }}{% if e.status == 'rejected' and e.review_note %} · Note: {{ e.review_note }}{% endif %}</div>
+    </div>
+    <form method="post" class="flex flex-wrap gap-1 items-center">
+      {% csrf_token %}<input type="hidden" name="event_id" value="{{ e.id }}">
+      {% if e.status == 'pending' or e.status == 'rejected' %}<button name="action" value="approve" class="btn-maroon text-xs px-3">Approve &amp; Publish</button>{% endif %}
+      {% if e.status == 'pending' or e.status == 'published' %}
+        <input name="review_note" placeholder="Rejection note (optional)" class="input-field !w-40 !py-1 text-xs">
+        <button name="action" value="reject" class="border border-[#ecdfc4] text-xs px-3 rounded-lg" data-confirm="The author will be told this was not approved and students will no longer see it." data-confirm-title="Reject this session?" data-confirm-text="Reject">Reject</button>
+      {% endif %}
+      {% if e.status == 'published' %}<button name="action" value="cancel" class="border border-[#ecdfc4] text-xs px-3 rounded-lg" data-confirm="The session will be cancelled." data-confirm-title="Cancel this session?" data-confirm-text="Cancel session">Cancel</button>{% endif %}
+    </form>
+  </div>
+</div>
+{% empty %}<div class="cm-empty">No sessions have been submitted yet.</div>{% endfor %}
+{% include "partials/pagination.html" %}
+{% endblock %}

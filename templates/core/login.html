@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — CareerMind AI</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-maroon-900 min-h-screen flex items-center justify-center p-6">
+<div class="max-w-5xl w-full bg-maroon-900 rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl border border-white/10">
+
+  <div class="flex-1 p-10 flex flex-col justify-center">
+    <div class="flex items-center gap-2 mb-8">
+      <div class="w-8 h-8 rounded-lg bg-gold flex items-center justify-center text-maroon-900 font-bold text-sm">CM</div>
+      <span class="text-gold font-semibold">CareerMind AI</span>
+    </div>
+    <h1 class="font-serif-display text-white text-4xl leading-tight mb-5">Empowering the <span class="text-gold italic">Next Generation</span> of Global Leaders.</h1>
+    <p class="text-white/60 text-sm mb-8">Join thousands of students and faculty members using AI to navigate complex career landscapes and achieve professional excellence.</p>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-white/5 rounded-xl p-4">
+        <div class="text-gold mb-2">🎓</div>
+        <div class="text-white text-sm font-semibold mb-1">Academic Excellence</div>
+        <div class="text-white/50 text-xs">Tailored roadmaps based on university curriculum and market trends.</div>
+      </div>
+      <div class="bg-white/5 rounded-xl p-4">
+        <div class="text-gold mb-2">💼</div>
+        <div class="text-white text-sm font-semibold mb-1">Career Trajectory</div>
+        <div class="text-white/50 text-xs">Predictive analysis for high-growth sectors and institutional alignment.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-1 bg-cream p-10 flex flex-col justify-center">
+    <h2 class="font-serif-display text-3xl mb-1">Welcome Back</h2>
+    <p class="text-sm text-[#7a6a5e] mb-6">Select your portal to continue</p>
+
+    <div class="grid grid-cols-4 gap-2 mb-6 text-xs">
+      <button type="button" data-role="student" class="role-tab card p-2 text-center border-2 border-maroon-800 bg-maroon-800 text-white rounded-lg">🎓<br>Student</button>
+      <button type="button" data-role="staff" class="role-tab card p-2 text-center rounded-lg">👤<br>Faculty</button>
+      <button type="button" data-role="alumni" class="role-tab card p-2 text-center rounded-lg">👥<br>Alumni</button>
+      <button type="button" data-role="admin" class="role-tab card p-2 text-center rounded-lg">🛡️<br>Admin</button>
+    </div>
+
+    {% if form.errors %}
+    <div class="text-sm text-red-700 bg-red-100 border border-red-300 rounded-lg px-3 py-2 mb-4">
+      {% if form.non_field_errors %}{{ form.non_field_errors.0 }}{% else %}Please check your email and password and try again.{% endif %}
+    </div>
+    {% endif %}
+
+    <form method="post" class="space-y-4" id="loginForm">
+      {% csrf_token %}
+      <input type="hidden" name="role" id="roleInput" value="student">
+      <div>
+        <label class="text-xs font-semibold text-[#7a6a5e]">INSTITUTIONAL EMAIL</label>
+        <input type="text" name="username" class="input-field mt-1" placeholder="e.g. alex.smith@university.edu" required>
+      </div>
+      <div>
+        <label class="text-xs font-semibold text-[#7a6a5e]">PASSWORD</label>
+        <input type="password" name="password" class="input-field mt-1" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn-maroon w-full">Secure Login →</button>
+    </form>
+
+    <p class="text-center text-xs text-[#7a6a5e] mt-6">New to CareerMind? <a href="{% url 'signup' %}" class="text-maroon font-semibold">Create an institutional account</a> · <a href="{% url 'faculty_signup' %}" class="text-maroon font-semibold">Register as Faculty</a></p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.role-tab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    document.querySelectorAll('.role-tab').forEach(function (t) {
+      t.classList.remove('border-2', 'border-maroon-800', 'bg-maroon-800', 'text-white');
+    });
+    tab.classList.add('border-2', 'border-maroon-800', 'bg-maroon-800', 'text-white');
+    document.getElementById('roleInput').value = tab.dataset.role;
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Alumni Dashboard — CareerMind AI{% endblock %}
+{% block content %}
+<div class="bg-maroon-900 rounded-2xl p-8 mb-6">
+  <span class="inline-block bg-gold text-maroon-900 text-xs font-bold px-3 py-1 rounded-full mb-3">ALUMNI NETWORK</span>
+  <h1 class="font-serif-display text-white text-3xl mb-2">Welcome back, {{ request.user.first_name }}.</h1>
+  <p class="text-white/70 text-sm max-w-2xl">{{ detail.designation }} at {{ detail.current_company }} · {{ detail.experience_years }} yrs experience.</p>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">CURRENT COMPANY</div><div class="text-lg font-bold text-maroon">{{ detail.current_company }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">DESIGNATION</div><div class="text-lg font-bold text-maroon">{{ detail.designation }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">EXPERIENCE</div><div class="text-lg font-bold text-maroon">{{ detail.experience_years }} yrs</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">MENTORSHIP REQUESTS</div><div class="text-lg font-bold text-maroon">{{ mentorship_requests|length }}</div></div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+  <a href="{% url 'alumni:opportunities' %}?kind=job" class="card p-5 block hover:border-[#c99a3f] transition">
+    <div class="text-xs text-[#7a6a5e] mb-1">MY JOBS</div><div class="text-2xl font-bold text-maroon">{{ job_count }}</div>
+  </a>
+  <a href="{% url 'alumni:opportunities' %}?kind=internship" class="card p-5 block hover:border-[#c99a3f] transition">
+    <div class="text-xs text-[#7a6a5e] mb-1">MY INTERNSHIPS</div><div class="text-2xl font-bold text-maroon">{{ internship_count }}</div>
+  </a>
+  <a href="{% url 'alumni:workshops' %}" class="card p-5 block hover:border-[#c99a3f] transition">
+    <div class="text-xs text-[#7a6a5e] mb-1">MY WORKSHOPS &amp; SESSIONS</div><div class="text-2xl font-bold text-maroon">{{ workshop_count }}</div>
+    <div class="text-xs text-[#7a6a5e] mt-1">{{ pending_workshops }} pending · {{ upcoming_workshops }} upcoming · {{ completed_workshops }} completed</div>
+  </a>
+</div>
+
+<div class="card p-6 mb-6">
+  <div class="flex items-center justify-between mb-3">
+    <h3 class="font-semibold">Posting status</h3>
+    <a href="{% url 'alumni:opportunity_new' %}" class="text-maroon text-sm font-semibold">Post a job or internship</a>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <span class="badge badge-draft">Draft: {{ status_counts.draft }}</span>
+    <span class="badge badge-pending">Pending Approval: {{ status_counts.pending }}</span>
+    <span class="badge badge-open">Published: {{ status_counts.open }}</span>
+    <span class="badge badge-rejected">Rejected: {{ status_counts.rejected }}</span>
+  </div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">🤝 Mentorship Requests</h3>
+    {% for m in mentorship_requests %}
+    <div class="flex items-center justify-between border-b border-[#f3ead6] py-3">
+      <div>
+        <div class="text-sm font-medium">{{ m.student.first_name }} {{ m.student.last_name }}</div>
+        <div class="text-xs text-[#a89a8c]">{{ m.topic }}</div>
+      </div>
+      <span class="badge badge-high">Pending</span>
+    </div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">No pending requests.</p>{% endfor %}
+    <a href="{% url 'alumni:mentorship' %}" class="text-maroon text-sm font-semibold mt-3 inline-block">Accept or reject requests &rarr;</a>
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">🎓 Connected Students</h3>
+    {% for c in connected_students %}
+    <div class="text-sm py-2 border-b border-[#f3ead6]">{{ c.student.first_name }} {{ c.student.last_name }} <span class="text-xs text-[#a89a8c]">— {{ c.topic }}</span></div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">No connected students yet.</p>{% endfor %}
+  </div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="card p-6 md:col-span-2">
+    <h3 class="font-semibold mb-4">💼 Your Job & Internship Postings</h3>
+    {% for o in opportunities %}
+    <div class="flex justify-between items-center border-b border-[#f3ead6] py-2">
+      <div><div class="text-sm font-medium">{{ o.title }}</div><div class="text-xs text-[#a89a8c]">{{ o.company }}</div></div>
+      <span class="badge badge-{% if o.status == 'open' %}growing{% else %}low{% endif %}">{{ o.get_status_display }}</span>
+    </div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">You haven't posted any opportunities yet.</p>{% endfor %}
+    <a href="{% url 'alumni:opportunities' %}" class="text-maroon text-sm font-semibold mt-3 inline-block">Post an opportunity →</a>
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-4">📅 Upcoming Events</h3>
+    {% for e in upcoming_events %}
+    <div class="text-sm py-2 border-b border-[#f3ead6]">{{ e.title }}<div class="text-xs text-[#a89a8c]">{{ e.event_date }}</div></div>
+    {% empty %}<p class="text-sm text-[#a89a8c]">Nothing on the calendar.</p>{% endfor %}
+  </div>
+</div>
+
+<div class="card p-6 mt-6">
+  <h3 class="font-semibold mb-4">💬 Recent Messages</h3>
+  {% for m in recent_messages %}
+  <div class="text-sm py-2 border-b border-[#f3ead6]"><span class="font-medium">{{ m.sender.first_name }}:</span> {{ m.body|truncatechars:80 }}</div>
+  {% empty %}<p class="text-sm text-[#a89a8c]">No messages yet.</p>{% endfor %}
+</div>
+{% endblock %}

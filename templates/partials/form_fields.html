@@ -1,0 +1,9 @@
+{% if form.non_field_errors %}<div class="field-error mb-3">{{ form.non_field_errors }}</div>{% endif %}
+{% for field in form %}
+<div class="{% if field.name in wide_fields or field.widget_type == 'textarea' %}md:col-span-2{% endif %}">
+  <label for="{{ field.id_for_label }}" class="block text-xs font-semibold text-[#7a6a5e] mb-1">{{ field.label }}{% if field.field.required %} *{% endif %}</label>
+  {{ field }}
+  {% if field.help_text %}<div class="text-[11px] text-[#a89a8c] mt-1">{{ field.help_text }}</div>{% endif %}
+  {% for e in field.errors %}<div class="field-error">{{ e }}</div>{% endfor %}
+</div>
+{% endfor %}

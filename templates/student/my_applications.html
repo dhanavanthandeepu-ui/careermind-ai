@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "My Applications" %} — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-3xl text-maroon mb-1">{% trans "My Applications" %}</h1>
+<p class="text-sm text-[#7a6a5e] mb-5">{% trans "Track every job and internship you have applied to. You'll be notified when a status changes." %}</p>
+
+<div class="flex flex-wrap gap-2 mb-5">
+  <a href="?" class="chip {% if not status %}chip-have{% endif %}">{% trans "All" %} ({{ total }})</a>
+  {% for v, l in status_choices %}<a href="?status={{ v }}" class="chip {% if status == v %}chip-have{% endif %}">{{ l }}</a>{% endfor %}
+</div>
+
+{% if page %}
+<div class="card divide-y divide-[#f3ead6]">
+  {% for a in page %}
+  <div class="p-4 flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <a href="{% url 'student:opportunity_detail' a.opportunity.pk %}" class="font-semibold text-maroon">{{ a.opportunity.title }}</a>
+      <div class="text-sm text-[#5a4a3e]">{{ a.opportunity.company }} · {{ a.opportunity.get_kind_display }} · {{ a.opportunity.location }}</div>
+      <div class="text-xs text-[#7a6a5e]">{% blocktrans with d=a.created_at|date:"M j, Y" %}Applied {{ d }}{% endblocktrans %}{% if a.updated_at.date != a.created_at.date %} · {% blocktrans with d=a.updated_at|date:"M j, Y" %}Updated {{ d }}{% endblocktrans %}{% endif %}</div>
+    </div>
+    <span class="badge badge-{{ a.status }}">{{ a.get_status_display }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="cm-empty">
+  {% if status %}{% trans "No applications with this status." %} <a class="text-maroon font-semibold" href="?">{% trans "Show all" %}</a>.
+  {% else %}{% trans "You haven't applied to anything yet." %} <a class="text-maroon font-semibold" href="{% url 'student:opportunities' %}">{% trans "Browse opportunities" %}</a>.{% endif %}
+</div>
+{% endif %}
+{% endblock %}

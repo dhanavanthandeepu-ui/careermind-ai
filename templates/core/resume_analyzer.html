@@ -1,0 +1,230 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}Resume Analyzer — CareerMind AI{% endblock %}
+{% block content %}
+
+<div class="mb-6">
+  <h1 class="font-serif-display text-2xl text-maroon">{% trans "Resume Analyzer" %}</h1>
+  <p class="text-sm text-[#7a6a5e]">{% trans "Upload a PDF resume to extract your skills, education, projects, certifications and experience." %}</p>
+</div>
+
+{# ---------- upload panel (always visible) ---------- #}
+<div class="card p-5 mb-6">
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <div class="font-semibold text-sm">{% if snap.has_resume %}{% trans "Replace your resume" %}{% else %}{% trans "Upload your resume" %}{% endif %}</div>
+      <div class="text-xs text-[#7a6a5e] mt-1">{% trans "PDF only, up to 5 MB. A new upload replaces your previous analysis." %}</div>
+    </div>
+    <div>
+      <input type="file" id="resumeFileInput" accept="application/pdf,.pdf" class="hidden">
+      <button type="button" id="newAnalysisBtn" class="btn-maroon text-sm">{% if snap.has_resume %}{% trans "Upload New Resume" %}{% else %}{% trans "Choose PDF" %}{% endif %}</button>
+    </div>
+  </div>
+  <div id="uploadStatus" class="hidden mt-4" aria-live="polite">
+    <div class="flex items-center gap-3 text-sm">
+      <span class="cm-spinner" id="uploadSpinner"></span>
+      <span id="uploadStatusText"></span>
+    </div>
+    <div class="progress-track h-1.5 mt-3"><div id="uploadBar" class="progress-fill gold h-1.5" style="width:0%"></div></div>
+  </div>
+  <p id="uploadError" class="hidden mt-3 text-sm text-red-700"></p>
+</div>
+
+<div id="analysisResults">
+{% if not snap.has_resume %}
+  <div class="cm-empty">
+    <div class="font-semibold text-maroon mb-1">{% trans "No resume analysed yet" %}</div>
+    {% trans "Upload your resume to begin your career analysis." %}
+  </div>
+{% else %}
+  {% if snap.extraction_failed %}
+  <div class="card p-5 mb-6 border-red-200 bg-red-50">
+    <div class="font-semibold text-red-800 text-sm">{% trans "We couldn't detect any skills in this resume" %}</div>
+    <p class="text-xs text-red-700 mt-1">{% trans "Add a clearly headed Skills section (for example \"Skills: Python, SQL, Git\") and upload it again. Scanned image-only PDFs can't be read." %}</p>
+  </div>
+  {% endif %}
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="space-y-6">
+      <div class="card p-6 text-center">
+        <h3 class="font-semibold mb-1 text-left">{% trans "Resume Evaluation" %}</h3>
+        <p class="text-xs text-[#7a6a5e] mb-4 text-left">{% trans "How complete your resume is, based on the sections we could detect." %}</p>
+        <div class="relative w-36 h-36 mx-auto">
+          <canvas id="scoreGauge" data-score="{{ snap.resume_score }}"></canvas>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-3xl font-bold text-maroon">{{ snap.resume_score }}</span>
+            <span class="text-[10px] text-[#a89a8c]">/ 100</span>
+          </div>
+        </div>
+        <a href="{% url 'feedback_pdf' %}" class="btn-maroon w-full mt-5 text-sm block text-center">{% trans "Download Feedback PDF" %}</a>
+        <button type="button" id="requestReviewBtn" class="w-full mt-2 text-sm border border-[#ecdfc4] py-2.5 rounded-lg hover:bg-[#f6ecd8] transition"
+                {% if review and review.status == 'pending' %}disabled{% endif %}>
+          {% if review and review.status == 'pending' %}{% trans "Awaiting staff review" %}{% else %}{% trans "Request staff review" %}{% endif %}
+        </button>
+        {% if review and review.status != 'pending' %}
+        <div class="text-left mt-4 text-xs">
+          <span class="badge badge-{{ review.status }}">{{ review.get_status_display }}</span>
+          {% if review.notes %}<p class="mt-2 text-[#7a6a5e]">{{ review.notes }}</p>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="card p-6">
+        <h3 class="font-semibold mb-4">{% trans "Section Breakdown" %}</h3>
+        {% for r in snap.resume_rows %}
+        <div class="mb-3">
+          <div class="flex justify-between text-xs mb-1"><span>{{ r.label }} <span class="text-[#a89a8c]">({{ r.found }} {% trans "found" %})</span></span><span class="font-semibold">{{ r.earned }}/{{ r.points }}</span></div>
+          <div class="progress-track h-1.5"><div class="progress-fill {% if r.fill >= 80 %}green{% elif r.fill >= 40 %}gold{% else %}red{% endif %} h-1.5" style="width:{{ r.fill }}%"></div></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="md:col-span-2 space-y-6">
+      <div class="card p-2">
+        <div class="flex gap-1 p-2 border-b border-[#ecdfc4]" role="tablist">
+          <button type="button" class="fb-tab btn-maroon text-xs" data-filter="all">{% trans "All" %}</button>
+          <button type="button" class="fb-tab text-xs px-4 py-2" data-filter="strength">{% trans "Strengths" %}</button>
+          <button type="button" class="fb-tab text-xs px-4 py-2" data-filter="improve">{% trans "Improvements" %}</button>
+        </div>
+        <div class="p-4 space-y-3">
+          {% for f in feedback %}
+          <div class="fb-item rounded-xl p-4 border {% if f.kind == 'strength' %}bg-green-50 border-green-200{% elif f.kind == 'weakness' %}bg-red-50 border-red-200{% else %}bg-blue-50 border-blue-200{% endif %}" data-kind="{% if f.kind == 'strength' %}strength{% else %}improve{% endif %}">
+            <div class="text-[10px] font-bold tracking-wide mb-1 {% if f.kind == 'strength' %}text-green-700{% elif f.kind == 'weakness' %}text-red-700{% else %}text-blue-700{% endif %}">{{ f.section|upper }}</div>
+            <p class="text-sm">{{ f.text }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-semibold">{% trans "Extracted Information" %}</h3>
+          <a href="{% url 'skill_analysis' %}" class="text-xs text-maroon font-semibold">{% trans "View Skill Analysis" %}</a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 text-sm">
+          {% with r=snap.resume %}
+          <div class="md:col-span-2">
+            <div class="text-xs font-semibold text-[#7a6a5e] mb-2">{% trans "SKILLS" %}</div>
+            {% if r.skills %}<div class="flex flex-wrap gap-2">{% for s in r.skills %}<span class="badge badge-growing">{{ s }}</span>{% endfor %}</div>
+            {% else %}<p class="text-xs text-[#a89a8c]">{% trans "Not found in this resume." %}</p>{% endif %}
+          </div>
+          <div><div class="text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "EDUCATION" %}</div>
+            {% for i in r.education %}<p class="mb-1">{{ i }}</p>{% empty %}<p class="text-xs text-[#a89a8c]">{% trans "Not found in this resume." %}</p>{% endfor %}</div>
+          <div><div class="text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "PROJECTS" %}</div>
+            {% for i in r.projects %}<p class="mb-1">{{ i }}</p>{% empty %}<p class="text-xs text-[#a89a8c]">{% trans "Not found in this resume." %}</p>{% endfor %}</div>
+          <div><div class="text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "CERTIFICATIONS" %}</div>
+            {% for i in r.certifications %}<p class="mb-1">{{ i }}</p>{% empty %}<p class="text-xs text-[#a89a8c]">{% trans "Not found in this resume." %}</p>{% endfor %}</div>
+          <div><div class="text-xs font-semibold text-[#7a6a5e] mb-1">{% trans "EXPERIENCE" %}</div>
+            {% for i in r.experience %}<p class="mb-1">{{ i }}</p>{% empty %}<p class="text-xs text-[#a89a8c]">{% trans "Not found in this resume." %}</p>{% endfor %}</div>
+          {% endwith %}
+        </div>
+      </div>
+
+      {% if history|length > 1 %}
+      <div class="card p-6">
+        <h3 class="font-semibold mb-3">{% trans "Upload History" %}</h3>
+        <ul class="divide-y divide-[#ecdfc4] text-sm">
+          {% for h in history %}<li class="py-2 flex justify-between"><span>{{ h.uploaded_at|date:"M j, Y H:i" }}{% if forloop.first %} <span class="badge badge-growing ml-1">{% trans "Current" %}</span>{% endif %}</span><span class="text-[#7a6a5e]">{{ h.skills|length }} {% trans "skills" %}</span></li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+</div>
+
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const t = {
+    uploading: "{% trans 'Uploading' %}",
+    processing: "{% trans 'Processing resume and extracting information...' %}",
+    done: "{% trans 'Analysis complete.' %}",
+    failed: "{% trans 'Resume upload failed. Please try again.' %}",
+    reviewSent: "{% trans 'Resume submitted for review.' %}",
+    notPdf: "{% trans 'Please choose a PDF file.' %}",
+    tooBig: "{% trans 'That file is larger than 5 MB.' %}",
+  };
+
+  function initResultsUI() {
+    const canvas = $('scoreGauge');
+    if (canvas && window.Chart) {
+      const score = parseInt(canvas.dataset.score, 10) || 0;
+      new Chart(canvas, { type: 'doughnut',
+        data: { datasets: [{ data: [score, 100 - score], backgroundColor: ['#c99a3f', '#f0e5cf'], borderWidth: 0 }] },
+        options: { cutout: '78%', plugins: { legend: { display: false }, tooltip: { enabled: false } } } });
+    }
+    document.querySelectorAll('.fb-tab').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.fb-tab').forEach(b => { b.classList.remove('btn-maroon'); b.classList.add('px-4', 'py-2'); });
+      btn.classList.add('btn-maroon'); btn.classList.remove('px-4', 'py-2');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.fb-item').forEach(el => { el.style.display = (f === 'all' || el.dataset.kind === f) ? '' : 'none'; });
+    }));
+    const rb = $('requestReviewBtn');
+    if (rb) rb.addEventListener('click', async () => {
+      rb.disabled = true;
+      try {
+        await CM.post("{% url 'api_request_resume_review' %}", {});
+        CM.toast(t.reviewSent, 'success');
+        rb.textContent = "{% trans 'Awaiting staff review' %}";
+      } catch (e) { CM.toast(e.message, 'error'); rb.disabled = false; }
+    });
+  }
+
+  function setStatus(text, pct, spinning) {
+    $('uploadStatus').classList.remove('hidden');
+    $('uploadStatusText').textContent = text;
+    $('uploadBar').style.width = pct + '%';
+    $('uploadSpinner').style.display = spinning ? '' : 'none';
+  }
+  function showError(msg) {
+    $('uploadStatus').classList.add('hidden');
+    $('uploadError').textContent = msg; $('uploadError').classList.remove('hidden');
+    CM.toast(msg, 'error');
+  }
+
+  async function refreshResults() {
+    // Swap in freshly rendered results without a full page reload.
+    const res = await fetch(window.location.href, { credentials: 'same-origin' });
+    const doc = new DOMParser().parseFromString(await res.text(), 'text/html');
+    $('analysisResults').innerHTML = doc.getElementById('analysisResults').innerHTML;
+    initResultsUI();
+  }
+
+  const btn = $('newAnalysisBtn'), input = $('resumeFileInput');
+  btn.addEventListener('click', () => input.click());
+  input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (!file) return;
+    $('uploadError').classList.add('hidden');
+    if (!/\.pdf$/i.test(file.name)) { showError(t.notPdf); input.value = ''; return; }
+    if (file.size > 5 * 1024 * 1024) { showError(t.tooBig); input.value = ''; return; }
+
+    const fd = new FormData(); fd.append('resume', file);
+    const xhr = new XMLHttpRequest();
+    btn.disabled = true;
+    setStatus(t.uploading + ' 0%', 0, true);
+    xhr.upload.onprogress = e => {
+      if (e.lengthComputable) { const p = Math.round(100 * e.loaded / e.total); setStatus(t.uploading + ' ' + p + '%', p * 0.6, true); }
+    };
+    xhr.upload.onload = () => setStatus(t.processing, 75, true);
+    xhr.onload = async () => {
+      btn.disabled = false; input.value = '';
+      let data = {}; try { data = JSON.parse(xhr.responseText); } catch (_) {}
+      if (xhr.status !== 200) { showError(data.error || t.failed); return; }
+      setStatus(t.done, 100, false);
+      CM.toast(t.done, 'success');
+      try { await refreshResults(); } catch (_) { window.location.reload(); }
+      setTimeout(() => $('uploadStatus').classList.add('hidden'), 1200);
+    };
+    xhr.onerror = () => { btn.disabled = false; input.value = ''; showError(t.failed); };
+    xhr.open('POST', "{% url 'api_resume_upload' %}");
+    xhr.setRequestHeader('X-CSRFToken', CM.csrfToken());
+    xhr.send(fd);
+  });
+
+  initResultsUI();
+})();
+</script>
+{% endblock %}

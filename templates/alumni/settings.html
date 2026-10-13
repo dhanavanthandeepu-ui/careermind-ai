@@ -1,0 +1,15 @@
+{% extends "alumni/base_alumni.html" %}
+{% block title %}Settings — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-6">Settings</h1>
+<div class="card p-6 max-w-lg">
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <label class="flex items-center gap-2 text-sm">
+      <input type="checkbox" name="willing_to_mentor" {% if detail.willing_to_mentor %}checked{% endif %}>
+      Willing to mentor students
+    </label>
+    <button type="submit" class="btn-maroon">Save Settings</button>
+  </form>
+</div>
+{% endblock %}

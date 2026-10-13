@@ -1,0 +1,352 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+{% block title %}Learning Roadmap — CareerMind AI{% endblock %}
+{% block content %}
+
+<div class="bg-maroon-900 rounded-2xl p-8 mb-6 flex justify-between items-center">
+  <div>
+    <span class="inline-block bg-gold text-maroon-900 text-xs font-bold px-3 py-1 rounded-full mb-3">{% blocktrans with name=request.user.first_name %}Personalized for {{ name }}{% endblocktrans %}</span>
+    <h1 class="font-serif-display text-white text-3xl mb-2">{% trans "Your Personalized" %} <span class="text-gold italic">{% trans "Learning Path" %}</span></h1>
+    <p class="text-white/70 text-sm mb-5 max-w-xl">{% blocktrans with role=profile.target_role %}Built from your uploaded resume's detected skills and the requirements for your target role: {{ role }}.{% endblocktrans %}</p>
+    <div class="flex gap-3">
+      <a href="#current" class="btn-gold text-sm">{% trans "Resume Journey" %}</a>
+      <a href="{% url 'skill_analysis' %}" class="border border-white/30 text-white px-5 py-2.5 rounded-lg text-sm font-semibold">{% trans "View Skill Analysis" %}</a>
+    </div>
+  </div>
+  {% if has_resume and not extraction_failed and gap_skills %}
+  <div class="hidden md:block bg-white/10 rounded-xl p-5 text-white text-sm w-56">
+    <div class="flex justify-between mb-2"><span>{% trans "Overall Progress" %}</span><span class="text-gold font-bold" id="overallProgressPercent">{{ overall_progress }}%</span></div>
+    <div class="progress-track h-1.5 mb-3"><div class="progress-fill gold h-1.5" id="overallProgressFill" style="width:{{ overall_progress }}%"></div></div>
+    <div class="text-xs text-white/70"><span id="completedResourcesCount">{{ completed_resources }}</span>/<span id="totalResourcesCount">{{ total_resources }}</span> {% trans "Resources Completed" %}</div>
+    <div class="text-xs text-white/70"><span id="skillsClosedCount">{{ skills_closed_count }}</span> {% trans "Skill Gaps Closed" %}</div>
+  </div>
+  {% endif %}
+</div>
+
+{% if has_resume and not extraction_failed and gap_skills %}
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="card p-6">
+    <h3 class="font-semibold mb-1">{% trans "Learning Path" %}</h3>
+    <p class="text-xs text-[#7a6a5e] mb-6">{% trans "One milestone per skill gap, highest priority first" %}</p>
+    <div class="space-y-0">
+      {% for m in milestones %}
+      <div class="flex flex-col items-center text-center">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold
+          {% if m.state == 'done' %}bg-maroon-800 text-white
+          {% elif m.state == 'current' %}border-2 border-gold text-gold bg-white
+          {% else %}bg-[#ecdfc4] text-[#a89a8c]{% endif %}">
+          {% if m.state == 'done' %}✓{% elif m.state == 'current' %}★{% else %}🔒{% endif %}
+        </div>
+        <div class="text-[10px] text-[#a89a8c] font-semibold mt-1">{{ m.stage }}</div>
+        <div class="text-xs font-medium mb-4">{{ m.title }}</div>
+        {% if not forloop.last %}<div class="w-px h-6 bg-[#ecdfc4]"></div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="card p-6 md:col-span-2" id="current">
+    {% if current_skill %}
+    <span class="badge badge-medium mb-2 inline-block">{% trans "CURRENT" %}</span>
+    <h3 class="font-serif-display text-2xl mb-1">{{ current_skill }}</h3>
+    <div class="flex gap-2 text-xs text-[#7a6a5e] mb-4">
+      <span class="badge badge-low">{% trans "SKILL GAP" %}</span>
+    </div>
+    <p class="text-sm text-[#7a6a5e] mb-5">{% blocktrans with skill=current_skill role=profile.target_role %}Recommended resources to close your {{ skill }} skill gap for the {{ role }} role.{% endblocktrans %}</p>
+
+    <div class="grid grid-cols-2 gap-6 mb-6">
+      <div>
+        <div class="text-xs font-semibold text-[#7a6a5e] mb-2">{% trans "Skills to Acquire" %}</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="badge badge-low">{{ current_skill }}</span>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs font-semibold text-[#7a6a5e] mb-2">{% trans "Milestone Tasks" %}</div>
+        {% for t in tasks %}
+        <div class="flex items-center gap-2 text-sm mb-1 task-row {% if t.done %}line-through text-[#a89a8c]{% endif %}" data-resource-id="{{ t.resource_id }}">
+          <input type="checkbox" class="task-checkbox" data-resource-id="{{ t.resource_id }}" {% if t.done %}checked{% endif %}>
+          <a href="{{ t.youtube_url }}" target="_blank" rel="noopener" class="hover:underline">{{ t.text }}</a>
+        </div>
+        {% empty %}
+        <p class="text-xs text-[#a89a8c]">{% trans "No curated resources for this skill yet." %}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between border-t border-[#ecdfc4] pt-4">
+      <span class="text-sm font-medium" id="taskCompletionLabel"></span>
+      <a href="{% url 'skill_analysis' %}" class="btn-maroon text-sm">{% trans "View Skill Gaps" %} →</a>
+    </div>
+    {% else %}
+    <p class="text-sm text-[#7a6a5e]">{% trans "You've closed every skill gap for your target role — great work!" %}</p>
+    {% endif %}
+  </div>
+</div>
+
+{% elif has_resume and not extraction_failed %}
+<div class="card p-10 text-center mb-6">
+  <p class="text-sm text-[#7a6a5e] max-w-md mx-auto">{% trans "You've closed every skill gap for your target role — great work! No learning path needed right now." %}</p>
+</div>
+
+{% elif extraction_failed %}
+<div class="card p-10 text-center mb-6">
+  <p class="text-sm text-[#7a6a5e] max-w-md mx-auto">{% trans "We couldn't detect enough skills from this resume. Please upload a clearer or more detailed resume." %}</p>
+  <a href="{% url 'resume_analyzer' %}" class="btn-maroon inline-block text-sm mt-4">{% trans "Upload a Different Resume" %}</a>
+</div>
+
+{% else %}
+<div class="card p-10 text-center mb-6">
+  <p class="text-sm text-[#7a6a5e] max-w-md mx-auto">{% trans "Upload your resume to generate your personalized learning path." %}</p>
+  <a href="{% url 'resume_analyzer' %}" class="btn-maroon inline-block text-sm mt-4">{% trans "Upload Resume" %}</a>
+</div>
+{% endif %}
+
+{% if has_resume and not extraction_failed and video_sections %}
+<div class="card p-6 mt-6" id="recommended-videos">
+  <h3 class="font-semibold mb-1">{% trans "Recommended Learning Videos" %}</h3>
+  <p class="text-xs text-[#7a6a5e] mb-6">{% blocktrans with role=profile.target_role %}Curated videos for your target role's skill gaps: {{ role }}.{% endblocktrans %}</p>
+
+  {% for section in video_sections %}
+  <div class="card p-0 mb-4 overflow-hidden skill-gap-card">
+    <button type="button" class="skill-gap-toggle w-full flex items-center justify-between p-4 text-left" aria-expanded="false" aria-controls="skill-gap-panel-{{ forloop.counter0 }}">
+      <div class="flex items-center gap-2">
+        <span class="badge badge-{{ section.priority }}">{{ section.priority_display }}</span>
+        <span class="font-semibold text-sm">{{ section.skill }}</span>
+      </div>
+      <span class="text-xs text-[#7a6a5e]">{{ section.current }}% <span class="text-[#a89a8c]">{% trans "Target:" %} {{ section.target }}%</span></span>
+    </button>
+
+    <div class="skill-gap-details hidden border-t border-[#ecdfc4] p-5" id="skill-gap-panel-{{ forloop.counter0 }}">
+      <div class="text-xs font-semibold text-[#7a6a5e] mb-2">{% trans "Current Level vs Target Level" %}</div>
+      <div class="text-xs mb-1">{{ section.current }}% <span class="text-[#a89a8c]">{% trans "Target:" %} {{ section.target }}%</span></div>
+      <div class="progress-track h-1.5 w-40 mb-4"><div class="progress-fill h-1.5" style="width:{{ section.current }}%"></div></div>
+
+      <p class="text-xs text-[#7a6a5e] mb-5">{% blocktrans with skill=section.skill role=profile.target_role %}{{ skill }} is required for your target role, {{ role }}, and wasn't detected in your uploaded resume.{% endblocktrans %}</p>
+
+      {% if section.resources %}
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <div class="text-xs font-semibold text-[#7a6a5e] mb-2">{% trans "Recommended Resources" %}</div>
+          {% for resource in section.resources %}
+          <div class="flex items-center gap-2 text-sm mb-1 video-task-row {% if resource.is_done %}line-through text-[#a89a8c]{% endif %}" data-resource-id="{{ resource.id }}">
+            <input type="checkbox" class="video-task-checkbox" data-resource-id="{{ resource.id }}" {% if resource.is_done %}checked{% endif %}>
+            <button type="button" class="video-select-btn text-left hover:underline" data-resource-id="{{ resource.id }}" data-video-id="{{ resource.video_id }}" data-title="{{ resource.title }}" data-youtube-url="{{ resource.youtube_url }}">{{ resource.title }}</button>
+          </div>
+          {% if resource.description %}<p class="text-xs text-[#a89a8c] mb-2 ml-6">{{ resource.description }}</p>{% endif %}
+          {% endfor %}
+          <div class="text-xs mt-3 progress-status" data-skill-status></div>
+        </div>
+
+        <div>
+          <div class="text-xs font-semibold text-[#7a6a5e] mb-2">{% trans "Video Preview" %}</div>
+          <div class="video-embed-area rounded-lg bg-[#f1e6cd] aspect-video flex items-center justify-center text-xs text-[#a89a8c]" data-default-resource-id="{{ section.resources.0.id }}" data-default-video-id="{{ section.resources.0.video_id }}" data-default-youtube-url="{{ section.resources.0.youtube_url }}">
+            {% trans "Select a resource to preview its video." %}
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="btn-maroon text-sm text-center mt-3 block video-watch-link hidden">{% trans "Watch on YouTube" %}</a>
+        </div>
+      </div>
+      {% else %}
+      <p class="text-xs text-[#a89a8c]">{% trans "No learning resources available for this skill yet." %}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="grid md:grid-cols-2 gap-6 mt-6">
+  <div class="card p-6">
+    <h3 class="font-semibold mb-1">{% trans "Premium Content" %}</h3>
+    <p class="text-xs text-[#7a6a5e] mb-3">{% if current_skill %}{% blocktrans with skill=current_skill %}Exclusive video series for {{ skill }}{% endblocktrans %}{% else %}{% trans "Exclusive video series, unlocked as you progress" %}{% endif %}</p>
+    <div class="text-sm space-y-1">
+      <div>{% trans "Mastering Python for ML" %}</div>
+      <div>{% trans "Mathematical Intuition Part II" %}</div>
+    </div>
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-1">{% trans "Expert Guidance" %}</h3>
+    <p class="text-xs text-[#7a6a5e] mb-3">{% trans "Book a 15-min call with an industry mentor" %}</p>
+    <button class="btn-gold text-sm">{% trans "Schedule Session" %}</button>
+  </div>
+</div>
+
+{% if has_resume and not extraction_failed and gap_skills %}
+<script>
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+const learningCsrfToken = getCookie('csrftoken');
+
+function updateCompletionLabel() {
+  const rows = document.querySelectorAll('.task-row');
+  const done = document.querySelectorAll('.task-checkbox:checked').length;
+  const label = document.getElementById('taskCompletionLabel');
+  if (label) label.textContent = done + ' of ' + rows.length + ' tasks completed';
+}
+updateCompletionLabel();
+
+function applyProgressStats(data) {
+  // Keeps the existing "Overall Progress" header panel in sync no
+  // matter which control (the original task checklist above, or the
+  // new video cards below) marked a resource complete — same backend
+  // numbers, same display, just refreshed without a page reload.
+  if (data.overall_progress === undefined) return;
+  const pct = document.getElementById('overallProgressPercent');
+  const fill = document.getElementById('overallProgressFill');
+  const completed = document.getElementById('completedResourcesCount');
+  const total = document.getElementById('totalResourcesCount');
+  const closed = document.getElementById('skillsClosedCount');
+  if (pct) pct.textContent = data.overall_progress + '%';
+  if (fill) fill.style.width = data.overall_progress + '%';
+  if (completed) completed.textContent = data.completed_resources;
+  if (total) total.textContent = data.total_resources;
+  if (closed) closed.textContent = data.skills_closed_count;
+}
+
+document.querySelectorAll('.task-checkbox').forEach(function (checkbox) {
+  checkbox.addEventListener('change', function () {
+    const resourceId = checkbox.dataset.resourceId;
+    const status = checkbox.checked ? 'completed' : 'not_started';
+    const row = checkbox.closest('.task-row');
+
+    fetch(`/learning-roadmap/progress/${resourceId}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRFToken': learningCsrfToken,
+      },
+      body: 'status=' + encodeURIComponent(status),
+    })
+      .then(r => r.json())
+      .then((data) => {
+        row.classList.toggle('line-through', checkbox.checked);
+        row.classList.toggle('text-[#a89a8c]', checkbox.checked);
+        updateCompletionLabel();
+        applyProgressStats(data);
+      })
+      .catch(err => console.error('Progress update failed:', err));
+  });
+});
+
+// --- Recommended Learning Videos: expandable skill cards --------------
+
+function renderVideoEmbed(container, videoId, youtubeUrl) {
+  const watchLink = container.parentElement.querySelector('.video-watch-link');
+  if (videoId) {
+    container.innerHTML = '';
+    const loading = document.createElement('div');
+    loading.className = 'text-[#a89a8c] w-full h-full flex items-center justify-center';
+    loading.textContent = '{% trans "Loading video…" %}';
+    container.appendChild(loading);
+
+    const iframe = document.createElement('iframe');
+    iframe.className = 'w-full h-full rounded-lg hidden';
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.title = 'YouTube video player';
+    iframe.frameBorder = '0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.addEventListener('load', function () {
+      loading.remove();
+      iframe.classList.remove('hidden');
+    });
+    container.appendChild(iframe);
+  } else {
+    container.innerHTML = '{% trans "No video preview available for this resource — use Watch on YouTube instead." %}';
+  }
+  if (watchLink) {
+    if (youtubeUrl) {
+      watchLink.href = youtubeUrl;
+      watchLink.classList.remove('hidden');
+    } else {
+      watchLink.classList.add('hidden');
+    }
+  }
+}
+
+document.querySelectorAll('.skill-gap-toggle').forEach(function (toggleBtn) {
+  toggleBtn.addEventListener('click', function () {
+    const panel = document.getElementById(toggleBtn.getAttribute('aria-controls'));
+    if (!panel) return;
+    const opening = panel.classList.contains('hidden');
+    panel.classList.toggle('hidden');
+    toggleBtn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+
+    if (opening) {
+      const embedArea = panel.querySelector('.video-embed-area');
+      if (embedArea && !embedArea.dataset.loaded) {
+        embedArea.dataset.loaded = 'true';
+        const videoId = embedArea.dataset.defaultVideoId;
+        const youtubeUrl = embedArea.dataset.defaultYoutubeUrl;
+        if (embedArea.dataset.defaultResourceId) {
+          renderVideoEmbed(embedArea, videoId || null, youtubeUrl || null);
+        }
+      }
+    }
+  });
+});
+
+document.querySelectorAll('.video-select-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const panel = btn.closest('.skill-gap-details');
+    const embedArea = panel ? panel.querySelector('.video-embed-area') : null;
+    if (!embedArea) return;
+    embedArea.dataset.loaded = 'true';
+    renderVideoEmbed(embedArea, btn.dataset.videoId || null, btn.dataset.youtubeUrl || null);
+  });
+});
+
+document.querySelectorAll('.video-task-checkbox').forEach(function (checkbox) {
+  checkbox.addEventListener('change', function () {
+    const resourceId = checkbox.dataset.resourceId;
+    const status = checkbox.checked ? 'completed' : 'not_started';
+    const row = checkbox.closest('.video-task-row');
+    const panel = checkbox.closest('.skill-gap-details');
+    const statusEl = panel ? panel.querySelector('[data-skill-status]') : null;
+
+    checkbox.disabled = true;
+    if (statusEl) { statusEl.textContent = '{% trans "Saving…" %}'; statusEl.classList.remove('text-red-600'); }
+
+    fetch(`/learning-roadmap/progress/${resourceId}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRFToken': learningCsrfToken,
+      },
+      body: 'status=' + encodeURIComponent(status),
+    })
+      .then(r => {
+        if (!r.ok) throw new Error('Request failed');
+        return r.json();
+      })
+      .then((data) => {
+        row.classList.toggle('line-through', checkbox.checked);
+        row.classList.toggle('text-[#a89a8c]', checkbox.checked);
+        if (statusEl) statusEl.textContent = checkbox.checked ? '{% trans "Marked as completed." %}' : '';
+        applyProgressStats(data);
+      })
+      .catch(() => {
+        checkbox.checked = !checkbox.checked;
+        if (statusEl) {
+          statusEl.textContent = '{% trans "Could not update progress. Please try again." %}';
+          statusEl.classList.add('text-red-600');
+        }
+      })
+      .finally(() => { checkbox.disabled = false; });
+  });
+});
+</script>
+{% endif %}
+{% endblock %}

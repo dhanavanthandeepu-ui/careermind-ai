@@ -1,0 +1,21 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Students — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Students</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">All registered students on the platform.</p>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">NAME</th><th>EMAIL</th><th>TARGET ROLE</th><th>READINESS</th></tr></thead>
+    <tbody>
+      {% for s in student_list %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-3 font-medium">{{ s.user.first_name }} {{ s.user.last_name }}</td>
+        <td>{{ s.university_email|default:s.user.email }}</td>
+        <td>{{ s.target_role }}</td>
+        <td>{{ s.readiness_score }}%</td>
+      </tr>
+      {% empty %}<tr><td colspan="4" class="py-6 text-center text-[#a89a8c]">No students yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

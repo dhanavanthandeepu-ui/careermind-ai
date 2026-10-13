@@ -1,0 +1,24 @@
+{% extends "partials/role_base.html" %}
+{% block account_label %}Admin Account{% endblock %}
+{% block topbar_role_label %}Admin{% endblock %}
+{% block search_placeholder %}Search users, jobs, reports...{% endblock %}
+{% block notifications_url %}{% url 'admin_panel:notifications' %}{% endblock %}
+{% block nav_items %}
+  <a href="{% url 'admin_panel:dashboard' %}" class="sidebar-link {% if active == 'dashboard' %}active{% endif %}">Admin Dashboard</a>
+  <a href="{% url 'admin_panel:students' %}" class="sidebar-link {% if active == 'students' %}active{% endif %}">Students</a>
+  <a href="{% url 'admin_panel:staff' %}" class="sidebar-link {% if active == 'staff' %}active{% endif %}">Staff</a>
+  <a href="{% url 'admin_panel:alumni' %}" class="sidebar-link {% if active == 'alumni' %}active{% endif %}">Alumni</a>
+  <a href="{% url 'admin_panel:user_management' %}" class="sidebar-link {% if active == 'users' %}active{% endif %}">User Management</a>
+  <a href="{% url 'admin_panel:opportunities' %}" class="sidebar-link {% if active == 'opportunities' %}active{% endif %}">Jobs &amp; Internships</a>
+  <a href="{% url 'admin_panel:applications' %}" class="sidebar-link {% if active == 'applications' %}active{% endif %}">Applications</a>
+  <a href="{% url 'admin_panel:courses' %}" class="sidebar-link {% if active == 'courses' %}active{% endif %}">Courses</a>
+  <a href="{% url 'admin_panel:career_requirements' %}" class="sidebar-link {% if active == 'career_requirements' %}active{% endif %}">Companies &amp; Role Requirements</a>
+  <a href="{% url 'admin_panel:mentorship' %}" class="sidebar-link {% if active == 'mentorship' %}active{% endif %}">Mentorship</a>
+  <a href="{% url 'admin_panel:workshops' %}" class="sidebar-link {% if active == 'workshops' %}active{% endif %}">Workshops &amp; Sessions</a>
+  <a href="{% url 'admin_panel:events' %}" class="sidebar-link {% if active == 'events' %}active{% endif %}">Career Events</a>
+  <a href="{% url 'admin_panel:announcements' %}" class="sidebar-link {% if active == 'announcements' %}active{% endif %}">Announcements</a>
+  <a href="{% url 'admin_panel:learning_resources' %}" class="sidebar-link {% if active == 'learning_resources' %}active{% endif %}">Learning Resources</a>
+  <a href="{% url 'admin_panel:reports' %}" class="sidebar-link {% if active == 'reports' %}active{% endif %}">Reports &amp; Analytics</a>
+  <a href="{% url 'admin_panel:notifications' %}" class="sidebar-link {% if active == 'notifications' %}active{% endif %}">Notifications{% if nav_unread_count %}<span class="badge badge-high ml-auto">{{ nav_unread_count }}</span>{% endif %}</a>
+  <a href="{% url 'admin_panel:settings' %}" class="sidebar-link {% if active == 'settings' %}active{% endif %}">Settings</a>
+{% endblock %}

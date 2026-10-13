@@ -1,0 +1,56 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Admin Dashboard — CareerMind AI{% endblock %}
+{% block content %}
+<div class="bg-maroon-900 rounded-2xl p-8 mb-6">
+  <span class="inline-block bg-gold text-maroon-900 text-xs font-bold px-3 py-1 rounded-full mb-3">PLATFORM ADMIN</span>
+  <h1 class="font-serif-display text-white text-3xl mb-2">System Overview</h1>
+  <p class="text-white/70 text-sm max-w-2xl">A full view of the CareerMind platform — users, opportunities, and placement outcomes.</p>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">TOTAL STUDENTS</div><div class="text-2xl font-bold text-maroon">{{ total_students }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">TOTAL STAFF</div><div class="text-2xl font-bold text-maroon">{{ total_staff }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">TOTAL ALUMNI</div><div class="text-2xl font-bold text-maroon">{{ total_alumni }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">ACTIVE USERS</div><div class="text-2xl font-bold text-maroon">{{ active_users }}</div></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">JOBS</div><div class="text-2xl font-bold text-maroon">{{ jobs }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">INTERNSHIPS</div><div class="text-2xl font-bold text-maroon">{{ internships }}</div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">PENDING APPROVALS</div><div class="text-2xl font-bold text-maroon">{{ pending_approvals }}</div>
+    <div class="text-xs text-[#7a6a5e] mt-1"><a class="text-maroon font-semibold" href="{% url 'admin_panel:opportunities' %}?status=pending">{{ pending_opps }} posting{{ pending_opps|pluralize }}</a> · <a class="text-maroon font-semibold" href="{% url 'admin_panel:workshops' %}?status=pending">{{ pending_events }} session{{ pending_events|pluralize }}</a></div></div>
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">UPCOMING WORKSHOPS &amp; EVENTS</div><div class="text-2xl font-bold text-maroon">{{ events_count }}</div></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+  <div class="card p-5"><div class="text-xs text-[#7a6a5e] mb-1">PUBLISHED OPPORTUNITIES</div><div class="text-2xl font-bold text-maroon">{{ published_opps }}</div></div>
+  <a href="{% url 'admin_panel:mentorship' %}" class="card p-5 block"><div class="text-xs text-[#7a6a5e] mb-1">MENTORSHIP REQUESTS</div><div class="text-2xl font-bold text-maroon">{{ mentorship_total }}</div></a>
+  <a href="{% url 'admin_panel:applications' %}" class="card p-5 block"><div class="text-xs text-[#7a6a5e] mb-1">APPLICATIONS</div><div class="text-2xl font-bold text-maroon">{{ applications_total }}</div></a>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6 mb-6">
+  <div class="card p-6 md:col-span-2">
+    <h3 class="font-semibold mb-1">User Distribution</h3>
+    <p class="text-xs text-[#7a6a5e] mb-4">Students vs Staff vs Alumni</p>
+    <canvas id="userBar" height="90"></canvas>
+  </div>
+  <div class="card p-6">
+    <h3 class="font-semibold mb-1">Avg. Placement Readiness</h3>
+    <div class="text-4xl font-bold text-maroon text-center my-4">{{ avg_placement }}%</div>
+    <div class="progress-track h-1.5"><div class="progress-fill h-1.5" style="width:{{ avg_placement }}%"></div></div>
+  </div>
+</div>
+
+<div class="card p-6">
+  <h3 class="font-semibold mb-4">Recent System Activity</h3>
+  {% for a in recent_activity %}
+  <div class="text-sm py-2 border-b border-[#f3ead6]">{{ a }}</div>
+  {% empty %}<p class="text-sm text-[#a89a8c]">No recent activity.</p>{% endfor %}
+</div>
+
+<script>
+new Chart(document.getElementById('userBar'), {
+  type: 'bar',
+  data: { labels: {{ chart_labels|safe }}, datasets: [{ data: {{ chart_values|safe }}, backgroundColor:['#6f2035','#c99a3f','#9c3049'], borderRadius:6 }] },
+  options: { plugins:{legend:{display:false}}, scales:{y:{grid:{color:'#f0e5cf'}}, x:{grid:{display:false}}} }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Learning Resources — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Learning Resources</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Resources feed each student's Learning Roadmap. Adding one notifies students whose current skill gaps include that skill. Use real, verified links only.</p>
+<div class="card p-6 mb-6">
+  <h3 class="font-semibold mb-3">Add resource</h3>
+  <form method="post" class="grid md:grid-cols-2 gap-4" data-loading>
+    {% csrf_token %}{% include "partials/form_fields.html" %}
+    <button type="submit" class="btn-maroon md:col-span-2" data-loading-text="Saving…">Add resource</button>
+  </form>
+</div>
+<form method="get" class="flex gap-3 mb-4"><input name="skill" value="{{ skill }}" placeholder="Filter by skill" class="input-field !w-60"><button class="btn-outline" type="submit">Filter</button></form>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">SKILL</th><th>TITLE</th><th>LEVEL</th><th>TYPE</th><th>STATUS</th><th></th></tr></thead>
+    <tbody>
+      {% for r in page %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-3 font-medium">{{ r.skill }}</td><td><a href="{{ r.youtube_url }}" target="_blank" rel="noopener noreferrer" class="text-maroon">{{ r.title }}</a></td>
+        <td>{{ r.get_level_display }}</td><td>{{ r.get_resource_type_display }}</td>
+        <td><span class="badge {% if r.is_active %}badge-open{% else %}badge-closed{% endif %}">{% if r.is_active %}Active{% else %}Inactive{% endif %}</span></td>
+        <td><form method="post">{% csrf_token %}<input type="hidden" name="form_type" value="toggle"><input type="hidden" name="resource_id" value="{{ r.id }}"><button class="btn-outline !py-1 text-xs">{% if r.is_active %}Deactivate{% else %}Activate{% endif %}</button></form></td>
+      </tr>
+      {% empty %}<tr><td colspan="6" class="py-6 text-center text-[#a89a8c]">No learning resources found.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "partials/pagination.html" %}
+{% endblock %}

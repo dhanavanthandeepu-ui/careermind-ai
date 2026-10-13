@@ -1,0 +1,50 @@
+{% extends "staff/base_staff.html" %}
+{% block title %}{{ student.first_name }} — Student Profile{% endblock %}
+{% block content %}
+<a href="{% url 'staff:students' %}" class="text-maroon text-sm font-semibold mb-4 inline-block">← Back to Students</a>
+
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="card p-6 text-center">
+    <div class="w-16 h-16 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl font-bold mx-auto mb-3">
+      {{ student.first_name|first }}{{ student.last_name|first }}
+    </div>
+    <h2 class="font-serif-display text-xl">{{ student.first_name }} {{ student.last_name }}</h2>
+    <p class="text-xs text-[#7a6a5e] mb-3">{{ student_profile.university_email|default:student.email }}</p>
+    <span class="badge badge-medium">{{ student_profile.target_role }}</span>
+  </div>
+
+  <div class="card p-6 md:col-span-2">
+    <h3 class="font-semibold mb-4">Key Metrics</h3>
+    <div class="grid grid-cols-2 gap-4">
+      <div><div class="text-xs text-[#7a6a5e]">Readiness Score</div><div class="text-xl font-bold text-maroon">{{ student_profile.readiness_score }}%</div></div>
+      <div><div class="text-xs text-[#7a6a5e]">Resume Score</div><div class="text-xl font-bold text-maroon">{{ student_profile.resume_score }}</div></div>
+      <div><div class="text-xs text-[#7a6a5e]">Skills Acquired</div><div class="text-xl font-bold text-maroon">{{ student_profile.skills_acquired }}</div></div>
+      <div><div class="text-xs text-[#7a6a5e]">Interview Rate</div><div class="text-xl font-bold text-maroon">{{ student_profile.interview_rate }}%</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card p-6 mt-6">
+  <h3 class="font-semibold mb-4">Skill Inventory</h3>
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">SKILL</th><th>CURRENT / TARGET</th><th>STATUS</th><th>PRIORITY</th></tr></thead>
+    <tbody>
+      {% for sk in skills %}
+      <tr class="border-b border-[#f3ead6]">
+        <td class="py-2">{{ sk.name }}</td>
+        <td>{{ sk.current }}% / {{ sk.target }}%</td>
+        <td><span class="badge badge-{{ sk.status }}">{{ sk.get_status_display }}</span></td>
+        <td><span class="badge badge-{{ sk.priority }}">{{ sk.get_priority_display }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="card p-6 mt-6">
+  <h3 class="font-semibold mb-4">Recent Activity</h3>
+  {% for a in activities %}
+  <div class="text-sm py-2 border-b border-[#f3ead6]">{{ a.description }} <span class="text-[11px] text-[#a89a8c]">— {{ a.created_at|timesince }} ago</span></div>
+  {% empty %}<p class="text-sm text-[#a89a8c]">No recorded activity.</p>{% endfor %}
+</div>
+{% endblock %}

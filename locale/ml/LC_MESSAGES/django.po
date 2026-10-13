@@ -1,0 +1,1416 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ml\n"
+
+msgid "Dashboard"
+msgstr "ഡാഷ്‌ബോർഡ്"
+
+msgid "Skill Gap Analysis"
+msgstr "നൈപുണ്യ വിടവ് വിശകലനം"
+
+msgid "Resume Analyzer"
+msgstr "റെസ്യൂമെ അനലൈസർ"
+
+msgid "Learning Roadmap"
+msgstr "ലേണിംഗ് റോഡ്മാപ്പ്"
+
+msgid "AI Chatbot"
+msgstr "AI ചാറ്റ്ബോട്ട്"
+
+msgid "Student Account"
+msgstr "വിദ്യാർത്ഥി അക്കൗണ്ട്"
+
+msgid "Log Out"
+msgstr "ലോഗ് ഔട്ട്"
+
+msgid "Search careers, skills, or roadmap..."
+msgstr "കരിയറുകൾ, നൈപുണ്യങ്ങൾ, റോഡ്മാപ്പ് എന്നിവ തിരയുക..."
+
+msgid "Student"
+msgstr "വിദ്യാർത്ഥി"
+
+msgid "AI CAREER INSIGHT"
+msgstr "AI കരിയർ ഇൻസൈറ്റ്"
+
+msgid "Unlock Your"
+msgstr "നിങ്ങളുടെ"
+
+msgid "Potential"
+msgstr "കഴിവ് അൺലോക്ക് ചെയ്യൂ"
+
+msgid "Your placement readiness has increased by %(delta)s this month. You're among the top 5%% of candidates for %(role)s roles."
+msgstr "ഈ മാസം നിങ്ങളുടെ പ്ലേസ്‌മെന്റ് സന്നദ്ധത %(delta)s വർദ്ധിച്ചു. %(role)s റോളുകൾക്കായി മികച്ച 5%% ഉദ്യോഗാർത്ഥികളിൽ നിങ്ങളും ഉൾപ്പെടുന്നു."
+
+msgid "Resume Deep Dive"
+msgstr "റെസ്യൂമെ ഡീപ് ഡൈവ്"
+
+msgid "View Career Roadmap"
+msgstr "കരിയർ റോഡ്മാപ്പ് കാണുക"
+
+msgid "PLACEMENT READINESS"
+msgstr "പ്ലേസ്‌മെന്റ് സന്നദ്ധത"
+
+msgid "RESUME SCORE"
+msgstr "റെസ്യൂമെ സ്കോർ"
+
+msgid "Optimized for ATS"
+msgstr "ATS-ന് അനുയോജ്യമാക്കിയത്"
+
+msgid "SKILLS ACQUIRED"
+msgstr "നേടിയ നൈപുണ്യങ്ങൾ"
+
+msgid "+2 new this month"
+msgstr "ഈ മാസം +2 പുതിയവ"
+
+msgid "INTERVIEW RATE"
+msgstr "ഇന്റർവ്യൂ നിരക്ക്"
+
+msgid "Confidence for top-tier roles"
+msgstr "ഉയർന്ന നിലവാരമുള്ള റോളുകൾക്കുള്ള ആത്മവിശ്വാസം"
+
+msgid "Placement Readiness Analysis"
+msgstr "പ്ലേസ്‌മെന്റ് സന്നദ്ധത വിശകലനം"
+
+msgid "Track your growth over the current semester"
+msgstr "നിലവിലെ സെമസ്റ്ററിലെ നിങ്ങളുടെ വളർച്ച ട്രാക്ക് ചെയ്യുക"
+
+msgid "Next milestone: Backend Advanced Concepts"
+msgstr "അടുത്ത നാഴികക്കല്ല്: ബാക്കെൻഡ് അഡ്വാൻസ്ഡ് കൺസെപ്റ്റുകൾ"
+
+msgid "Completed: React Foundation"
+msgstr "പൂർത്തിയായി: React ഫൗണ്ടേഷൻ"
+
+msgid "In Progress: Node.js API Expert"
+msgstr "പുരോഗതിയിൽ: Node.js API വിദഗ്ധൻ"
+
+msgid "Continue Learning"
+msgstr "പഠനം തുടരുക"
+
+msgid "AI CAREER PREDICTION"
+msgstr "AI കരിയർ പ്രവചനം"
+
+msgid "94% Match Probability"
+msgstr "94% മാച്ച് സാധ്യത"
+
+msgid "Explore this path"
+msgstr "ഈ വഴി പര്യവേക്ഷണം ചെയ്യുക"
+
+msgid "Skill Distribution"
+msgstr "നൈപുണ്യ വിതരണം"
+
+msgid "Resume Health"
+msgstr "റെസ്യൂമെ ഹെൽത്ത്"
+
+msgid "ATS SCORE"
+msgstr "ATS സ്കോർ"
+
+msgid "Fix Suggestions"
+msgstr "നിർദ്ദേശങ്ങൾ പരിഹരിക്കുക"
+
+msgid "Recommended Jobs for You"
+msgstr "നിങ്ങൾക്കായി ശുപാർശ ചെയ്ത ജോലികൾ"
+
+msgid "View all listings"
+msgstr "എല്ലാ ലിസ്റ്റിംഗുകളും കാണുക"
+
+msgid "Match"
+msgstr "മാച്ച്"
+
+msgid "Quick Apply"
+msgstr "ക്വിക്ക് അപ്ലൈ"
+
+msgid "Upcoming Internships"
+msgstr "വരാനിരിക്കുന്ന ഇന്റേൺഷിപ്പുകൾ"
+
+msgid "Deadline"
+msgstr "അവസാന തീയതി"
+
+msgid "Chat with AI Assistant"
+msgstr "AI അസിസ്റ്റന്റുമായി ചാറ്റ് ചെയ്യുക"
+
+msgid "Readiness"
+msgstr "സന്നദ്ധത"
+
+msgid "Technical"
+msgstr "സാങ്കേതികം"
+
+msgid "Soft Skills"
+msgstr "സോഫ്റ്റ് സ്കിൽസ്"
+
+msgid "Aptitude"
+msgstr "ആപ്റ്റിറ്റ്യൂഡ്"
+
+msgid "Domain"
+msgstr "ഡൊമെയ്ൻ"
+
+msgid "Get instant, AI-powered feedback to optimize your resume for your dream career path."
+msgstr "നിങ്ങളുടെ സ്വപ്ന കരിയർ പാതയ്ക്കായി റെസ്യൂമെ മെച്ചപ്പെടുത്താൻ തൽക്ഷണ AI-അധിഷ്ഠിത ഫീഡ്‌ബാക്ക് നേടുക."
+
+msgid "History"
+msgstr "ചരിത്രം"
+
+msgid "New Analysis"
+msgstr "പുതിയ വിശകലനം"
+
+msgid "Extracted Resume Information"
+msgstr "വേർതിരിച്ചെടുത്ത റെസ്യൂമെ വിവരങ്ങൾ"
+
+msgid "Overall Match"
+msgstr "മൊത്തത്തിലുള്ള മാച്ച്"
+
+msgid "Based on your target industry: Tech"
+msgstr "നിങ്ങളുടെ ലക്ഷ്യ വ്യവസായത്തെ അടിസ്ഥാനമാക്കി: ടെക്"
+
+msgid "SCORE"
+msgstr "സ്കോർ"
+
+msgid "ATS Ready"
+msgstr "ATS തയ്യാർ"
+
+msgid "Needs Polish"
+msgstr "മിനുക്കുപണി ആവശ്യമാണ്"
+
+msgid "Download Feedback PDF"
+msgstr "ഫീഡ്‌ബാക്ക് PDF ഡൗൺലോഡ് ചെയ്യുക"
+
+msgid "View Optimization Guide"
+msgstr "ഒപ്റ്റിമൈസേഷൻ ഗൈഡ് കാണുക"
+
+msgid "Key Metrics"
+msgstr "പ്രധാന അളവുകൾ"
+
+msgid "Pro Tip"
+msgstr "പ്രോ ടിപ്പ്"
+
+msgid "Recruiters spend an average of 6 seconds scanning a resume. Ensure your most impressive achievement is in the top 30%% of the page."
+msgstr "റിക്രൂട്ടർമാർ ഒരു റെസ്യൂമെ സ്കാൻ ചെയ്യാൻ ശരാശരി 6 സെക്കൻഡ് ചെലവഴിക്കുന്നു. നിങ്ങളുടെ ഏറ്റവും മികച്ച നേട്ടം പേജിന്റെ മുകളിലെ 30%% ൽ ഉണ്ടെന്ന് ഉറപ്പാക്കുക."
+
+msgid "All Feedback"
+msgstr "എല്ലാ ഫീഡ്‌ബാക്കും"
+
+msgid "Strengths"
+msgstr "ശക്തികൾ"
+
+msgid "Improvements"
+msgstr "മെച്ചപ്പെടുത്തലുകൾ"
+
+msgid "Section Breakdown"
+msgstr "സെക്ഷൻ ബ്രേക്ക്ഡൗൺ"
+
+msgid "How AI weighted each part of your resume"
+msgstr "AI നിങ്ങളുടെ റെസ്യൂമെയുടെ ഓരോ ഭാഗത്തിനും എങ്ങനെ വെയ്റ്റേജ് നൽകി"
+
+msgid "Take the Next Step"
+msgstr "അടുത്ത ചുവടുവെക്കുക"
+
+msgid "Apply these AI recommendations to your resume and boost your interview chance by 3x."
+msgstr "ഈ AI ശുപാർശകൾ നിങ്ങളുടെ റെസ്യൂമെയിൽ പ്രയോഗിച്ച് ഇന്റർവ്യൂ അവസരം 3 മടങ്ങ് വർദ്ധിപ്പിക്കുക."
+
+msgid "Start Skill Gap Analysis"
+msgstr "നൈപുണ്യ വിടവ് വിശകലനം ആരംഭിക്കുക"
+
+msgid "Uploading..."
+msgstr "അപ്‌ലോഡ് ചെയ്യുന്നു..."
+
+msgid "Resume upload failed. Please try again."
+msgstr "റെസ്യൂമെ അപ്‌ലോഡ് പരാജയപ്പെട്ടു. ദയവായി വീണ്ടും ശ്രമിക്കുക."
+
+msgid "Not found in this resume."
+msgstr "ഈ റെസ്യൂമെയിൽ കണ്ടെത്തിയില്ല."
+
+msgid "Skills"
+msgstr "നൈപുണ്യങ്ങൾ"
+
+msgid "Education"
+msgstr "വിദ്യാഭ്യാസം"
+
+msgid "Projects"
+msgstr "പ്രോജക്ടുകൾ"
+
+msgid "Certifications"
+msgstr "സർട്ടിഫിക്കേഷനുകൾ"
+
+msgid "Experience"
+msgstr "അനുഭവം"
+
+msgid "AI DIAGNOSTIC TOOL"
+msgstr "AI ഡയഗ്നോസ്റ്റിക് ടൂൾ"
+
+msgid "Precision Skill Analysis"
+msgstr "കൃത്യമായ നൈപുണ്യ വിശകലനം"
+
+msgid "Bridge the gap between your current capabilities and the requirements of top-tier AI roles. Our analysis identifies your high-priority growth areas using industry-standard benchmarks."
+msgstr "നിങ്ങളുടെ നിലവിലെ കഴിവുകൾക്കും ഉയർന്ന നിലവാരമുള്ള AI റോളുകളുടെ ആവശ്യകതകൾക്കും ഇടയിലുള്ള വിടവ് നികത്തുക. വ്യവസായ-നിലവാര മാനദണ്ഡങ്ങൾ ഉപയോഗിച്ച് ഞങ്ങളുടെ വിശകലനം നിങ്ങളുടെ ഉയർന്ന മുൻഗണനാ വളർച്ചാ മേഖലകൾ തിരിച്ചറിയുന്നു."
+
+msgid "Generate Roadmap"
+msgstr "റോഡ്മാപ്പ് സൃഷ്ടിക്കുക"
+
+msgid "Update Assessment"
+msgstr "വിലയിരുത്തൽ അപ്ഡേറ്റ് ചെയ്യുക"
+
+msgid "READINESS SCORE"
+msgstr "സന്നദ്ധത സ്കോർ"
+
+msgid "CRITICAL GAPS"
+msgstr "നിർണായക വിടവുകൾ"
+
+msgid "High-priority"
+msgstr "ഉയർന്ന മുൻഗണന"
+
+msgid "SKILL MASTERY"
+msgstr "നൈപുണ്യ വൈദഗ്ധ്യം"
+
+msgid "Certified"
+msgstr "സർട്ടിഫൈഡ്"
+
+msgid "Detected"
+msgstr "കണ്ടെത്തി"
+
+msgid "All required skills met"
+msgstr "ആവശ്യമായ എല്ലാ നൈപുണ്യങ്ങളും തികഞ്ഞു"
+
+msgid "skill(s) remaining"
+msgstr "നൈപുണ്യങ്ങൾ ബാക്കി"
+
+msgid "*Based on your uploaded resume vs your target role's required skills."
+msgstr "*നിങ്ങൾ അപ്‌ലോഡ് ചെയ്ത റെസ്യൂമെയും നിങ്ങളുടെ ലക്ഷ്യ റോളിന് ആവശ്യമായ നൈപുണ്യങ്ങളും അടിസ്ഥാനമാക്കി."
+
+msgid "Required skills for your target role not found in your resume"
+msgstr "നിങ്ങളുടെ ലക്ഷ്യ റോളിന് ആവശ്യമായ നൈപുണ്യങ്ങൾ നിങ്ങളുടെ റെസ്യൂമെയിൽ കണ്ടെത്തിയില്ല"
+
+msgid "Your <b>%(skill)s</b> gap is currently the highest priority. Closing it would directly improve your <b>%(role)s</b> match score."
+msgstr "നിലവിൽ നിങ്ങളുടെ <b>%(skill)s</b> വിടവ് ഏറ്റവും മുൻഗണനയുള്ളതാണ്. ഇത് നികത്തുന്നത് നിങ്ങളുടെ <b>%(role)s</b> മാച്ച് സ്കോർ നേരിട്ട് മെച്ചപ്പെടുത്തും."
+
+msgid "Your resume already covers every required skill for your target role — no gaps detected."
+msgstr "നിങ്ങളുടെ ലക്ഷ്യ റോളിന് ആവശ്യമായ എല്ലാ നൈപുണ്യങ്ങളും നിങ്ങളുടെ റെസ്യൂമെ ഇതിനകം ഉൾക്കൊള്ളുന്നു — വിടവുകളൊന്നും കണ്ടെത്തിയില്ല."
+
+msgid "Upload your resume to generate your skill analysis."
+msgstr "നിങ്ങളുടെ നൈപുണ്യ വിശകലനം സൃഷ്ടിക്കാൻ റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക."
+
+msgid "Upload Resume"
+msgstr "റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക"
+
+msgid "We couldn't detect enough skills from this resume. Please upload a clearer or more detailed resume."
+msgstr "ഈ റെസ്യൂമെയിൽ നിന്ന് ആവശ്യത്തിന് നൈപുണ്യങ്ങൾ കണ്ടെത്താനായില്ല. ദയവായി വ്യക്തമായതോ കൂടുതൽ വിശദമായതോ ആയ റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക."
+
+msgid "Upload a Different Resume"
+msgstr "മറ്റൊരു റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക"
+
+msgid "Your Personalized"
+msgstr "നിങ്ങളുടെ വ്യക്തിഗതമാക്കിയ"
+
+msgid "Built from your uploaded resume's detected skills and the requirements for your target role: %(role)s."
+msgstr "നിങ്ങൾ അപ്‌ലോഡ് ചെയ്ത റെസ്യൂമെയിൽ കണ്ടെത്തിയ നൈപുണ്യങ്ങളും നിങ്ങളുടെ ലക്ഷ്യ റോൾ %(role)s ന്റെ ആവശ്യകതകളും അടിസ്ഥാനമാക്കി തയ്യാറാക്കിയത്."
+
+msgid "View Skill Analysis"
+msgstr "നൈപുണ്യ വിശകലനം കാണുക"
+
+msgid "Resources Completed"
+msgstr "പൂർത്തിയാക്കിയ വിഭവങ്ങൾ"
+
+msgid "Skill Gaps Closed"
+msgstr "അടച്ച നൈപുണ്യ വിടവുകൾ"
+
+msgid "One milestone per skill gap, highest priority first"
+msgstr "ഓരോ നൈപുണ്യ വിടവിനും ഒരു നാഴികക്കല്ല്, ഏറ്റവും ഉയർന്ന മുൻഗണന ആദ്യം"
+
+msgid "SKILL GAP"
+msgstr "നൈപുണ്യ വിടവ്"
+
+msgid "Recommended resources to close your %(skill)s skill gap for the %(role)s role."
+msgstr "%(role)s റോളിനായി നിങ്ങളുടെ %(skill)s നൈപുണ്യ വിടവ് നികത്താൻ ശുപാർശ ചെയ്യുന്ന വിഭവങ്ങൾ."
+
+msgid "No curated resources for this skill yet."
+msgstr "ഈ നൈപുണ്യത്തിന് ഇതുവരെ ക്യൂറേറ്റഡ് വിഭവങ്ങളില്ല."
+
+msgid "View Skill Gaps"
+msgstr "നൈപുണ്യ വിടവുകൾ കാണുക"
+
+msgid "You've closed every skill gap for your target role — great work!"
+msgstr "നിങ്ങളുടെ ലക്ഷ്യ റോളിനായുള്ള എല്ലാ നൈപുണ്യ വിടവുകളും നിങ്ങൾ അടച്ചു — മികച്ച പ്രവർത്തനം!"
+
+msgid "You've closed every skill gap for your target role — great work! No learning path needed right now."
+msgstr "നിങ്ങളുടെ ലക്ഷ്യ റോളിനായുള്ള എല്ലാ നൈപുണ്യ വിടവുകളും നിങ്ങൾ അടച്ചു — മികച്ച പ്രവർത്തനം! ഇപ്പോൾ ലേണിംഗ് പാത ആവശ്യമില്ല."
+
+msgid "Upload your resume to generate your personalized learning path."
+msgstr "നിങ്ങളുടെ വ്യക്തിഗതമാക്കിയ ലേണിംഗ് പാത സൃഷ്ടിക്കാൻ റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക."
+
+msgid "Exclusive video series for %(skill)s"
+msgstr "%(skill)s-നായുള്ള എക്സ്ക്ലൂസീവ് വീഡിയോ പരമ്പര"
+
+msgid "Exclusive video series, unlocked as you progress"
+msgstr "നിങ്ങൾ പുരോഗമിക്കുമ്പോൾ അൺലോക്ക് ചെയ്യുന്ന എക്സ്ക്ലൂസീവ് വീഡിയോ പരമ്പര"
+
+msgid "NEXT MILESTONE"
+msgstr "അടുത്ത നാഴികക്കല്ല്"
+
+msgid "in %(weeks)s weeks · 2 modules remaining"
+msgstr "%(weeks)s ആഴ്ചയിൽ · 2 മൊഡ്യൂളുകൾ ബാക്കി"
+
+msgid "Competency Blueprint"
+msgstr "കോംപറ്റൻസി ബ്ലൂപ്രിന്റ്"
+
+msgid "Multidimensional view of your current standing vs industry targets"
+msgstr "വ്യവസായ ലക്ഷ്യങ്ങളുമായി താരതമ്യം ചെയ്യുമ്പോൾ നിങ്ങളുടെ നിലവിലെ നിലയുടെ ബഹുമുഖ വീക്ഷണം"
+
+msgid "*Benchmarked against FAANG and Tier-1 startup data."
+msgstr "*FAANG, ടയർ-1 സ്റ്റാർട്ടപ്പ് ഡാറ്റയുമായി താരതമ്യം ചെയ്തത്."
+
+msgid "Critical Skill Deficit"
+msgstr "നിർണായക നൈപുണ്യ കുറവ്"
+
+msgid "The top 5 skills with the largest growth opportunity"
+msgstr "ഏറ്റവും വലിയ വളർച്ചാ അവസരമുള്ള ടോപ്പ് 5 നൈപുണ്യങ്ങൾ"
+
+msgid "Actionable Insight:"
+msgstr "പ്രവർത്തനക്ഷമമായ ഉൾക്കാഴ്ച:"
+
+msgid "Your <b>%(skill)s</b> gap is currently the highest. Bridging this would increase your <b>%(role)s</b> match score by 14%%."
+msgstr "നിലവിൽ നിങ്ങളുടെ <b>%(skill)s</b> വിടവ് ഏറ്റവും ഉയർന്നതാണ്. ഇത് നികത്തുന്നത് നിങ്ങളുടെ <b>%(role)s</b> മാച്ച് സ്കോർ 14%% വർദ്ധിപ്പിക്കും."
+
+msgid "Detailed Skill Inventory"
+msgstr "വിശദമായ നൈപുണ്യ പട്ടിക"
+
+msgid "Comprehensive list of tracked skills and progress"
+msgstr "ട്രാക്ക് ചെയ്ത നൈപുണ്യങ്ങളുടെയും പുരോഗതിയുടെയും സമഗ്ര പട്ടിക"
+
+msgid "Search skills..."
+msgstr "നൈപുണ്യങ്ങൾ തിരയുക..."
+
+msgid "SKILL NAME"
+msgstr "നൈപുണ്യത്തിന്റെ പേര്"
+
+msgid "CURRENT VS TARGET"
+msgstr "നിലവിലുള്ളത് vs ലക്ഷ്യം"
+
+msgid "GROWTH STATUS"
+msgstr "വളർച്ചാ നില"
+
+msgid "PRIORITY"
+msgstr "മുൻഗണന"
+
+msgid "Target:"
+msgstr "ലക്ഷ്യം:"
+
+msgid "Market Compatibility"
+msgstr "മാർക്കറ്റ് പൊരുത്തം"
+
+msgid "How your current skill profile matches top industry roles"
+msgstr "നിങ്ങളുടെ നിലവിലെ നൈപുണ്യ പ്രൊഫൈൽ മുൻനിര വ്യവസായ റോളുകളുമായി എങ്ങനെ പൊരുത്തപ്പെടുന്നു"
+
+msgid "View Fit Analysis"
+msgstr "ഫിറ്റ് വിശകലനം കാണുക"
+
+msgid "Current Proficiency"
+msgstr "നിലവിലെ പ്രാവീണ്യം"
+
+msgid "Industry Target"
+msgstr "വ്യവസായ ലക്ഷ്യം"
+
+msgid "Personalized for %(name)s"
+msgstr "%(name)s ന് വേണ്ടി വ്യക്തിഗതമാക്കിയത്"
+
+msgid "Your AI Engineer"
+msgstr "നിങ്ങളുടെ AI എഞ്ചിനീയർ"
+
+msgid "Odyssey"
+msgstr "യാത്ര"
+
+msgid "Based on your resume analysis and career predictions, we've crafted a 24-week milestone-based path to landing a role as a Machine Learning Engineer."
+msgstr "നിങ്ങളുടെ റെസ്യൂമെ വിശകലനത്തിന്റെയും കരിയർ പ്രവചനങ്ങളുടെയും അടിസ്ഥാനത്തിൽ, ഒരു Machine Learning Engineer റോൾ നേടുന്നതിനുള്ള 24 ആഴ്ചത്തെ നാഴികക്കല്ല് അധിഷ്ഠിത പാത ഞങ്ങൾ തയ്യാറാക്കിയിട്ടുണ്ട്."
+
+msgid "Resume Journey"
+msgstr "യാത്ര പുനരാരംഭിക്കുക"
+
+msgid "View Certifications"
+msgstr "സർട്ടിഫിക്കേഷനുകൾ കാണുക"
+
+msgid "Overall Progress"
+msgstr "മൊത്തത്തിലുള്ള പുരോഗതി"
+
+msgid "12/24 Weeks Completed"
+msgstr "12/24 ആഴ്ച പൂർത്തിയായി"
+
+msgid "3 Badges Earned"
+msgstr "3 ബാഡ്ജുകൾ നേടി"
+
+msgid "Learning Path"
+msgstr "ലേണിംഗ് പാത"
+
+msgid "Click a milestone to view details"
+msgstr "വിശദാംശങ്ങൾ കാണാൻ ഒരു നാഴികക്കല്ലിൽ ക്ലിക്ക് ചെയ്യുക"
+
+msgid "CURRENT"
+msgstr "നിലവിലുള്ളത്"
+
+msgid "Machine Learning Foundations"
+msgstr "Machine Learning ഫൗണ്ടേഷൻസ്"
+
+msgid "6 Weeks"
+msgstr "6 ആഴ്ച"
+
+msgid "LVL: SPECIALIZATION"
+msgstr "ലെവൽ: സ്പെഷ്യലൈസേഷൻ"
+
+msgid "Dive into supervised and unsupervised learning. Understand regression, classification, and clustering with real-world datasets."
+msgstr "സൂപ്പർവൈസ്ഡ്, അൺസൂപ്പർവൈസ്ഡ് ലേണിംഗിലേക്ക് ആഴത്തിൽ ഇറങ്ങുക. യഥാർത്ഥ ലോക ഡാറ്റാസെറ്റുകൾ ഉപയോഗിച്ച് റിഗ്രഷൻ, ക്ലാസിഫിക്കേഷൻ, ക്ലസ്റ്ററിംഗ് എന്നിവ മനസ്സിലാക്കുക."
+
+msgid "Skills to Acquire"
+msgstr "നേടേണ്ട നൈപുണ്യങ്ങൾ"
+
+msgid "Milestone Tasks"
+msgstr "നാഴികക്കല്ല് ടാസ്കുകൾ"
+
+msgid "1 of 3 tasks completed"
+msgstr "3-ൽ 1 ടാസ്ക് പൂർത്തിയായി"
+
+msgid "Premium Content"
+msgstr "പ്രീമിയം ഉള്ളടക്കം"
+
+msgid "Exclusive video series for Machine Learning Foundations"
+msgstr "Machine Learning ഫൗണ്ടേഷനുകൾക്കായുള്ള എക്സ്ക്ലൂസീവ് വീഡിയോ പരമ്പര"
+
+msgid "Mastering Python for ML"
+msgstr "ML-നായി പൈത്തൺ വൈദഗ്ധ്യം"
+
+msgid "Mathematical Intuition Part II"
+msgstr "ഗണിത ഉൾക്കാഴ്ച ഭാഗം II"
+
+msgid "Expert Guidance"
+msgstr "വിദഗ്ധ മാർഗ്ഗനിർദ്ദേശം"
+
+msgid "Book a 15-min call with an industry mentor"
+msgstr "ഒരു വ്യവസായ മെന്ററുമായി 15 മിനിറ്റ് കോൾ ബുക്ക് ചെയ്യുക"
+
+msgid "Schedule Session"
+msgstr "സെഷൻ ഷെഡ്യൂൾ ചെയ്യുക"
+
+msgid "Greetings, %(name)s! I'm your CareerMind AI Assistant. I've been analyzing your recent skill assessments and placement readiness score. How can I help you navigate your professional journey today?"
+msgstr "നമസ്കാരം, %(name)s! ഞാൻ നിങ്ങളുടെ CareerMind AI അസിസ്റ്റന്റ് ആണ്. നിങ്ങളുടെ സമീപകാല നൈപുണ്യ വിലയിരുത്തലുകളും പ്ലേസ്‌മെന്റ് സന്നദ്ധത സ്കോറും ഞാൻ വിശകലനം ചെയ്യുന്നു. ഇന്ന് നിങ്ങളുടെ പ്രൊഫഷണൽ യാത്രയിൽ എനിക്ക് എങ്ങനെ സഹായിക്കാനാകും?"
+
+msgid "Ask me about career paths, resumes, or skill mapping..."
+msgstr "കരിയർ പാതകൾ, റെസ്യൂമെകൾ, നൈപുണ്യ മാപ്പിംഗ് എന്നിവയെക്കുറിച്ച് എന്നോട് ചോദിക്കൂ..."
+
+msgid "Powered by CareerMind AI · Enterprise Security Guaranteed"
+msgstr "CareerMind AI പ്രവർത്തിപ്പിക്കുന്നത് · എന്റർപ്രൈസ് സുരക്ഷ ഉറപ്പ്"
+
+msgid "Your Academic Career Guide"
+msgstr "നിങ്ങളുടെ അക്കാദമിക് കരിയർ ഗൈഡ്"
+
+msgid "TARGET ROLE"
+msgstr "ലക്ഷ്യ റോൾ"
+
+msgid "RECENT HISTORY"
+msgstr "സമീപകാല ചരിത്രം"
+
+msgid "Review my placement readiness"
+msgstr "എന്റെ പ്ലേസ്‌മെന്റ് സന്നദ്ധത അവലോകനം ചെയ്യുക"
+
+msgid "Optimize my resume for FinTech"
+msgstr "FinTech-നായി എന്റെ റെസ്യൂമെ ഒപ്റ്റിമൈസ് ചെയ്യുക"
+
+msgid "Suggest high-growth career paths"
+msgstr "ഉയർന്ന വളർച്ചയുള്ള കരിയർ പാതകൾ നിർദ്ദേശിക്കുക"
+
+msgid "Find skill gaps for Senior Dev roles"
+msgstr "സീനിയർ ഡെവ് റോളുകൾക്കായി നൈപുണ്യ വിടവുകൾ കണ്ടെത്തുക"
+
+msgid "Your current placement readiness is %(score)s/100, up %(delta)s. You're on track for %(role)s roles."
+msgstr "നിങ്ങളുടെ നിലവിലെ പ്ലേസ്‌മെന്റ് സന്നദ്ധത %(score)s/100 ആണ്, %(delta)s വർദ്ധിച്ചു. %(role)s റോളുകൾക്കായി നിങ്ങൾ ശരിയായ പാതയിലാണ്."
+
+msgid "Your resume score is %(score)s/100. Adding a professional summary and 1-2 more projects would push it higher."
+msgstr "നിങ്ങളുടെ റെസ്യൂമെ സ്കോർ %(score)s/100 ആണ്. ഒരു പ്രൊഫഷണൽ സംഗ്രഹവും 1-2 അധിക പ്രോജക്ടുകളും ചേർക്കുന്നത് ഇത് കൂടുതൽ ഉയർത്തും."
+
+msgid "Your biggest skill gap right now is %(skill)s. Closing it would meaningfully raise your match score."
+msgstr "ഇപ്പോൾ നിങ്ങളുടെ ഏറ്റവും വലിയ നൈപുണ്യ വിടവ് %(skill)s ആണ്. ഇത് നികത്തുന്നത് നിങ്ങളുടെ മാച്ച് സ്കോർ കാര്യമായി ഉയർത്തും."
+
+msgid "Based on your profile, %(role)s and Senior Data Engineer are your strongest-matching paths right now."
+msgstr "നിങ്ങളുടെ പ്രൊഫൈൽ അടിസ്ഥാനമാക്കി, %(role)s ഉം Senior Data Engineer ഉം ആണ് ഇപ്പോൾ നിങ്ങൾക്ക് ഏറ്റവും അനുയോജ്യമായ പാതകൾ."
+
+msgid "I've noted that — I can help with placement readiness, resume feedback, skill gaps, or career path suggestions. What would you like to dig into?"
+msgstr "ഞാൻ അത് ശ്രദ്ധിച്ചു — പ്ലേസ്‌മെന്റ് സന്നദ്ധത, റെസ്യൂമെ ഫീഡ്‌ബാക്ക്, നൈപുണ്യ വിടവുകൾ, അല്ലെങ്കിൽ കരിയർ പാത നിർദ്ദേശങ്ങൾ എന്നിവയിൽ എനിക്ക് സഹായിക്കാനാകും. നിങ്ങൾക്ക് എന്തിനെക്കുറിച്ച് അറിയണം?"
+
+msgid "No file uploaded. Expected form field 'resume'."
+msgstr "ഫയൽ അപ്‌ലോഡ് ചെയ്തിട്ടില്ല. 'resume' ഫോം ഫീൽഡ് പ്രതീക്ഷിക്കുന്നു."
+
+msgid "Only PDF files are supported."
+msgstr "PDF ഫയലുകൾ മാത്രമേ പിന്തുണയ്ക്കൂ."
+
+msgid "Could not read this PDF. It may be corrupted or scanned as images."
+msgstr "ഈ PDF വായിക്കാൻ കഴിഞ്ഞില്ല. ഇത് കേടായതോ ചിത്രങ്ങളായി സ്കാൻ ചെയ്തതോ ആകാം."
+
+msgid "Resume uploaded and parsed successfully."
+msgstr "റെസ്യൂമെ വിജയകരമായി അപ്‌ലോഡ് ചെയ്ത് പാഴ്സ് ചെയ്തു."
+
+# --- Career services (jobs, internships, mentorship, workshops, notifications) ---
+
+#, python-format
+msgid "\"%(title)s\" is now visible to students."
+msgstr "\"%(title)s\" ഇപ്പോൾ വിദ്യാർത്ഥികൾക്ക് ദൃശ്യമാണ്."
+
+#, python-format
+msgid "\"%(title)s\" is published and students were notified."
+msgstr "\"%(title)s\" പ്രസിദ്ധീകരിച്ചു, വിദ്യാർത്ഥികളെ അറിയിച്ചു."
+
+#, python-format
+msgid "\"%(title)s\" was not approved."
+msgstr "\"%(title)s\" അംഗീകരിച്ചില്ല."
+
+#, python-format
+msgid "\"%(title)s\" was not approved. Note: %(note)s"
+msgstr "\"%(title)s\" അംഗീകരിച്ചില്ല. കുറിപ്പ്: %(note)s"
+
+#, python-format
+msgid "%(n)s of %(total)s required skills"
+msgstr "%(total)s ആവശ്യമായ കഴിവുകളിൽ %(n)s"
+
+#, python-format
+msgid "%(n)s yrs experience"
+msgstr "%(n)s വർഷത്തെ പരിചയം"
+
+#, python-format
+msgid "%(role)s at %(company)s"
+msgstr "%(company)s ൽ %(role)s"
+
+#, python-format
+msgid "%(t)s ago"
+msgstr "%(t)s മുമ്പ്"
+
+#, python-format
+msgid "%(title)s at %(company)s has been posted."
+msgstr "%(company)s ൽ %(title)s പോസ്റ്റ് ചെയ്തിരിക്കുന്നു."
+
+#, python-format
+msgid "%(title)s has been scheduled for %(date)s."
+msgstr "%(title)s %(date)s ന് ഷെഡ്യൂൾ ചെയ്തിരിക്കുന്നു."
+
+#, python-format
+msgid "%(title)s on %(date)s has been cancelled."
+msgstr "%(date)s ലെ %(title)s റദ്ദാക്കിയിരിക്കുന്നു."
+
+#, python-format
+msgid "%(title)s was added for %(skill)s."
+msgstr "%(skill)s നായി %(title)s ചേർത്തിരിക്കുന്നു."
+
+msgid "AI Career Assistant"
+msgstr "AI കരിയർ അസിസ്റ്റന്റ്"
+
+msgid "About"
+msgstr "കുറിച്ച്"
+
+msgid "About this opportunity"
+msgstr "ഈ അവസരത്തെക്കുറിച്ച്"
+
+msgid "About this session"
+msgstr "ഈ സെഷനെക്കുറിച്ച്"
+
+msgid "Accepted"
+msgstr "സ്വീകരിച്ചു"
+
+msgid "All"
+msgstr "എല്ലാം"
+
+msgid "All industries"
+msgstr "എല്ലാ വ്യവസായങ്ങളും"
+
+msgid "All types"
+msgstr "എല്ലാ തരങ്ങളും"
+
+msgid "Alumni Interaction Session"
+msgstr "പൂർവ്വ വിദ്യാർത്ഥി സംവാദ സെഷൻ"
+
+msgid "Alumni who are available to mentor students."
+msgstr "വിദ്യാർത്ഥികളെ മാർഗ്ഗനിർദ്ദേശം ചെയ്യാൻ ലഭ്യമായ പൂർവ്വ വിദ്യാർത്ഥികൾ."
+
+msgid "Announcement"
+msgstr "അറിയിപ്പ്"
+
+msgid "Announcements"
+msgstr "അറിയിപ്പുകൾ"
+
+#, python-format
+msgid "Answered %(d)s"
+msgstr "%(d)s ന് മറുപടി നൽകി"
+
+msgid "Applicant"
+msgstr "അപേക്ഷകൻ"
+
+msgid "Application status"
+msgstr "അപേക്ഷയുടെ നില"
+
+#, python-format
+msgid "Application submitted for %(title)s at %(company)s."
+msgstr "%(company)s ൽ %(title)s നുള്ള അപേക്ഷ സമർപ്പിച്ചു."
+
+msgid "Application update"
+msgstr "അപേക്ഷ അപ്‌ഡേറ്റ്"
+
+msgid "Applications"
+msgstr "അപേക്ഷകൾ"
+
+msgid "Applications closed"
+msgstr "അപേക്ഷകൾ അവസാനിച്ചു"
+
+msgid "Applications for this opportunity are closed."
+msgstr "ഈ അവസരത്തിനുള്ള അപേക്ഷകൾ അവസാനിച്ചു."
+
+msgid "Applied"
+msgstr "അപേക്ഷിച്ചു"
+
+#, python-format
+msgid "Applied %(d)s"
+msgstr "%(d)s ന് അപേക്ഷിച്ചു"
+
+msgid "Apply"
+msgstr "അപേക്ഷിക്കുക"
+
+msgid "Apply Now"
+msgstr "ഇപ്പോൾ അപേക്ഷിക്കുക"
+
+msgid "Apply by"
+msgstr "അപേക്ഷിക്കേണ്ട അവസാന തീയതി"
+
+msgid "Apply filters"
+msgstr "ഫിൽട്ടറുകൾ പ്രയോഗിക്കുക"
+
+#, python-format
+msgid "Apply for %(title)s"
+msgstr "%(title)s നായി അപേക്ഷിക്കുക"
+
+msgid "Ask about your readiness, resume, skill gaps or next steps."
+msgstr "നിങ്ങളുടെ സന്നദ്ധത, റെസ്യൂമെ, നൈപുണ്യ വിടവുകൾ, അടുത്ത ഘട്ടങ്ങൾ എന്നിവയെക്കുറിച്ച് ചോദിക്കൂ."
+
+msgid "Back to details"
+msgstr "വിശദാംശങ്ങളിലേക്ക് മടങ്ങുക"
+
+msgid "Back to mentors"
+msgstr "മെന്റർമാരിലേക്ക് മടങ്ങുക"
+
+msgid "Back to opportunities"
+msgstr "അവസരങ്ങളിലേക്ക് മടങ്ങുക"
+
+msgid "Back to workshops"
+msgstr "വർക്ക്ഷോപ്പുകളിലേക്ക് മടങ്ങുക"
+
+msgid "Browse opportunities"
+msgstr "അവസരങ്ങൾ കാണുക"
+
+msgid "CAREER READINESS"
+msgstr "കരിയർ സന്നദ്ധത"
+
+msgid "Cancel"
+msgstr "റദ്ദാക്കുക"
+
+msgid "Cancelled"
+msgstr "റദ്ദാക്കി"
+
+msgid "Career Event"
+msgstr "കരിയർ ഇവന്റ്"
+
+msgid "Career Guidance Session"
+msgstr "കരിയർ ഗൈഡൻസ് സെഷൻ"
+
+msgid "Career Opportunities"
+msgstr "കരിയർ അവസരങ്ങൾ"
+
+msgid "Career Roadmap"
+msgstr "കരിയർ റോഡ്മാപ്പ്"
+
+msgid "Career Services"
+msgstr "കരിയർ സേവനങ്ങൾ"
+
+msgid "Career guidance update"
+msgstr "കരിയർ ഗൈഡൻസ് അപ്‌ഡേറ്റ്"
+
+msgid "Career update"
+msgstr "കരിയർ അപ്‌ഡേറ്റ്"
+
+msgid "Career workshops, seminars and sessions from staff and alumni."
+msgstr "സ്റ്റാഫിൽ നിന്നും പൂർവ്വ വിദ്യാർത്ഥികളിൽ നിന്നുമുള്ള കരിയർ വർക്ക്ഷോപ്പുകൾ, സെമിനാറുകൾ, സെഷനുകൾ."
+
+#, python-format
+msgid "Class of %(y)s"
+msgstr "%(y)s ബാച്ച്"
+
+msgid "Clear filters"
+msgstr "ഫിൽട്ടറുകൾ നീക്കുക"
+
+msgid "Closed"
+msgstr "അടച്ചു"
+
+msgid "Completed"
+msgstr "പൂർത്തിയായി"
+
+#, python-format
+msgid "Congratulations! You have been selected for %(t)s at %(c)s."
+msgstr "അഭിനന്ദനങ്ങൾ! %(c)s ൽ %(t)s ലേക്ക് നിങ്ങൾ തിരഞ്ഞെടുക്കപ്പെട്ടു."
+
+#, python-format
+msgid "Congratulations! Your application for %(t)s at %(c)s has been shortlisted."
+msgstr "അഭിനന്ദനങ്ങൾ! %(c)s ൽ %(t)s നുള്ള നിങ്ങളുടെ അപേക്ഷ ഷോർട്ട്‌ലിസ്റ്റ് ചെയ്തിരിക്കുന്നു."
+
+msgid "Connected"
+msgstr "ബന്ധിപ്പിച്ചു"
+
+msgid "Contract"
+msgstr "കരാർ"
+
+msgid "Critical Skill Gaps"
+msgstr "നിർണായക നൈപുണ്യ വിടവുകൾ"
+
+msgid "DATE"
+msgstr "തീയതി"
+
+msgid "DEADLINE"
+msgstr "അവസാന തീയതി"
+
+msgid "DOMAIN"
+msgstr "ഡൊമെയ്ൻ"
+
+msgid "Deadline passed"
+msgstr "അവസാന തീയതി കഴിഞ്ഞു"
+
+msgid "Detected in your resume"
+msgstr "നിങ്ങളുടെ റെസ്യൂമെയിൽ കണ്ടെത്തി"
+
+msgid "Draft"
+msgstr "ഡ്രാഫ്റ്റ്"
+
+msgid "ELIGIBILITY"
+msgstr "യോഗ്യത"
+
+msgid "Eligibility"
+msgstr "യോഗ്യത"
+
+msgid "Event ended"
+msgstr "ഇവന്റ് അവസാനിച്ചു"
+
+msgid "Find Internships"
+msgstr "ഇന്റേൺഷിപ്പുകൾ കണ്ടെത്തുക"
+
+msgid "Find Jobs"
+msgstr "ജോലികൾ കണ്ടെത്തുക"
+
+msgid "Find a Mentor"
+msgstr "മെന്ററെ കണ്ടെത്തുക"
+
+msgid "Find a mentor"
+msgstr "മെന്ററെ കണ്ടെത്തുക"
+
+msgid "Full-time"
+msgstr "ഫുൾ-ടൈം"
+
+msgid "General"
+msgstr "പൊതുവായത്"
+
+#, python-format
+msgid "Green skills were found in your resume (%(have)s of %(total)s, %(pct)s%% match)."
+msgstr "പച്ച നിറത്തിലുള്ള കഴിവുകൾ നിങ്ങളുടെ റെസ്യൂമെയിൽ കണ്ടെത്തി (%(total)s ൽ %(have)s, %(pct)s%% പൊരുത്തം)."
+
+msgid "Here is where your resume stands. Set a career goal to get a personalised plan."
+msgstr "നിങ്ങളുടെ റെസ്യൂമെയുടെ നിലവിലെ അവസ്ഥ ഇതാ. വ്യക്തിഗത പ്ലാൻ ലഭിക്കാൻ കരിയർ ലക്ഷ്യം സജ്ജമാക്കുക."
+
+msgid "Hired"
+msgstr "നിയമിച്ചു"
+
+msgid "Improvement Requested"
+msgstr "മെച്ചപ്പെടുത്തൽ ആവശ്യപ്പെട്ടു"
+
+msgid "In Progress"
+msgstr "പുരോഗമിക്കുന്നു"
+
+msgid "In Review"
+msgstr "അവലോകനത്തിൽ"
+
+msgid "Industry"
+msgstr "വ്യവസായം"
+
+msgid "Industry Experience Session"
+msgstr "ഇൻഡസ്ട്രി എക്സ്പീരിയൻസ് സെഷൻ"
+
+msgid "Industry Talk"
+msgstr "ഇൻഡസ്ട്രി ടോക്ക്"
+
+msgid "Internship"
+msgstr "ഇന്റേൺഷിപ്പ്"
+
+msgid "Internships"
+msgstr "ഇന്റേൺഷിപ്പുകൾ"
+
+msgid "Interview Preparation Session"
+msgstr "ഇന്റർവ്യൂ പ്രിപ്പറേഷൻ സെഷൻ"
+
+msgid "Job"
+msgstr "ജോലി"
+
+msgid "Jobs"
+msgstr "ജോലികൾ"
+
+msgid "LEARNING PROGRESS"
+msgstr "പഠന പുരോഗതി"
+
+msgid "Learning & Career"
+msgstr "പഠനവും കരിയറും"
+
+msgid "Learning resource"
+msgstr "പഠന ഉറവിടം"
+
+msgid "MODE"
+msgstr "മോഡ്"
+
+msgid "Make sure it has a clearly headed Skills section, then upload it again."
+msgstr "വ്യക്തമായ തലക്കെട്ടുള്ള കഴിവുകളുടെ വിഭാഗം ഉണ്ടെന്ന് ഉറപ്പാക്കി വീണ്ടും അപ്‌ലോഡ് ചെയ്യുക."
+
+msgid "Mark all as read"
+msgstr "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
+
+msgid "Mark as read"
+msgstr "വായിച്ചതായി അടയാളപ്പെടുത്തുക"
+
+msgid "Meeting link:"
+msgstr "മീറ്റിംഗ് ലിങ്ക്:"
+
+msgid "Mentor no longer available"
+msgstr "മെന്റർ ഇനി ലഭ്യമല്ല"
+
+msgid "Mentor"
+msgstr "മെന്റർ"
+
+msgid "Mentorship"
+msgstr "മെന്റർഷിപ്പ്"
+
+msgid "Mentorship request accepted"
+msgstr "മെന്റർഷിപ്പ് അഭ്യർത്ഥന സ്വീകരിച്ചു"
+
+msgid "Mentorship request rejected"
+msgstr "മെന്റർഷിപ്പ് അഭ്യർത്ഥന നിരസിച്ചു"
+
+msgid "Mentorship request sent. You'll be notified when the mentor responds."
+msgstr "മെന്റർഷിപ്പ് അഭ്യർത്ഥന അയച്ചു. മെന്റർ പ്രതികരിക്കുമ്പോൾ നിങ്ങളെ അറിയിക്കും."
+
+msgid "My Applications"
+msgstr "എന്റെ അപേക്ഷകൾ"
+
+msgid "My Mentorship"
+msgstr "എന്റെ മെന്റർഷിപ്പ്"
+
+msgid "My Mentorship Requests"
+msgstr "എന്റെ മെന്റർഷിപ്പ് അഭ്യർത്ഥനകൾ"
+
+msgid "My Registrations"
+msgstr "എന്റെ രജിസ്ട്രേഷനുകൾ"
+
+msgid "Name, role, company, industry or skill"
+msgstr "പേര്, റോൾ, കമ്പനി, വ്യവസായം അല്ലെങ്കിൽ കഴിവ്"
+
+msgid "Needs a resume"
+msgstr "റെസ്യൂമെ ആവശ്യമാണ്"
+
+msgid "New Career Seminar"
+msgstr "പുതിയ കരിയർ സെമിനാർ"
+
+msgid "New Career Workshop"
+msgstr "പുതിയ കരിയർ വർക്ക്ഷോപ്പ്"
+
+msgid "New Internship Available"
+msgstr "പുതിയ ഇന്റേൺഷിപ്പ് ലഭ്യമാണ്"
+
+msgid "New Job Available"
+msgstr "പുതിയ ജോലി ലഭ്യമാണ്"
+
+msgid "New learning resource"
+msgstr "പുതിയ പഠന ഉറവിടം"
+
+msgid "New mentorship request"
+msgstr "പുതിയ മെന്റർഷിപ്പ് അഭ്യർത്ഥന"
+
+#, python-format
+msgid "New mentorship request from %(name)s."
+msgstr "%(name)s ൽ നിന്നുള്ള പുതിയ മെന്റർഷിപ്പ് അഭ്യർത്ഥന."
+
+msgid "Newest"
+msgstr "ഏറ്റവും പുതിയത്"
+
+msgid "Newest first. Opening a notification marks it as read."
+msgstr "പുതിയത് ആദ്യം. അറിയിപ്പ് തുറക്കുമ്പോൾ അത് വായിച്ചതായി അടയാളപ്പെടുത്തും."
+
+msgid "Next"
+msgstr "അടുത്തത്"
+
+msgid "No alumni mentors are available yet."
+msgstr "പൂർവ്വ വിദ്യാർത്ഥി മെന്റർമാർ ഇതുവരെ ലഭ്യമല്ല."
+
+msgid "No applications with this status."
+msgstr "ഈ നിലയിൽ അപേക്ഷകളൊന്നുമില്ല."
+
+msgid "No goal set yet"
+msgstr "ഇതുവരെ ലക്ഷ്യം സജ്ജമാക്കിയിട്ടില്ല"
+
+msgid "No learning tasks yet"
+msgstr "പഠന ടാസ്കുകൾ ഇതുവരെ ഇല്ല"
+
+msgid "No mentors match your search."
+msgstr "നിങ്ങളുടെ തിരയലിന് പൊരുത്തപ്പെടുന്ന മെന്റർമാരില്ല."
+
+msgid "No notifications in this category."
+msgstr "ഈ വിഭാഗത്തിൽ അറിയിപ്പുകളൊന്നുമില്ല."
+
+msgid "No notifications yet."
+msgstr "അറിയിപ്പുകൾ ഇതുവരെ ഇല്ല."
+
+msgid "No notifications yet. They appear here when something happens on your account."
+msgstr "അറിയിപ്പുകൾ ഇതുവരെ ഇല്ല. നിങ്ങളുടെ അക്കൗണ്ടിൽ എന്തെങ്കിലും സംഭവിക്കുമ്പോൾ അവ ഇവിടെ കാണിക്കും."
+
+msgid "No opportunities match your filters."
+msgstr "നിങ്ങളുടെ ഫിൽട്ടറുകൾക്ക് പൊരുത്തപ്പെടുന്ന അവസരങ്ങളില്ല."
+
+msgid "No published internships yet."
+msgstr "പ്രസിദ്ധീകരിച്ച ഇന്റേൺഷിപ്പുകൾ ഇതുവരെ ഇല്ല."
+
+msgid "No published jobs yet. New postings from alumni and staff appear here once approved."
+msgstr "പ്രസിദ്ധീകരിച്ച ജോലികൾ ഇതുവരെ ഇല്ല. പൂർവ്വ വിദ്യാർത്ഥികളുടെയും സ്റ്റാഫിന്റെയും പുതിയ പോസ്റ്റിംഗുകൾ അംഗീകരിച്ച ശേഷം ഇവിടെ കാണിക്കും."
+
+msgid "No requests with this status."
+msgstr "ഈ നിലയിൽ അഭ്യർത്ഥനകളൊന്നുമില്ല."
+
+msgid "No resume uploaded yet."
+msgstr "റെസ്യൂമെ ഇതുവരെ അപ്‌ലോഡ് ചെയ്തിട്ടില്ല."
+
+msgid "No resume yet"
+msgstr "റെസ്യൂമെ ഇതുവരെ ഇല്ല"
+
+msgid "No upcoming workshops or events right now."
+msgstr "ഇപ്പോൾ വരാനിരിക്കുന്ന വർക്ക്ഷോപ്പുകളോ ഇവന്റുകളോ ഇല്ല."
+
+msgid "Not analyzed yet"
+msgstr "ഇതുവരെ വിശകലനം ചെയ്തിട്ടില്ല"
+
+msgid "Not found in your resume:"
+msgstr "നിങ്ങളുടെ റെസ്യൂമെയിൽ കണ്ടെത്താത്തവ:"
+
+msgid "Nothing is published here right now. New postings appear once an admin approves them."
+msgstr "ഇപ്പോൾ ഇവിടെ ഒന്നും പ്രസിദ്ധീകരിച്ചിട്ടില്ല. അഡ്മിൻ അംഗീകരിച്ചാൽ പുതിയ പോസ്റ്റിംഗുകൾ കാണിക്കും."
+
+msgid "Nothing matches your filters."
+msgstr "നിങ്ങളുടെ ഫിൽട്ടറുകൾക്ക് ഒന്നും പൊരുത്തപ്പെടുന്നില്ല."
+
+msgid "Notification"
+msgstr "അറിയിപ്പ്"
+
+msgid "Notifications"
+msgstr "അറിയിപ്പുകൾ"
+
+msgid "Offline"
+msgstr "ഓഫ്‌ലൈൻ"
+
+msgid "Online"
+msgstr "ഓൺലൈൻ"
+
+msgid "Open"
+msgstr "തുറന്നിരിക്കുന്നു"
+
+msgid "Open Assistant"
+msgstr "അസിസ്റ്റന്റ് തുറക്കുക"
+
+msgid "Open Skill Analysis"
+msgstr "നൈപുണ്യ വിശകലനം തുറക്കുക"
+
+msgid "Open to all students"
+msgstr "എല്ലാ വിദ്യാർത്ഥികൾക്കും തുറന്നിരിക്കുന്നു"
+
+msgid "Open until filled"
+msgstr "നികത്തുന്നതുവരെ തുറന്നിരിക്കും"
+
+msgid "Open your learning roadmap"
+msgstr "നിങ്ങളുടെ ലേണിംഗ് റോഡ്മാപ്പ് തുറക്കുക"
+
+msgid "Opportunities, mentors and sessions from your institution and alumni network."
+msgstr "നിങ്ങളുടെ സ്ഥാപനത്തിൽ നിന്നും പൂർവ്വ വിദ്യാർത്ഥി ശൃംഖലയിൽ നിന്നുമുള്ള അവസരങ്ങൾ, മെന്റർമാർ, സെഷനുകൾ."
+
+msgid "Other"
+msgstr "മറ്റുള്ളവ"
+
+msgid "POSTED BY"
+msgstr "പോസ്റ്റ് ചെയ്തത്"
+
+msgid "POSTED ON"
+msgstr "പോസ്റ്റ് ചെയ്ത തീയതി"
+
+#, python-format
+msgid "Page %(n)s of %(total)s"
+msgstr "പേജ് %(n)s / %(total)s"
+
+msgid "Pagination"
+msgstr "പേജ് നമ്പറിംഗ്"
+
+msgid "Part-time"
+msgstr "പാർട്ട്-ടൈം"
+
+msgid "Pending"
+msgstr "തീർപ്പാക്കാത്തത്"
+
+msgid "Pending Approval"
+msgstr "അംഗീകാരം തീർപ്പാക്കാത്തത്"
+
+msgid "Pending Review"
+msgstr "അവലോകനം തീർപ്പാക്കാത്തത്"
+
+msgid "Pick a target role, company and timeline to get a personalized roadmap."
+msgstr "വ്യക്തിഗത റോഡ്മാപ്പ് ലഭിക്കാൻ ലക്ഷ്യ റോൾ, കമ്പനി, സമയപരിധി എന്നിവ തിരഞ്ഞെടുക്കുക."
+
+msgid "Placement Session"
+msgstr "പ്ലേസ്‌മെന്റ് സെഷൻ"
+
+msgid "Please add a short cover note."
+msgstr "ദയവായി ഒരു ചെറിയ കവർ നോട്ട് ചേർക്കുക."
+
+msgid "Please add a short message."
+msgstr "ദയവായി ഒരു ചെറിയ സന്ദേശം ചേർക്കുക."
+
+msgid "Please give a reason."
+msgstr "ദയവായി ഒരു കാരണം നൽകുക."
+
+msgid "Posted by"
+msgstr "പോസ്റ്റ് ചെയ്തത്"
+
+msgid "Previous"
+msgstr "മുമ്പത്തേത്"
+
+msgid "Published"
+msgstr "പ്രസിദ്ധീകരിച്ചു"
+
+msgid "Published jobs and internships from alumni and the placement cell, prioritised for your career goal."
+msgstr "പൂർവ്വ വിദ്യാർത്ഥികളും പ്ലേസ്‌മെന്റ് സെല്ലും പ്രസിദ്ധീകരിച്ച ജോലികളും ഇന്റേൺഷിപ്പുകളും, നിങ്ങളുടെ കരിയർ ലക്ഷ്യത്തിന് അനുസരിച്ച് മുൻഗണനയോടെ."
+
+msgid "REGISTRATION DEADLINE"
+msgstr "രജിസ്ട്രേഷൻ അവസാന തീയതി"
+
+msgid "ROLE"
+msgstr "റോൾ"
+
+msgid "Reason"
+msgstr "കാരണം"
+
+msgid "Reason for requesting mentorship"
+msgstr "മെന്റർഷിപ്പ് ആവശ്യപ്പെടാനുള്ള കാരണം"
+
+msgid "Recommended"
+msgstr "ശുപാർശ ചെയ്തത്"
+
+msgid "Recommended Internships"
+msgstr "ശുപാർശ ചെയ്ത ഇന്റേൺഷിപ്പുകൾ"
+
+msgid "Recommended Jobs"
+msgstr "ശുപാർശ ചെയ്ത ജോലികൾ"
+
+msgid "Recommended for your career goal"
+msgstr "നിങ്ങളുടെ കരിയർ ലക്ഷ്യത്തിന് ശുപാർശ ചെയ്തത്"
+
+msgid "Register Now"
+msgstr "ഇപ്പോൾ രജിസ്റ്റർ ചെയ്യുക"
+
+msgid "Registered"
+msgstr "രജിസ്റ്റർ ചെയ്തു"
+
+msgid "Registration Closed"
+msgstr "രജിസ്ട്രേഷൻ അവസാനിച്ചു"
+
+msgid "Registration is closed for this session."
+msgstr "ഈ സെഷനായുള്ള രജിസ്ട്രേഷൻ അവസാനിച്ചു."
+
+msgid "Rejected"
+msgstr "നിരസിച്ചു"
+
+msgid "Request Mentorship"
+msgstr "മെന്റർഷിപ്പ് അഭ്യർത്ഥിക്കുക"
+
+msgid "Request Pending"
+msgstr "അഭ്യർത്ഥന തീർപ്പാക്കാത്തത്"
+
+msgid "Required skills"
+msgstr "ആവശ്യമായ കഴിവുകൾ"
+
+msgid "Resolved"
+msgstr "പരിഹരിച്ചു"
+
+msgid "Resume"
+msgstr "റെസ്യൂമെ"
+
+msgid "Resume Workshop"
+msgstr "റെസ്യൂമെ വർക്ക്ഷോപ്പ്"
+
+msgid "Reviewed"
+msgstr "അവലോകനം ചെയ്തു"
+
+msgid "Roadmap progress"
+msgstr "റോഡ്മാപ്പ് പുരോഗതി"
+
+msgid "SPEAKER"
+msgstr "പ്രഭാഷകൻ"
+
+msgid "Search"
+msgstr "തിരയുക"
+
+msgid "Section completeness"
+msgstr "വിഭാഗ പൂർണ്ണത"
+
+msgid "Selected"
+msgstr "തിരഞ്ഞെടുത്തു"
+
+msgid "Seminar"
+msgstr "സെമിനാർ"
+
+#, python-format
+msgid "Sent %(d)s"
+msgstr "%(d)s ന് അയച്ചു"
+
+msgid "Session cancelled"
+msgstr "സെഷൻ റദ്ദാക്കി"
+
+msgid "Session type"
+msgstr "സെഷൻ തരം"
+
+msgid "Set Career Goal"
+msgstr "കരിയർ ലക്ഷ്യം സജ്ജമാക്കുക"
+
+msgid "Short message"
+msgstr "ചെറിയ സന്ദേശം"
+
+msgid "Shortlisted"
+msgstr "ഷോർട്ട്‌ലിസ്റ്റ് ചെയ്തു"
+
+msgid "Show all"
+msgstr "എല്ലാം കാണിക്കുക"
+
+msgid "Skill gaps appear here once your resume has been analyzed."
+msgstr "നിങ്ങളുടെ റെസ്യൂമെ വിശകലനം ചെയ്ത ശേഷം നൈപുണ്യ വിടവുകൾ ഇവിടെ കാണിക്കും."
+
+msgid "Skills & expertise"
+msgstr "കഴിവുകളും വൈദഗ്ധ്യവും"
+
+msgid "Sort by"
+msgstr "ക്രമീകരിക്കുക"
+
+msgid "Speaker"
+msgstr "പ്രഭാഷകൻ"
+
+msgid "Start learning"
+msgstr "പഠിക്കാൻ തുടങ്ങുക"
+
+#, python-format
+msgid "Students registered: %(n)s"
+msgstr "രജിസ്റ്റർ ചെയ്ത വിദ്യാർത്ഥികൾ: %(n)s"
+
+msgid "Submit Application"
+msgstr "അപേക്ഷ സമർപ്പിക്കുക"
+
+msgid "Submitted"
+msgstr "സമർപ്പിച്ചു"
+
+msgid "TARGET CAREER"
+msgstr "ലക്ഷ്യ കരിയർ"
+
+msgid "TIME"
+msgstr "സമയം"
+
+msgid "TOPIC"
+msgstr "വിഷയം"
+
+msgid "Technical Session"
+msgstr "ടെക്നിക്കൽ സെഷൻ"
+
+msgid "The meeting link is shown here after you register."
+msgstr "നിങ്ങൾ രജിസ്റ്റർ ചെയ്ത ശേഷം മീറ്റിംഗ് ലിങ്ക് ഇവിടെ കാണിക്കും."
+
+msgid "The poster also lists an external page:"
+msgstr "പോസ്റ്റ് ചെയ്തയാൾ ഒരു ബാഹ്യ പേജും നൽകിയിട്ടുണ്ട്:"
+
+msgid "Title, company, skill or location"
+msgstr "തലക്കെട്ട്, കമ്പനി, കഴിവ് അല്ലെങ്കിൽ സ്ഥലം"
+
+msgid "Title, topic or speaker"
+msgstr "തലക്കെട്ട്, വിഷയം അല്ലെങ്കിൽ പ്രഭാഷകൻ"
+
+msgid "To be announced"
+msgstr "പ്രഖ്യാപിക്കും"
+
+msgid "Track every job and internship you have applied to. You'll be notified when a status changes."
+msgstr "നിങ്ങൾ അപേക്ഷിച്ച എല്ലാ ജോലികളും ഇന്റേൺഷിപ്പുകളും ട്രാക്ക് ചെയ്യുക. നില മാറുമ്പോൾ നിങ്ങളെ അറിയിക്കും."
+
+msgid "Track requests you've sent to alumni mentors."
+msgstr "പൂർവ്വ വിദ്യാർത്ഥി മെന്റർമാർക്ക് നിങ്ങൾ അയച്ച അഭ്യർത്ഥനകൾ ട്രാക്ക് ചെയ്യുക."
+
+msgid "Training Program"
+msgstr "പരിശീലന പരിപാടി"
+
+msgid "Type"
+msgstr "തരം"
+
+msgid "Under Review"
+msgstr "അവലോകനത്തിലാണ്"
+
+msgid "Unread"
+msgstr "വായിക്കാത്തവ"
+
+msgid "Until the event"
+msgstr "ഇവന്റ് വരെ"
+
+msgid "Upcoming"
+msgstr "വരാനിരിക്കുന്നത്"
+
+msgid "Upcoming Workshops & Events"
+msgstr "വരാനിരിക്കുന്ന വർക്ക്ഷോപ്പുകളും ഇവന്റുകളും"
+
+#, python-format
+msgid "Updated %(d)s"
+msgstr "%(d)s ന് അപ്‌ഡേറ്റ് ചെയ്തു"
+
+msgid "Upload Again"
+msgstr "വീണ്ടും അപ്‌ലോഡ് ചെയ്യുക"
+
+msgid "Upload your resume to begin your career analysis."
+msgstr "നിങ്ങളുടെ കരിയർ വിശകലനം ആരംഭിക്കാൻ റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക."
+
+msgid "Upload your resume to see which listed skills you already have."
+msgstr "പട്ടികപ്പെടുത്തിയ കഴിവുകളിൽ നിങ്ങൾക്ക് ഏതൊക്കെയുണ്ടെന്ന് കാണാൻ റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുക."
+
+msgid "VENUE"
+msgstr "വേദി"
+
+msgid "View"
+msgstr "കാണുക"
+
+msgid "View Details"
+msgstr "വിശദാംശങ്ങൾ കാണുക"
+
+msgid "View Profile"
+msgstr "പ്രൊഫൈൽ കാണുക"
+
+msgid "View Roadmap"
+msgstr "റോഡ്മാപ്പ് കാണുക"
+
+msgid "View all"
+msgstr "എല്ലാം കാണുക"
+
+msgid "View all notifications"
+msgstr "എല്ലാ അറിയിപ്പുകളും കാണുക"
+
+msgid "We couldn't detect skills in your latest resume"
+msgstr "നിങ്ങളുടെ ഏറ്റവും പുതിയ റെസ്യൂമെയിൽ കഴിവുകൾ കണ്ടെത്താനായില്ല"
+
+msgid "Welcome back"
+msgstr "തിരികെ സ്വാഗതം"
+
+msgid "Why are you a good fit? (cover note)"
+msgstr "നിങ്ങൾ എന്തുകൊണ്ട് അനുയോജ്യനാണ്? (കവർ നോട്ട്)"
+
+msgid "Workshop"
+msgstr "വർക്ക്ഷോപ്പ്"
+
+msgid "Workshops"
+msgstr "വർക്ക്ഷോപ്പുകൾ"
+
+msgid "Workshops & Events"
+msgstr "വർക്ക്ഷോപ്പുകളും ഇവന്റുകളും"
+
+msgid "You already have a pending request with this mentor."
+msgstr "ഈ മെന്ററുമായി നിങ്ങളുടെ അഭ്യർത്ഥന ഇതിനകം തീർപ്പാക്കാതെ കിടക്കുന്നു."
+
+msgid "You are already connected with this mentor."
+msgstr "നിങ്ങൾ ഇതിനകം ഈ മെന്ററുമായി ബന്ധപ്പെട്ടിരിക്കുന്നു."
+
+msgid "You are already registered for this session."
+msgstr "നിങ്ങൾ ഇതിനകം ഈ സെഷനായി രജിസ്റ്റർ ചെയ്തിട്ടുണ്ട്."
+
+msgid "You are connected with this mentor."
+msgstr "നിങ്ങൾ ഈ മെന്ററുമായി ബന്ധപ്പെട്ടിരിക്കുന്നു."
+
+msgid "You can still apply, but uploading a resume first helps reviewers."
+msgstr "നിങ്ങൾക്ക് ഇപ്പോഴും അപേക്ഷിക്കാം, പക്ഷേ ആദ്യം റെസ്യൂമെ അപ്‌ലോഡ് ചെയ്യുന്നത് അവലോകകരെ സഹായിക്കും."
+
+#, python-format
+msgid "You have %(have)s of %(total)s listed skills (%(pct)s%% match)."
+msgstr "പട്ടികപ്പെടുത്തിയ %(total)s കഴിവുകളിൽ %(have)s നിങ്ങൾക്കുണ്ട് (%(pct)s%% പൊരുത്തം)."
+
+msgid "You have already applied to this opportunity."
+msgstr "നിങ്ങൾ ഇതിനകം ഈ അവസരത്തിന് അപേക്ഷിച്ചിട്ടുണ്ട്."
+
+msgid "You haven't applied to anything yet."
+msgstr "നിങ്ങൾ ഇതുവരെ ഒന്നിനും അപേക്ഷിച്ചിട്ടില്ല."
+
+msgid "You haven't registered for any sessions yet."
+msgstr "നിങ്ങൾ ഇതുവരെ ഒരു സെഷനും രജിസ്റ്റർ ചെയ്തിട്ടില്ല."
+
+msgid "You haven't sent any mentorship requests yet."
+msgstr "നിങ്ങൾ ഇതുവരെ മെന്റർഷിപ്പ് അഭ്യർത്ഥനകളൊന്നും അയച്ചിട്ടില്ല."
+
+msgid "You meet every tracked requirement for this role."
+msgstr "ഈ റോളിനായി ട്രാക്ക് ചെയ്ത എല്ലാ ആവശ്യകതകളും നിങ്ങൾ പാലിക്കുന്നു."
+
+msgid "You're all caught up — no unread notifications."
+msgstr "നിങ്ങൾ എല്ലാം കണ്ടു കഴിഞ്ഞു — വായിക്കാത്ത അറിയിപ്പുകളില്ല."
+
+#, python-format
+msgid "You're registered for %(title)s."
+msgstr "നിങ്ങൾ %(title)s ന് രജിസ്റ്റർ ചെയ്തു."
+
+#, python-format
+msgid "Your application for %(t)s at %(c)s has been received."
+msgstr "%(c)s ൽ %(t)s നുള്ള നിങ്ങളുടെ അപേക്ഷ ലഭിച്ചു."
+
+#, python-format
+msgid "Your application for %(t)s at %(c)s is under review."
+msgstr "%(c)s ൽ %(t)s നുള്ള നിങ്ങളുടെ അപേക്ഷ അവലോകനത്തിലാണ്."
+
+#, python-format
+msgid "Your application for %(t)s at %(c)s was not successful this time."
+msgstr "%(c)s ൽ %(t)s നുള്ള നിങ്ങളുടെ അപേക്ഷ ഇത്തവണ വിജയിച്ചില്ല."
+
+msgid "Your earlier request was not accepted. You can send a new one."
+msgstr "നിങ്ങളുടെ മുൻ അഭ്യർത്ഥന സ്വീകരിച്ചില്ല. നിങ്ങൾക്ക് പുതിയത് അയയ്ക്കാം."
+
+#, python-format
+msgid "Your guidance request \"%(topic)s\" is now %(status)s."
+msgstr "നിങ്ങളുടെ ഗൈഡൻസ് അഭ്യർത്ഥന \"%(topic)s\" ഇപ്പോൾ %(status)s ആണ്."
+
+#, python-format
+msgid "Your latest uploaded resume (%(d)s) will be attached."
+msgstr "നിങ്ങൾ അവസാനം അപ്‌ലോഡ് ചെയ്ത റെസ്യൂമെ (%(d)s) ചേർക്കും."
+
+#, python-format
+msgid "Your mentorship request has been accepted by %(name)s."
+msgstr "നിങ്ങളുടെ മെന്റർഷിപ്പ് അഭ്യർത്ഥന %(name)s സ്വീകരിച്ചു."
+
+#, python-format
+msgid "Your mentorship request to %(name)s was not accepted."
+msgstr "%(name)s ന് നിങ്ങൾ അയച്ച മെന്റർഷിപ്പ് അഭ്യർത്ഥന സ്വീകരിച്ചില്ല."
+
+msgid "Your posting was approved"
+msgstr "നിങ്ങളുടെ പോസ്റ്റിംഗ് അംഗീകരിച്ചു"
+
+msgid "Your posting was rejected"
+msgstr "നിങ്ങളുടെ പോസ്റ്റിംഗ് നിരസിച്ചു"
+
+#, python-format
+msgid "Your progress toward %(label)s."
+msgstr "%(label)s ലേക്കുള്ള നിങ്ങളുടെ പുരോഗതി."
+
+#, python-format
+msgid "Your request was sent on %(d)s. You'll be notified when the mentor responds."
+msgstr "നിങ്ങളുടെ അഭ്യർത്ഥന %(d)s ന് അയച്ചു. മെന്റർ പ്രതികരിക്കുമ്പോൾ നിങ്ങളെ അറിയിക്കും."
+
+msgid "Your session was approved"
+msgstr "നിങ്ങളുടെ സെഷൻ അംഗീകരിച്ചു"
+
+msgid "Your session was rejected"
+msgstr "നിങ്ങളുടെ സെഷൻ നിരസിച്ചു"
+
+msgid "month timeline"
+msgstr "മാസ സമയരേഖ"
+
+msgid "skill match"
+msgstr "കഴിവ് പൊരുത്തം"
+
+msgid "tasks done"
+msgstr "ടാസ്കുകൾ പൂർത്തിയായി"

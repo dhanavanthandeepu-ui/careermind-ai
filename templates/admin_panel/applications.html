@@ -1,0 +1,35 @@
+{% extends "admin_panel/base_admin.html" %}
+{% block title %}Applications — CareerMind AI{% endblock %}
+{% block content %}
+<h1 class="font-serif-display text-2xl text-maroon mb-1">Applications</h1>
+<p class="text-sm text-[#7a6a5e] mb-6">Update an application's status; the student is notified of each change.</p>
+<form method="get" class="card p-4 mb-5 grid md:grid-cols-5 gap-3 items-end">
+  <div class="md:col-span-2"><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="q">Search</label><input id="q" name="q" value="{{ q }}" placeholder="Student, title or company" class="input-field"></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="kind">Type</label><select id="kind" name="kind" class="input-field"><option value="">All</option><option value="job" {% if kind == 'job' %}selected{% endif %}>Jobs</option><option value="internship" {% if kind == 'internship' %}selected{% endif %}>Internships</option></select></div>
+  <div><label class="block text-xs font-semibold text-[#7a6a5e] mb-1" for="status">Status</label><select id="status" name="status" class="input-field"><option value="">All</option>{% for v, l in status_choices %}<option value="{{ v }}" {% if status == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select></div>
+  <button class="btn-maroon text-sm" type="submit">Filter</button>
+</form>
+<div class="card p-6">
+  <table class="w-full text-sm">
+    <thead><tr class="text-left text-xs text-[#a89a8c] border-b border-[#ecdfc4]"><th class="py-2">STUDENT</th><th>OPPORTUNITY</th><th>APPLIED</th><th>STATUS</th><th>UPDATE</th></tr></thead>
+    <tbody>
+      {% for a in page %}
+      <tr class="border-b border-[#f3ead6] align-top">
+        <td class="py-3 font-medium">{{ a.student.get_full_name|default:a.student.username }}{% if a.cover_note %}<div class="text-xs text-[#a89a8c] font-normal max-w-xs">{{ a.cover_note|truncatechars:90 }}</div>{% endif %}</td>
+        <td>{{ a.opportunity.title }}<div class="text-xs text-[#a89a8c]">{{ a.opportunity.company }} · {{ a.opportunity.get_kind_display }}</div></td>
+        <td>{{ a.created_at|date:"M j, Y" }}</td>
+        <td><span class="badge badge-{{ a.status }}">{{ a.get_status_display }}</span></td>
+        <td>
+          <form method="post" class="flex gap-1" data-loading>
+            {% csrf_token %}<input type="hidden" name="application_id" value="{{ a.id }}"><input type="hidden" name="next" value="{{ request.get_full_path }}">
+            <select name="status" class="input-field !w-36 !py-1 text-xs">{% for v, l in status_choices %}<option value="{{ v }}" {% if a.status == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>
+            <button type="submit" class="btn-maroon text-xs px-3">Save</button>
+          </form>
+        </td>
+      </tr>
+      {% empty %}<tr><td colspan="5" class="py-6 text-center text-[#a89a8c]">No applications yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "partials/pagination.html" %}
+{% endblock %}
