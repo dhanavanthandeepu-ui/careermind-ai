@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CareerMind AI — Django Project
 
 A Django recreation of the CareerMind AI academic career-intelligence platform
@@ -172,3 +173,7 @@ After pulling these changes run:
 Student pages, the header bell and notification texts are translated into Hindi, Tamil, Telugu, Kannada and Malayalam
 (`locale/*/LC_MESSAGES/django.po`, compiled `.mo` files are included). Notification text is stored as a message id plus
 parameters, so each reader sees it in their own language. Staff, alumni and admin pages remain English.
+=======
+# careermind-ai
+I-Based Career Guidance and Skill Analysis System
+>>>>>>> 3b4a97966bd8a8e69894b374c0933ce806090d93
